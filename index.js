@@ -1,4 +1,25 @@
-var _ = require('underscore');
+"use strict";
+const graphql = require("graphql");
+const express = require("express");
+const expressGraphQl = require("express-graphql");
+const { GraphQLSchema } = graphql;
+const { query } = require("./schemas/queries");
+const { mutation } = require("./schemas/mutations");
 
-_.contains([1,2,3], 2);
-console.log(result);
+const schema = new GraphQLSchema({
+  query,
+  mutation
+});
+
+var app = express();
+app.use(
+  '/',
+  expressGraphQl({
+    schema: schema,
+    graphiql: true
+  })
+);
+
+app.listen(9000, () =>
+  console.log('GraphQL server running on localhost:9000')
+);
