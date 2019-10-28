@@ -1,3 +1,5 @@
+
+-- docker exec -i your-db-container psql -Upostgres
 --
 -- PostgreSQL database dump
 --
