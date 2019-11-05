@@ -1,7 +1,7 @@
 const graphql = require("graphql");
 const db = require("../pgAdaptor").db;
 const { GraphQLObjectType, GraphQLID, GraphQLString, GraphQLBoolean } = graphql;
-const { BalanceDueType, ContractIdsType } = require("./types");
+const { BalanceDueType, ContractIdsType, PurchaseAgreementType } = require("./types");
 
 const RootMutation = new GraphQLObjectType({
   name: "RootMutationType",
@@ -53,7 +53,33 @@ const RootMutation = new GraphQLObjectType({
           .then(res => res)
           .catch(err => err);
       }
-    }
+    },
+
+    addPurchaseAgreement: {
+      type: PurchaseAgreementType,
+      args: {
+        contract_id: { type: GraphQLString },
+        agreement_number: { type: GraphQLString},
+        seller_or_buyer: { type: GraphQLString },
+        phone: { type: GraphQLString },
+        purchase_date: { type: GraphQLString }
+      },
+      resolve(parentValue, args) {
+        const query = `INSERT INTO purchase_agreement(contract_id, agreement_number, seller_or_buyer, phone, purchase_date) VALUES ($1, $2, $3, $4, $5)`;
+        const values = [
+          args.contract_id,
+          args.agreement_number,
+          args.seller_or_buyer,
+          args.phone,
+          args.purchase_date
+        ];
+
+        return db
+          .one(query, values)
+          .then(res => res)
+          .catch(err => err);
+      }
+    },
   }
 });
 

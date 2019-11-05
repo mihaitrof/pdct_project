@@ -458,9 +458,37 @@
 			"phone"           : phone,
 			"purchaseDate"    : purchaseDate
 		}
-		console.log(purchaseAgreement);
-	}
+		// console.log(purchaseAgreement);
+		var query = ` contract_id(contract_id:1) {
+			contract_id
+		}`;
+		
+		// var proxy = 'https://cors-anywhere.herokuapp.com/';
+		
+		$.ajax({
+			
+          method: "POST",
+          url: "http://localhost:9000/?query=%7B%0A%20%20contract_id(contract_id%3A3)%20%7B%0A%20%20%20%20contract_id%0A%20%20%7D%0A%7D%0A%0A%23%20mutation%20%7B%0A%23%20%20%20addContractId(contract_id%3A%206)%20%7B%0A%23%20%20%20%20%20contract_id%0A%23%20%20%20%7D%0A%23%20%7D%0A%20%20%0A%23%20%20%20addBalanceDue(contract_id%3A%202%2C%20creditors%3A%22123%22)%20%7B%0A%23%20%20%20%20%20contract_id%0A%23%20%20%20%7D%0A%23%20%7D",
+		  contentType: "application/json",
+		//   crossDomain: true,
+		//   dataType: 'jsonp',
+				headers: {
+			'Access-Control-Allow-Credentials' : true,
+			'Access-Control-Allow-Origin':'*',
+			'Access-Control-Allow-Methods':'GET',
+			'Access-Control-Allow-Headers':'application/json',
+		},
+			success: function(data) {     
+				console.log('data',data);
+			},
+			error: function(err) {
+				console.log('err',err);
+			}
 	
+    })
+
+
+	}		
 </script>
 
 <!-- ScrollToTop Button -->
