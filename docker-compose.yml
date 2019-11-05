@@ -14,8 +14,6 @@ services:
       DATABASE_URL: postgres://postgres:postgres@postgres:5432/pdct
   postgres:
     image: postgres:9.6.2-alpine
-    # volumes:
-    #   - ./init.pgsql:/docker-entrypoint-initdb.d/init.pgsql
     environment:
       POSTGRES_USER: postgres,
       POSTGRES_PASSWORD: postgres

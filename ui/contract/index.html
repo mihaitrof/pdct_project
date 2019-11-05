@@ -434,7 +434,7 @@
 		<div class="row no-gutters">
 			<div class="col-lg-4 offset-lg-4 col-sm-6 offset-sm-3 col">
 				<div class="text-center">
-					<a href="../" class="btn btn-d btn-clean btn-lg btn-save-style" id="save-btn">Save</a>
+					<button onclick="saveContract()" class="btn btn-d btn-clean btn-lg btn-save-style" id="save-btn">Save</button>
 				</div>
 				<div class="text-center">
 					<a href="../" class="btn btn-wire btn-cancel-style btn-lg" id="cancel-btn">Cancel</a>
@@ -444,6 +444,24 @@
 	</div>
 </div>
 <!-- bloc-3 END -->
+
+<script>
+	function saveContract() {
+		var agreementNumber = document.getElementById("avtalsnummer-io").value;
+		var sellerOrBuyer = document.getElementById("säljare-io").value;
+		var phone = document.getElementById("telefon-io").value;
+		var purchaseDate = document.getElementById("inköpsdatum-io").value;
+
+		var purchaseAgreement = {
+			"agreementNumber" : agreementNumber,
+			"sellerOrBuyer"   : sellerOrBuyer,
+			"phone"           : phone,
+			"purchaseDate"    : purchaseDate
+		}
+		console.log(purchaseAgreement);
+	}
+	
+</script>
 
 <!-- ScrollToTop Button -->
 <a class="bloc-button btn btn-d scrollToTop" onclick="scrollToTarget('1',this)"><span class="fa fa-chevron-up"></span></a>
