@@ -25,6 +25,7 @@
 <div class="page-container">
     
 <!-- bloc-3 -->
+<form method="POST" action="http://localhost:9000/submit-form">
 <div class="bloc l-bloc" id="bloc-3">
 	<div class="container bloc-lg">
 		<div class="row">
@@ -56,7 +57,7 @@
 								<label>
 									Avtalsnummer<br>
 								</label>
-								<input class="form-control" id="avtalsnummer-io" />
+								<input class="form-control" name="avtalsnummer" />
 							</div>
 						</div>
 						<div class="col">
@@ -434,7 +435,8 @@
 		<div class="row no-gutters">
 			<div class="col-lg-4 offset-lg-4 col-sm-6 offset-sm-3 col">
 				<div class="text-center">
-					<button onclick="saveContract()" class="btn btn-d btn-clean btn-lg btn-save-style" id="save-btn">Save</button>
+					<!-- <button onclick="saveContract()" class="btn btn-d btn-clean btn-lg btn-save-style" id="save-btn">Save</button> -->
+					<button type="submit">Send to backend</button>
 				</div>
 				<div class="text-center">
 					<a href="../" class="btn btn-wire btn-cancel-style btn-lg" id="cancel-btn">Cancel</a>
@@ -443,6 +445,7 @@
 		</div>
 	</div>
 </div>
+</form>
 <!-- bloc-3 END -->
 
 <script>
@@ -458,7 +461,25 @@
 			"phone"           : phone,
 			"purchaseDate"    : purchaseDate
 		}
-		console.log(purchaseAgreement);
+		// console.log(purchaseAgreement);
+
+		var query = "{ mutation {addContractId(contract_id: 10) {contract_id}}}";
+
+                $.ajax({
+                    method: 'post',
+                    url: 'localhost:9000/submit-form',
+                    data: JSON.stringify({"query": "asd"}),
+                    contentType: 'application/json',
+                    success: function(data){
+                        console.log(data);
+                    },
+                    error: function(data){
+                        console.log(data);
+                    }
+
+                })
+
+
 	}
 	
 </script>
