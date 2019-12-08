@@ -13,11 +13,6 @@
   "author": "Tigers team",
   "license": "ISC",
   "dependencies": {
-<<<<<<< HEAD
-    "apollo-fetch": "^0.7.0",
-=======
-    "cors": "^2.8.5",
->>>>>>> 2149c04d840ea923dec173f76c091c449f687117
     "dotenv": "^8.2.0",
     "es6-promise": "^4.2.8",
     "express": "^4.17.1",

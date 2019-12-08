@@ -33,13 +33,47 @@
 					Contracts
 				</h2>
 				<div class="text-center">
-					<a href="../" class="btn btn-d btn-clean btn-style" id="create-btn">Create New</a>
+					<a href="../contract/index.html" class="btn btn-d btn-clean btn-style" id="create-btn">Create New</a>
 				</div>
 			</div>
 		</div>
 		<div class="row voffset-md">
-			<div class="col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3">
+			<div class="col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3" id='divParent'>
+			
 				<ul class="list-unstyled" id="contracts-list">
+				<script>
+				for (let index = 0; index < 3; index++) {
+					document.write( '<li>\n' );
+					document.write( '						<div class=\"card\" id=\"contract-item\">\n' );
+					document.write( '							<div class=\"card-body\">\n' );
+					document.write( '								<h3 class=\"mg-md text-lg-center mx-auto d-block text-md-center\" id=\"contract-title\">\n' );
+					document.write( '									Contract Title\n' );
+					document.write( '								</h3>\n' );
+					document.write( '								<div class=\"row\">\n' );
+					document.write( '									<div class=\"col\">\n' );
+					document.write( '										<div class=\"text-center\">\n' );
+					document.write( '											<a href=\"../\" class=\"btn btn-lg btn-wire\" id=\"edt-btn\">Edit</a>\n' );
+					document.write( '										</div>\n' );
+					document.write( '									</div>\n' );
+					document.write( '									<div class=\"col\">\n' );
+					document.write( '										<div class=\"text-center\">\n' );
+					document.write( '											<a href=\"../\" class=\"btn btn-lg btn-wire\" id=\"view-btn\">View</a>\n' );
+					document.write( '										</div>\n' );
+					document.write( '									</div>\n' );
+					document.write( '									<div class=\"col\">\n' );
+					document.write( '										<div class=\"text-center\">\n' );
+					document.write( '											<a href=\"../\" class=\"btn btn-lg btn-wire\" id=\"delete-btn\">Delete</a>\n' );
+					document.write( '										</div>\n' );
+					document.write( '									</div>\n' );
+					document.write( '								</div>\n' );
+					document.write( '							</div>\n' );
+					document.write( '						</div>\n' );
+					document.write( '					</li>' );
+					
+				}
+				
+
+				</script>
 					<li>
 						<div class="card" id="contract-item">
 							<div class="card-body">

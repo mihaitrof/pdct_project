@@ -3,7 +3,6 @@ require("isomorphic-fetch");
 require("underscore");
 const graphql = require("graphql");
 const express = require("express");
-var cors = require('cors');
 const expressGraphQl = require("express-graphql");
 const { GraphQLSchema } = graphql;
 const { query } = require("./schemas/queries");
