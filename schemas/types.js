@@ -23,5 +23,18 @@ const BalanceDueType = new GraphQLObjectType({
   }
 });
 
+const PurchaseAgreementType = new GraphQLObjectType({
+  name: "PurchaseAgreement",
+  type: "Query",
+  fields: {
+    contract_id: { type: GraphQLString },
+    agreement_number: { type: GraphQLString},
+    seller_or_buyer: { type: GraphQLString },
+    phone: { type: GraphQLString },
+    purchase_date: { type: GraphQLString }
+  }
+});
+
 exports.ContractIdsType = ContractIdsType;
 exports.BalanceDueType = BalanceDueType;
+exports.PurchaseAgreementType = PurchaseAgreementType;
