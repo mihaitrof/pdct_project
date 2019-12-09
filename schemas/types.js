@@ -22,7 +22,42 @@ const ContractType = new GraphQLObjectType({
     // buyer
     buyer_date: { type: GraphQLString},
     buyer_city: { type: GraphQLString },
-    buyer_representative: { type: GraphQLString }
+    buyer_representative: { type: GraphQLString },
+    // purchase_property
+    registration_propert: { type: GraphQLString },
+    chassis_numer: { type: GraphQLString },
+    mileage: { type: GraphQLString },
+    valuation: { type: GraphQLString },
+    first_registration_date: { type: GraphQLString },
+    manufactured_date: { type: GraphQLString },
+    colour: { type: GraphQLString },
+    valuation_date: { type: GraphQLString },
+    deduction: { type: GraphQLString },
+    approved_check: { type: GraphQLString },
+    service_book: { type: GraphQLString },
+    warranty: { type: GraphQLString },
+    purchase_price_adjusted: { type: GraphQLString },
+    condition_and_notes: { type: GraphQLString },
+    // seller_or_registred_ower
+    date: { type: GraphQLString },
+    city: { type: GraphQLString },
+    representative: { type: GraphQLString },
+    // regulation_purchase
+    purchase_price_adjustedvat: { type: GraphQLString },
+    resolved_the_redemption_of_my_residual_debt: { type: GraphQLString },
+    other_deductions: { type: GraphQLString },
+    other_payments: { type: GraphQLString },
+    to_obtain: { type: GraphQLString },
+    // seller
+    name: { type: GraphQLString },
+    address: { type: GraphQLString },
+    phone_driver_name: { type: GraphQLString },
+    driver_name: { type: GraphQLString },
+    driver_phone: { type: GraphQLString },
+    personal_number: { type: GraphQLString },
+    driver_license_number: { type: GraphQLString },
+    postal_code: { type: GraphQLString },
+    email: { type: GraphQLString }
   }
 });
 

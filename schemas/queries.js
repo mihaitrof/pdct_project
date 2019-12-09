@@ -15,12 +15,12 @@ const RootQuery = new GraphQLObjectType({
                           contract_ids c 
                        JOIN 
                           balance_due b 
-                          ON
-                              c.contract_id = b.contract_id
+                        ON
+                          c.contract_id = b.contract_id
                        JOIN
                           purchase_agreement pa
-                          ON
-                              c.contract_id = pa.contract_id;`;
+                        ON
+                          c.contract_id = pa.contract_id;`;
 
         return db
           .any(query)
