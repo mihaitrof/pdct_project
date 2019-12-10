@@ -32,11 +32,23 @@ app.use('/static', express.static('ui'));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, '/ui/css')));
 
-app.get('/main', function(req, res) {
+app.get('/contract', function(req, res) {
 
   var name = 'hello';
 
   res.render(__dirname + "/ui/view-contract/index.html");
+
+});
+
+app.get('/create-contract', (req, res) => {
+
+  res.render(__dirname + "/ui/contract/index.html");
+
+});
+
+app.get('/contracts', (req, res) => {
+
+  res.render(__dirname + "/ui/dashboard/index.html");
 
 });
 
