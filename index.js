@@ -32,12 +32,71 @@ app.use('/static', express.static('ui'));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, '/ui/css')));
 
-app.get('/contract', function(req, res) {
+app.get('/contract/:contract_id', function(req, res) {
 
-  var name = 'hello';
+  var contract_id = req.params.contract_id;
 
-  res.render(__dirname + "/ui/view-contract/index.html");
+  var q = `{getContract(contract_id: ${contract_id})
+          {creditors
+          balance_due
+          account_number
+          checked_date
+          informants
+          signature
+          agreement_number
+          seller_or_buyer
+          phone
+          purchase_date
+          buyer_date
+          buyer_city 
+          buyer_representative
+          registration_property
+          chassis_numer
+          mileage
+          valuation
+          first_registration_date
+          manufactured_date
+          colour
+          valuation_date
+          deduction
+          approved_check
+          service_book
+          warranty
+          purchase_price_adjusted
+          condition_and_notes
+          date
+          city
+          representative
+          purchase_price_adjustedvat
+          resolved_the_redemption_of_my_residual_debt
+          other_deductions
+          other_payments
+          to_obtain
+          name
+          address
+          phone_driver_name
+          driver_name
+          driver_phone
+          personal_number
+          driver_license_number
+          postal_code
+          email}}`
 
+  var query = {query: q};
+
+  fetch('http://localhost:9000/graphql', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(query)
+  })
+    .then(result => result.json())
+    .then(result => {
+        var data = result.data.getContract;
+        res.render(__dirname + "/ui/view-contract/index.html", data);
+      
+      });
+
+  
 });
 
 app.get('/create-contract', (req, res) => {
@@ -55,7 +114,7 @@ app.get('/contracts', (req, res) => {
 app.post('/submit-form', (req, res) => {
   console.log(req.body);
   // contract_ids
-  const contract_id = 36;
+  const contract_id = 38;
   // balance_due
   const creditors = req.body.creditors;
   const balance_due = req.body.balance_due;

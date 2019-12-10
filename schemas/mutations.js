@@ -7,6 +7,7 @@ const RootMutation = new GraphQLObjectType({
   name: "RootMutationType",
   type: "Mutation",
   fields: {
+    // Add new contract from: <<url>>/create-contract/
     addContract:{
       type: ContractType,
       args: {
@@ -125,6 +126,7 @@ const RootMutation = new GraphQLObjectType({
           .catch(err => err);
       }
     },
+    // Add balance
     addBalanceDue: {
       type: BalanceDueType,
       args: {

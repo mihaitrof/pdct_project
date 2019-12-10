@@ -6,8 +6,9 @@ const RootQuery = new GraphQLObjectType({
   name: "RootQueryType",
   type: "Query",
   fields: {
-    getContractss: {
-      type: GraphQLList(ContractType),
+    getContract: {
+      type: ContractType,
+      args: { contract_id: { type: GraphQLID } },
       resolve(parentValue, args) {
         const query = `SELECT 
                           b.*, pp.*, sro.*, pa.*, bu.date AS buyer_date, bu.city AS buyer_city, bu.representative AS buyer_representative, rp.*, s.*
@@ -41,7 +42,22 @@ const RootQuery = new GraphQLObjectType({
                           seller s
                         ON
                           c.contract_id = s.contract_id
-                          ;`;
+                       WHERE
+                          c.contract_id = $1;`;
+          const values = [args.contract_id];
+        return db
+          .one(query, values)
+          .then(res => res)
+          .catch(err => err);
+      }
+    },
+
+    getContractInfo: {
+      type: GraphQLList(PurchaseAgreementType),
+      // args: { contract_id: { type: GraphQLID } },
+      resolve(parentValue, args) {
+        const query = `SELECT * FROM purchase_agreement`;
+        // const values = [args.contract_id];
 
         return db
           .any(query)
@@ -49,6 +65,7 @@ const RootQuery = new GraphQLObjectType({
           .catch(err => err);
       }
     },
+
     getContractId: {
       type: ContractIdsType,
       args: { contract_id: { type: GraphQLID } },
@@ -62,7 +79,8 @@ const RootQuery = new GraphQLObjectType({
           .catch(err => err);
       }
     },
-    getContracts: {
+
+    getContractIds: {
       type: GraphQLList(ContractIdsType),
       args: {},
       resolve(parentValue, args) {
