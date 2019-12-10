@@ -67,14 +67,14 @@ app.get('/contract/:contract_id', function(req, res) {
           date
           city
           representative
-          purchase_price_adjustedvat
-          resolved_the_redemption_of_my_residual_debt
+          purchase_price
+          vat
+          resolves_the_redemption_of_my_residual_debt
           other_deductions
           other_payments
           to_obtain
           name
           address
-          phone_driver_name
           driver_name
           driver_phone
           personal_number
