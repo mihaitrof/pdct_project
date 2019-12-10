@@ -1,5 +1,5 @@
 const graphql = require("graphql");
-const { GraphQLObjectType, GraphQLString } = graphql;
+const { GraphQLObjectType, GraphQLString, GraphQLInt } = graphql;
 
 const ContractType = new GraphQLObjectType({
   name: "Contract",
@@ -24,10 +24,10 @@ const ContractType = new GraphQLObjectType({
     buyer_city: { type: GraphQLString },
     buyer_representative: { type: GraphQLString },
     // purchase_property
-    registration_propert: { type: GraphQLString },
+    registration_property: { type: GraphQLString },
     chassis_numer: { type: GraphQLString },
-    mileage: { type: GraphQLString },
-    valuation: { type: GraphQLString },
+    mileage: { type: GraphQLInt },
+    valuation: { type: GraphQLInt },
     first_registration_date: { type: GraphQLString },
     manufactured_date: { type: GraphQLString },
     colour: { type: GraphQLString },
@@ -36,7 +36,7 @@ const ContractType = new GraphQLObjectType({
     approved_check: { type: GraphQLString },
     service_book: { type: GraphQLString },
     warranty: { type: GraphQLString },
-    purchase_price_adjusted: { type: GraphQLString },
+    purchase_price_adjusted: { type: GraphQLInt },
     condition_and_notes: { type: GraphQLString },
     // seller_or_registred_ower
     date: { type: GraphQLString },

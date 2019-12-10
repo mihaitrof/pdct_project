@@ -1,5 +1,5 @@
 const { db } = require("../pgAdaptor");
-const { GraphQLObjectType, GraphQLID, GraphQLList } = require("graphql");
+const { GraphQLObjectType, GraphQLID, GraphQLList, GraphQLInt } = require("graphql");
 const { ContractType, ContractIdsType, BalanceDueType, PurchaseAgreementType } = require("./types");
 
 const RootQuery = new GraphQLObjectType({
@@ -10,7 +10,7 @@ const RootQuery = new GraphQLObjectType({
       type: GraphQLList(ContractType),
       resolve(parentValue, args) {
         const query = `SELECT 
-                          b.*, pa.* 
+                          b.*, pp.*, sro.*, pa.*, bu.date AS buyer_date, bu.city AS buyer_city, bu.representative AS buyer_representative, rp.*, s.*
                        FROM 
                           contract_ids c 
                        JOIN 
@@ -18,9 +18,30 @@ const RootQuery = new GraphQLObjectType({
                         ON
                           c.contract_id = b.contract_id
                        JOIN
+                          purchase_property pp
+                        ON
+                          c.contract_id = pp.contract_id
+                       JOIN
+                          seller_or_registred_owner sro
+                        ON
+                          c.contract_id = sro.contract_id
+                       JOIN
                           purchase_agreement pa
                         ON
-                          c.contract_id = pa.contract_id;`;
+                          c.contract_id = pa.contract_id
+                       JOIN
+                          buyer bu
+                        ON
+                          c.contract_id = bu.contract_id
+                       JOIN
+                          regulation_purchase rp
+                        ON
+                          c.contract_id = rp.contract_id
+                       JOIN
+                          seller s
+                        ON
+                          c.contract_id = s.contract_id
+                          ;`;
 
         return db
           .any(query)
