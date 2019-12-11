@@ -9,6 +9,7 @@ const { GraphQLSchema } = graphql;
 const { query } = require("./schemas/queries");
 const { mutation } = require("./schemas/mutations");
 const path = require('path');
+var pdfcrowd = require("pdfcrowd");
 
 const schema = new GraphQLSchema({
   query,
@@ -31,6 +32,24 @@ app.use('/static', express.static('ui'));
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, '/ui/css')));
+
+app.get('/pdf/:contract_id', (req,res) => {
+  
+
+  // create the API client instance
+  var client = new pdfcrowd.HtmlToPdfClient(
+      "demo", "ce544b6ea52a5621fb9d55f8b542d14d");
+  
+  // run the conversion and write the result to a file
+  // client.convertUrlToFile(
+  //     "http://localhost:9000/contract/" + req.params.contract_id,
+  //     "example.pdf",
+  //     function(err, fileName) {
+  //         if (err) return console.error("Pdfcrowd Error: " + err);
+  //         console.log("Success: the file was created " + fileName);
+  //     });
+  // alert('Get PDF');
+});
 
 app.get('/contract/:contract_id', function(req, res) {
 
@@ -99,6 +118,51 @@ app.get('/contract/:contract_id', function(req, res) {
   
 });
 
+app.get('/delete/:contract_id', (req, res) => {
+
+  var contract_id = req.params.contract_id;
+
+  var q = `mutation {
+    deleteContract(contract_id: ${contract_id}) {
+      contract_id
+      }
+  }`;
+
+  var query = {query: q};
+
+  fetch('http://localhost:9000/graphql', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(query)
+  })
+    .then(result => result.json())
+    .then(result => {
+          var q = `{
+            getContractInfo {
+              contract_id
+              agreement_number
+              seller_or_buyer 
+              phone
+              purchase_date
+              }
+                }`;
+
+          var query = {query: q};
+
+          fetch('http://localhost:9000/graphql', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(query)
+          })
+          .then(result => result.json())
+          .then(result => {
+            var contracts = result.data.getContractInfo;
+            res.render(__dirname + "/ui/dashboard/index.html", {contracts:contracts});
+          });
+      });
+
+});
+
 app.get('/create-contract', (req, res) => {
 
   res.render(__dirname + "/ui/contract/index.html");
@@ -107,14 +171,37 @@ app.get('/create-contract', (req, res) => {
 
 app.get('/contracts', (req, res) => {
 
-  res.render(__dirname + "/ui/dashboard/index.html");
+  var q = `{
+              getContractInfo {
+                contract_id
+                agreement_number
+                seller_or_buyer 
+                phone
+                purchase_date
+                }
+            }`;
+  
+  var query = {query: q};
+
+  fetch('http://localhost:9000/graphql', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(query)
+  })
+    .then(result => result.json())
+    .then(result => {
+        var contracts = result.data.getContractInfo;
+        res.render(__dirname + "/ui/dashboard/index.html", {contracts:contracts});
+      });
 
 });
 
 app.post('/submit-form', (req, res) => {
-  console.log(req.body);
+
+
+
   // contract_ids
-  const contract_id = 38;
+  const contract_id = Math.floor(Math.random() * 100000);
   // balance_due
   const creditors = req.body.creditors;
   const balance_due = req.body.balance_due;
@@ -207,14 +294,17 @@ app.post('/submit-form', (req, res) => {
                                               '",to_obtain:"' + to_obtain + 
                                               '") {contract_id}}'
   }
-  console.log(query);
+  
   fetch('http://localhost:9000/graphql', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(query),
   })
-    .then(res => res.json())
-    .then(res => console.log(res.data));
+    .then(re => re.json())
+    .then(re => {
+      // res.redirect('/contracts');
+     
+    });
   
   res.end();
 })

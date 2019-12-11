@@ -41,65 +41,37 @@
 			<div class="col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3" id='divParent'>
 			
 				<ul class="list-unstyled" id="contracts-list">
-				<script>
-				for (let index = 0; index < 3; index++) {
-					document.write( '<li>\n' );
-					document.write( '						<div class=\"card\" id=\"contract-item\">\n' );
-					document.write( '							<div class=\"card-body\">\n' );
-					document.write( '								<h3 class=\"mg-md text-lg-center mx-auto d-block text-md-center\" id=\"contract-title\">\n' );
-					document.write( '									Contract Title\n' );
-					document.write( '								</h3>\n' );
-					document.write( '								<div class=\"row\">\n' );
-					document.write( '									<div class=\"col\">\n' );
-					document.write( '										<div class=\"text-center\">\n' );
-					document.write( '											<a href=\"../\" class=\"btn btn-lg btn-wire\" id=\"edt-btn\">Edit</a>\n' );
-					document.write( '										</div>\n' );
-					document.write( '									</div>\n' );
-					document.write( '									<div class=\"col\">\n' );
-					document.write( '										<div class=\"text-center\">\n' );
-					document.write( '											<a href=\"../\" class=\"btn btn-lg btn-wire\" id=\"view-btn\">View</a>\n' );
-					document.write( '										</div>\n' );
-					document.write( '									</div>\n' );
-					document.write( '									<div class=\"col\">\n' );
-					document.write( '										<div class=\"text-center\">\n' );
-					document.write( '											<a href=\"../\" class=\"btn btn-lg btn-wire\" id=\"delete-btn\">Delete</a>\n' );
-					document.write( '										</div>\n' );
-					document.write( '									</div>\n' );
-					document.write( '								</div>\n' );
-					document.write( '							</div>\n' );
-					document.write( '						</div>\n' );
-					document.write( '					</li>' );
+					<% contracts.forEach(function(contract) { %>
 					
-				}
-				
-
-				</script>
-					<li>
-						<div class="card" id="contract-item">
-							<div class="card-body">
-								<h3 class="mg-md text-lg-center mx-auto d-block text-md-center" id="contract-title">
-									Contract Title
-								</h3>
-								<div class="row">
-									<div class="col">
-										<div class="text-center">
-											<a href="../" class="btn btn-lg btn-wire" id="edt-btn">Edit</a>
+						<li>
+							<div class="card" id="contract-item">
+								<div class="card-body">
+									<h3 class="mg-md text-lg-center mx-auto d-block text-md-center" id="contract-title">
+										<li>Avtalsnummer: <%= contract.agreement_number %></li> 
+										<li>Säljare: <%= contract.seller_or_buyer %></li> 
+										<li>Telefon: <%= contract.phone %></li>
+									</h3>
+									<div class="row">
+										<!-- <div class="col">
+											<div class="text-center">
+												<a href="../" class="btn btn-lg btn-wire" id="edt-btn">Edit</a>
+											</div>
+										</div> -->
+										<div class="col">
+											<div class="text-center">
+												<a href="http://localhost:9000/contract/<%= contract.contract_id %>" class="btn btn-lg btn-wire" id="view-btn">View</a>
+											</div>
 										</div>
-									</div>
-									<div class="col">
-										<div class="text-center">
-											<a href="../" class="btn btn-lg btn-wire" id="view-btn">View</a>
-										</div>
-									</div>
-									<div class="col">
-										<div class="text-center">
-											<a href="../" class="btn btn-lg btn-wire" id="delete-btn">Delete</a>
+										<div class="col">
+											<div class="text-center">
+												<a href="http://localhost:9000/delete/<%= contract.contract_id %>" class="btn btn-lg btn-wire" id="delete-btn">Delete</a>
+											</div>
 										</div>
 									</div>
 								</div>
 							</div>
-						</div>
-					</li>
+						</li>
+					<% }); %>
 				</ul>
 			</div>
 		</div>

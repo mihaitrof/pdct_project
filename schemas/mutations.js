@@ -7,6 +7,30 @@ const RootMutation = new GraphQLObjectType({
   name: "RootMutationType",
   type: "Mutation",
   fields: {
+    deleteContract:{
+      type: ContractType,
+      args:{
+        contract_id: { type: GraphQLID }
+      },
+      resolve(parentValue, args) {
+
+        const query = `DELETE FROM balance_due WHERE contract_id = $1;
+                       DELETE FROM buyer WHERE contract_id = $1;
+                       DELETE FROM purchase_property WHERE contract_id = $1;
+                       DELETE FROM seller_or_registred_owner WHERE contract_id = $1;
+                       DELETE FROM purchase_agreement WHERE contract_id = $1;
+                       DELETE FROM seller WHERE contract_id = $1;
+                       DELETE FROM regulation_purchase WHERE contract_id = $1;
+                       DELETE FROM contract_ids WHERE contract_id = $1; RETURNING $1;`;
+
+        const values = [args.contract_id];
+
+        return db
+          .one(query, values)
+          .then(res => res)
+          .catch(err => err);
+      }
+    },
     // Add new contract from: <<url>>/create-contract/
     addContract:{
       type: ContractType,

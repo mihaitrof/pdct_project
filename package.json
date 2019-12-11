@@ -22,6 +22,7 @@
     "html": "^1.0.0",
     "isomorphic-fetch": "^2.2.1",
     "nodemon": "^1.19.4",
+    "pdfcrowd": "^4.11.0",
     "pg-promise": "^9.3.3",
     "underscore": "^1.9.1"
   },
