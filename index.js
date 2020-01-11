@@ -157,6 +157,8 @@ app.get('/delete/:contract_id', (req, res) => {
           .then(result => result.json())
           .then(result => {
             var contracts = result.data.getContractInfo;
+            console.log(contracts);
+            console.log("asddas");
             res.render(__dirname + "/ui/dashboard/index.html", {contracts:contracts});
           });
       });
@@ -191,6 +193,7 @@ app.get('/contracts', (req, res) => {
     .then(result => result.json())
     .then(result => {
         var contracts = result.data.getContractInfo;
+        console.log(contracts);
         res.render(__dirname + "/ui/dashboard/index.html", {contracts:contracts});
       });
 
@@ -294,6 +297,8 @@ app.post('/submit-form', (req, res) => {
                                               '",to_obtain:"' + to_obtain + 
                                               '") {contract_id}}'
   }
+
+  console.log(query);
   
   fetch('http://localhost:9000/graphql', {
     method: 'POST',
