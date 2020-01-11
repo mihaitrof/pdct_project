@@ -9,7 +9,6 @@ const { GraphQLSchema } = graphql;
 const { query } = require("./schemas/queries");
 const { mutation } = require("./schemas/mutations");
 const path = require('path');
-var pdfcrowd = require("pdfcrowd");
 
 const schema = new GraphQLSchema({
   query,
@@ -33,23 +32,30 @@ app.use('/static', express.static('ui'));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, '/ui/css')));
 
-app.get('/pdf/:contract_id', (req,res) => {
-  
+app.get('/pdf/', (req,res) => {
 
-  // create the API client instance
-  var client = new pdfcrowd.HtmlToPdfClient(
-      "demo", "ce544b6ea52a5621fb9d55f8b542d14d");
-  
-  // run the conversion and write the result to a file
-  // client.convertUrlToFile(
-  //     "http://localhost:9000/contract/" + req.params.contract_id,
-  //     "example.pdf",
-  //     function(err, fileName) {
-  //         if (err) return console.error("Pdfcrowd Error: " + err);
-  //         console.log("Success: the file was created " + fileName);
-  //     });
-  // alert('Get PDF');
-});
+
+
+  // const domElement = document.getElementById('your-id')
+  //     html2canvas(domElement, { onclone: (document) => {
+  //       document.getElementById('print-button').style.visibility = 'hidden'
+  //     }})
+  //     .then((canvas) => {
+  //         const img = canvas.toDataURL('image/png')
+  //         const pdf = new jsPdf()
+  //         pdf.addImage(imgData, 'JPEG', 0, 0, width, height)
+  //         pdf.save('your-filename.pdf')
+
+
+})
+
+// function export_div(){
+//   var pdf = new jsPDF("p", "pt", "a4");
+//   pdf.addHTML($('#bloc-3'), 15, 15, function() {
+//     pdf.save('contract.pdf');
+//   });
+// }
+
 
 app.get('/contract/:contract_id', function(req, res) {
 

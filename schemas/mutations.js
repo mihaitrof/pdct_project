@@ -21,7 +21,7 @@ const RootMutation = new GraphQLObjectType({
                        DELETE FROM purchase_agreement WHERE contract_id = $1;
                        DELETE FROM seller WHERE contract_id = $1;
                        DELETE FROM regulation_purchase WHERE contract_id = $1;
-                       DELETE FROM contract_ids WHERE contract_id = $1; RETURNING $1;`;
+                       DELETE FROM contract_ids WHERE contract_id = $1 RETURNING $1;`;
 
         const values = [args.contract_id];
 

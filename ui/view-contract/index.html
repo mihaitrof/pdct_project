@@ -1,537 +1,117 @@
 <!doctype html>
 <html>
+
 <head>
-    <meta charset="utf-8">
-    <meta name="keywords" content="">
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <link rel="shortcut icon" type="image/png" href="../favicon.png">
-    
+	<meta charset="utf-8">
+	<meta name="keywords" content="">
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+	<link rel="shortcut icon" type="image/png" href="../favicon.png">
+
 	<link rel="stylesheet" type="text/css" href="/static/css/bootstrap.min.css?4058">
 	<link rel="stylesheet" type="text/css" href="/static/style.css?6751">
 	<link rel="stylesheet" type="text/css" href="/static/css/font-awesome.min.css">
-	
-    <title>view-contract</title>
+
+	<title>view-contract</title>
 
 
-    
-<!-- Analytics -->
- 
-<!-- Analytics END -->
-    
+
+	<!-- Analytics -->
+
+	<!-- Analytics END -->
+
 </head>
+
 <body data-clean-url="true">
-<!-- Main container -->
-<div class="page-container">
-    
-<!-- bloc-3 -->
-<div class="bloc l-bloc" id="bloc-3">
-	<div class="container bloc-lg">
-		<div class="row">
-			<div class="col-md-6 col-lg-4">
-				<h1 class="mg-md">
-					DK BIL AB
-				</h1>
-			</div>
-			<div class="col-md-6 col-lg-8">
-				<div class="blockquote text-right">
-					<p class="float-lg-none" id="todays-date">
-						Date
-					</p>
-				</div>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col">
-				<h3 class="mg-md text-lg-center text-md-center">
-					INKÖPSAVTAL
-				</h3>
-				<h3 class="mg-md h3-style">
-					<strong>INKÖPSAVTAL</strong>
-				</h3>
-				<div>
-					<div class="row">
-						<div class="col">
-							<div class="form-group">
-								<div class="card">
-									<div class="card-header">
-										<h3 class="mg-clear">
-											Avtalsnummer
-										</h3>
-									</div>
-									<div class="card-body">
-										<p>
-											<%= agreement_number %>
-										</p>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="col">
-							<div class="form-group">
-								<div class="card">
-									<div class="card-header">
-										<h3 class="mg-clear">
-											Säljare/Inköpare
-										</h3>
-									</div>
-									<div class="card-body">
-										<p>
-											<%= phone %>
-										</p>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="col">
-							<div class="form-group">
-								<div class="card">
-									<div class="card-header">
-										<h3 class="mg-clear">
-											Telefon
-										</h3>
-									</div>
-									<div class="card-body">
-										<p>
-											<%= phone %>
-										</p>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="col">
-							<div class="form-group">
-								<div class="card">
-									<div class="card-header">
-										<h3 class="mg-clear">
-											Inköpsdatum
-										</h3>
-									</div>
-									<div class="card-body">
-										<p>
-											<%= purchase_date %>
-										</p>
-									</div>
-								</div>
-							</div>
-						</div>
+	<!-- Main container -->
+	<div class="page-container">
+
+		<!-- bloc-3 -->
+		<div class="bloc l-bloc" id="bloc-3">
+			<div class="container bloc-lg">
+				<div class="row">
+					<div class="col-md-6 col-lg-4">
+						<h1 class="mg-md">
+							DK BIL AB
+						</h1>
 					</div>
-				</div>
-				<h3 class="mg-md h3-style">
-					<strong>SÄLJARE</strong>
-				</h3>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col">
-				<div class="form-group">
-					<div class="card">
-						<div class="card-header">
-							<h3 class="mg-clear">
-								Namn
-							</h3>
-						</div>
-						<div class="card-body">
-							<p>
-								<%= name %>
-							</p>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="col">
-				<div class="form-group">
-					<div class="card">
-						<div class="card-header">
-							<h3 class="mg-clear">
-								Gatuadress
-							</h3>
-						</div>
-						<div class="card-body">
-							<p>
-								<%= address %>
-							</p>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="col">
-				<div class="form-group">
-					<div class="card">
-						<div class="card-header">
-							<h3 class="mg-clear">
-								Mobiltelefon
-							</h3>
-						</div>
-						<div class="card-body">
-							<p>
-								<%= phone %>
-							</p>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="col">
-				<div class="form-group">
-					<div class="card">
-						<div class="card-header">
-							<h3 class="mg-clear">
-								Namn och telefon på förare
-							</h3>
-						</div>
-						<div class="card-body">
-							<p>
-								<%= driver_name %>
-							</p>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col">
-				<h3 class="mg-md h3-style">
-					<strong>KÖPEOBJEKT</strong> -&nbsp;Fordonet är värderat inklusive kvarvarande fordonskatt
-				</h3>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col">
-				<div class="form-group">
-					<div class="card">
-						<div class="card-header">
-							<h3 class="mg-clear">
-								Registreringsnummer
-							</h3>
-						</div>
-						<div class="card-body">
-							<p>
-								<%= registration_property %>
-							</p>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="col col-lg-2 offset-lg-0">
-				<div class="form-group">
-					<div class="card">
-						<div class="card-header">
-							<h3 class="mg-clear">
-								Märke modell
-							</h3>
-						</div>
-						<div class="card-body">
-							<p>
-								Model
-							</p>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="col">
-				<div class="form-group">
-					<div class="card">
-						<div class="card-header">
-							<h3 class="mg-clear">
-								Chassinummer
-							</h3>
-						</div>
-						<div class="card-body">
-							<p>
-								<%= chassis_numer %>
-							</p>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="col">
-				<div class="form-group">
-					<div class="card">
-						<div class="card-header">
-							<h3 class="mg-clear">
-								Mätarställning
-							</h3>
-						</div>
-						<div class="card-body">
-							<p>
-								<%= mileage %>
-							</p>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="col">
-				<div class="form-group">
-					<div class="card">
-						<div class="card-header">
-							<h3 class="mg-clear">
-								Värdering
-							</h3>
-						</div>
-						<div class="card-body">
-							<p>
-								<%= valuation %>
-							</p>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col">
-				<div class="form-group">
-					<div class="card">
-						<div class="card-header">
-							<h3 class="mg-clear">
-								Första Reg. Datum
-							</h3>
-						</div>
-						<div class="card-body">
-							<p>
-								<%= first_registration_date %>
-							</p>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="col">
-				<div class="form-group">
-					<div class="card">
-						<div class="card-header">
-							<h3 class="mg-clear">
-								Tillverkad År - Mån
-							</h3>
-						</div>
-						<div class="card-body">
-							<p>
-								<%= manufactured_date %>
-							</p>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="col">
-				<div class="form-group">
-					<div class="card">
-						<div class="card-header">
-							<h3 class="mg-clear">
-								Färg
-							</h3>
-						</div>
-						<div class="card-body">
-							<p>
-								<%= colour %>
-							</p>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="col">
-				<div class="form-group">
-					<div class="card">
-						<div class="card-header">
-							<h3 class="mg-clear">
-								Värderingsdatum
-							</h3>
-						</div>
-						<div class="card-body">
-							<p>
-								<%= valuation_date %>
-							</p>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="col">
-				<div class="form-group">
-					<div class="card">
-						<div class="card-header">
-							<h3 class="mg-clear">
-								Avdrag
-							</h3>
-						</div>
-						<div class="card-body">
-							<p>
-								<%= deduction %>
-							</p>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col">
-				<div class="form-group">
-					<div class="card">
-						<div class="card-header">
-							<h3 class="mg-clear">
-								Godkänd kontroll.bes
-							</h3>
-						</div>
-						<div class="card-body">
-							<p>
-								<%= approved_check %>
-							</p>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="col">
-				<div class="form-group">
-					<div class="card">
-						<div class="card-header">
-							<h3 class="mg-clear">
-								Servicebok
-							</h3>
-						</div>
-						<div class="card-body">
-							<p>
-								<%= service_book %>
-							</p>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="col">
-				<div class="form-group">
-					<div class="card">
-						<div class="card-header">
-							<h3 class="mg-clear">
-								Garantier
-							</h3>
-						</div>
-						<div class="card-body">
-							<p>
-								<%= warranty %>
-							</p>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="col">
-				<div class="form-group">
-					<div class="card">
-						<div class="card-header">
-							<h3 class="mg-clear">
-								Inköpspris justerat
-							</h3>
-						</div>
-						<div class="card-body">
-							<p>
-								<%= purchase_price_adjusted %>
-							</p>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col">
-				<div class="form-group">
-					<label>
-						Skick och anmärkningar
-					</label>
-					<h3 class="mg-md h3-style">
-						<strong>KONTROLLPUNKTER</strong> (Inlämningslista)
-					</h3>
-					<div class="card">
-						<div class="card-body">
-							<p>
-								
+					<div class="col-md-6 col-lg-8">
+						<div class="blockquote text-right">
+							<p class="float-lg-none" id="todays-date">
+								Date
 							</p>
 						</div>
 					</div>
 				</div>
 				<div class="row">
-					<div class="col-lg-9">
+					<div class="col">
+						<h3 class="mg-md text-lg-center text-md-center">
+							INKÖPSAVTAL
+						</h3>
 						<h3 class="mg-md h3-style">
-							<strong>RESTSKULD</strong>
+							<strong>INKÖPSAVTAL</strong>
 						</h3>
-						<div class="row row-bloc-3-style">
-							<div class="col-lg-6">
-								<div class="form-group">
-									<div class="card card-style">
-										<div class="card-header">
-											<h3 class="mg-clear">
-												Kreditgivare
-											</h3>
-										</div>
-										<div class="card-body">
-											<p>
-												<%= creditors %>
-											</p>
-										</div>
-									</div>
-								</div>
-								<div class="form-group">
-									<div class="card">
-										<div class="card-header">
-											<h3 class="mg-clear">
-												Kontonummer
-											</h3>
-										</div>
-										<div class="card-body">
-											<p>
-												<%= account_number %>
-											</p>
-										</div>
-									</div>
-								</div>
-								<div class="form-group">
-									<div class="card">
-										<div class="card-header">
-											<h3 class="mg-clear">
-												Uppgiftslämnare
-											</h3>
-										</div>
-										<div class="card-body">
-											<p>
-												<%= informants %>
-											</p>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="col-lg-6">
-								<div class="form-group container-div-style">
+						<div>
+							<div class="row">
+								<div class="col">
 									<div class="form-group">
 										<div class="card">
 											<div class="card-header">
 												<h3 class="mg-clear">
-													Restskuld
+													Avtalsnummer
 												</h3>
 											</div>
 											<div class="card-body">
 												<p>
-													<%= balance_due %>
+													<%= agreement_number %>
 												</p>
 											</div>
 										</div>
 									</div>
+								</div>
+								<div class="col">
 									<div class="form-group">
 										<div class="card">
 											<div class="card-header">
 												<h3 class="mg-clear">
-													Kontrollerad datum
+													Säljare/Inköpare
 												</h3>
 											</div>
 											<div class="card-body">
 												<p>
-													<%= checked_date %>
+													<%= phone %>
 												</p>
 											</div>
 										</div>
 									</div>
+								</div>
+								<div class="col">
 									<div class="form-group">
 										<div class="card">
 											<div class="card-header">
 												<h3 class="mg-clear">
-													Signatur
+													Telefon
 												</h3>
 											</div>
 											<div class="card-body">
 												<p>
-													<%= signature %>
+													<%= phone %>
+												</p>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col">
+									<div class="form-group">
+										<div class="card">
+											<div class="card-header">
+												<h3 class="mg-clear">
+													Inköpsdatum
+												</h3>
+											</div>
+											<div class="card-body">
+												<p>
+													<%= purchase_date %>
 												</p>
 											</div>
 										</div>
@@ -539,222 +119,425 @@
 								</div>
 							</div>
 						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col">
-			</div>
-			<div class="col">
-				<h3 class="mg-md h3-style">
-					<strong>REGLERING INKÖP</strong>
-				</h3>
-				<div class="form-group">
-					<div class="card">
-						<div class="card-header">
-							<h3 class="mg-clear">
-								Inköpspris ink moms
-							</h3>
-						</div>
-						<div class="card-body">
-							<p>
-								<%= purchase_price %>
-							</p>
-						</div>
-					</div>
-				</div>
-				<div class="form-group">
-					<div class="card">
-						<div class="card-header">
-							<h3 class="mg-clear">
-								Moms
-							</h3>
-						</div>
-						<div class="card-body">
-							<p>
-								<%= vat %>
-							</p>
-						</div>
-					</div>
-				</div>
-				<div class="form-group">
-					<div class="card">
-						<div class="card-header">
-							<h3 class="mg-clear">
-								Avgår lösen av restskuld
-							</h3>
-						</div>
-						<div class="card-body">
-							<p>
-								<%= resolves_the_redemption_of_my_residual_debt %>
-							</p>
-						</div>
-					</div>
-				</div>
-				<div class="form-group">
-					<div class="card">
-						<div class="card-header">
-							<h3 class="mg-clear">
-								Övriga avdrag
-							</h3>
-						</div>
-						<div class="card-body">
-							<p>
-								<%= other_deductions %>
-							</p>
-						</div>
-					</div>
-				</div>
-				<div class="form-group">
-					<div class="card">
-						<div class="card-header">
-							<h3 class="mg-clear">
-								Övriga betalningar
-							</h3>
-						</div>
-						<div class="card-body">
-							<p>
-								<%= other_payments %>
-							</p>
-						</div>
-					</div>
-				</div>
-				<div class="form-group">
-					<div class="card">
-						<div class="card-header">
-							<h3 class="mg-clear">
-								Att erhålla
-							</h3>
-						</div>
-						<div class="card-body">
-							<p>
-								<%= to_obtain %>
-							</p>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="row voffset-md">
-			<div class="col">
-				<div class="card">
-					<div class="card-header">
-						<h3 class="mg-clear">
-							SÄLJARE/REGISTRERAD ÄGARE
+						<h3 class="mg-md h3-style">
+							<strong>SÄLJARE</strong>
 						</h3>
 					</div>
-					<div class="card-body">
-						<div class="row">
-							<div class="col">
-								<div class="form-group">
-									<div class="card">
-										<div class="card-header">
-											<h3 class="mg-clear">
-												Datum
-											</h3>
-										</div>
-										<div class="card-body">
-											<p>
-												<%= date %>
-											</p>
-										</div>
-									</div>
+				</div>
+				<div class="row">
+					<div class="col">
+						<div class="form-group">
+							<div class="card">
+								<div class="card-header">
+									<h3 class="mg-clear">
+										Namn
+									</h3>
 								</div>
-							</div>
-							<div class="col">
-								<div class="form-group">
-									<div class="card">
-										<div class="card-header">
-											<h3 class="mg-clear">
-												Ort
-											</h3>
-										</div>
-										<div class="card-body">
-											<p>
-												<%= city %>
-											</p>
-										</div>
-									</div>
+								<div class="card-body">
+									<p>
+										<%= name %>
+									</p>
 								</div>
 							</div>
 						</div>
-						<div class="row">
-							<div class="col">
-								<div class="form-group">
-									<div class="card">
-										<div class="card-header">
-											<h3 class="mg-clear">
-												Säljare/Behörig företrädare
-											</h3>
-										</div>
-										<div class="card-body">
-											<p>
-												<%= representative %>
-											</p>
-										</div>
-									</div>
+					</div>
+					<div class="col">
+						<div class="form-group">
+							<div class="card">
+								<div class="card-header">
+									<h3 class="mg-clear">
+										Gatuadress
+									</h3>
+								</div>
+								<div class="card-body">
+									<p>
+										<%= address %>
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col">
+						<div class="form-group">
+							<div class="card">
+								<div class="card-header">
+									<h3 class="mg-clear">
+										Mobiltelefon
+									</h3>
+								</div>
+								<div class="card-body">
+									<p>
+										<%= phone %>
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col">
+						<div class="form-group">
+							<div class="card">
+								<div class="card-header">
+									<h3 class="mg-clear">
+										Namn och telefon på förare
+									</h3>
+								</div>
+								<div class="card-body">
+									<p>
+										<%= driver_name %>
+									</p>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-			</div>
-			<div class="col">
-				<div class="card">
-					<div class="card-header">
-						<h3 class="mg-clear">
-							KÖPARE
+				<div class="row">
+					<div class="col">
+						<h3 class="mg-md h3-style">
+							<strong>KÖPEOBJEKT</strong> -&nbsp;Fordonet är värderat inklusive kvarvarande fordonskatt
 						</h3>
 					</div>
-					<div class="card-body">
-						<div class="row">
-							<div class="col">
-								<div class="form-group">
-									<div class="card">
-										<div class="card-header">
-											<h3 class="mg-clear">
-												Datum
-											</h3>
-										</div>
-										<div class="card-body">
-											<p>
-												<%= buyer_date %>
-											</p>
-										</div>
-									</div>
+				</div>
+				<div class="row">
+					<div class="col">
+						<div class="form-group">
+							<div class="card">
+								<div class="card-header">
+									<h3 class="mg-clear">
+										Registreringsnummer
+									</h3>
+								</div>
+								<div class="card-body">
+									<p>
+										<%= registration_property %>
+									</p>
 								</div>
 							</div>
-							<div class="col">
-								<div class="form-group">
-									<div class="card">
-										<div class="card-header">
-											<h3 class="mg-clear">
-												Ort
-											</h3>
-										</div>
-										<div class="card-body">
-											<p>
-												<%= buyer_city %>
-											</p>
-										</div>
-									</div>
+						</div>
+					</div>
+					<div class="col col-lg-2 offset-lg-0">
+						<div class="form-group">
+							<div class="card">
+								<div class="card-header">
+									<h3 class="mg-clear">
+										Märke modell
+									</h3>
+								</div>
+								<div class="card-body">
+									<p>
+										Model
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col">
+						<div class="form-group">
+							<div class="card">
+								<div class="card-header">
+									<h3 class="mg-clear">
+										Chassinummer
+									</h3>
+								</div>
+								<div class="card-body">
+									<p>
+										<%= chassis_numer %>
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col">
+						<div class="form-group">
+							<div class="card">
+								<div class="card-header">
+									<h3 class="mg-clear">
+										Mätarställning
+									</h3>
+								</div>
+								<div class="card-body">
+									<p>
+										<%= mileage %>
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col">
+						<div class="form-group">
+							<div class="card">
+								<div class="card-header">
+									<h3 class="mg-clear">
+										Värdering
+									</h3>
+								</div>
+								<div class="card-body">
+									<p>
+										<%= valuation %>
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col">
+						<div class="form-group">
+							<div class="card">
+								<div class="card-header">
+									<h3 class="mg-clear">
+										Första Reg. Datum
+									</h3>
+								</div>
+								<div class="card-body">
+									<p>
+										<%= first_registration_date %>
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col">
+						<div class="form-group">
+							<div class="card">
+								<div class="card-header">
+									<h3 class="mg-clear">
+										Tillverkad År - Mån
+									</h3>
+								</div>
+								<div class="card-body">
+									<p>
+										<%= manufactured_date %>
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col">
+						<div class="form-group">
+							<div class="card">
+								<div class="card-header">
+									<h3 class="mg-clear">
+										Färg
+									</h3>
+								</div>
+								<div class="card-body">
+									<p>
+										<%= colour %>
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col">
+						<div class="form-group">
+							<div class="card">
+								<div class="card-header">
+									<h3 class="mg-clear">
+										Värderingsdatum
+									</h3>
+								</div>
+								<div class="card-body">
+									<p>
+										<%= valuation_date %>
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col">
+						<div class="form-group">
+							<div class="card">
+								<div class="card-header">
+									<h3 class="mg-clear">
+										Avdrag
+									</h3>
+								</div>
+								<div class="card-body">
+									<p>
+										<%= deduction %>
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col">
+						<div class="form-group">
+							<div class="card">
+								<div class="card-header">
+									<h3 class="mg-clear">
+										Godkänd kontroll.bes
+									</h3>
+								</div>
+								<div class="card-body">
+									<p>
+										<%= approved_check %>
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col">
+						<div class="form-group">
+							<div class="card">
+								<div class="card-header">
+									<h3 class="mg-clear">
+										Servicebok
+									</h3>
+								</div>
+								<div class="card-body">
+									<p>
+										<%= service_book %>
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col">
+						<div class="form-group">
+							<div class="card">
+								<div class="card-header">
+									<h3 class="mg-clear">
+										Garantier
+									</h3>
+								</div>
+								<div class="card-body">
+									<p>
+										<%= warranty %>
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col">
+						<div class="form-group">
+							<div class="card">
+								<div class="card-header">
+									<h3 class="mg-clear">
+										Inköpspris justerat
+									</h3>
+								</div>
+								<div class="card-body">
+									<p>
+										<%= purchase_price_adjusted %>
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col">
+						<div class="form-group">
+							<label>
+								Skick och anmärkningar
+							</label>
+							<h3 class="mg-md h3-style">
+								<strong>KONTROLLPUNKTER</strong> (Inlämningslista)
+							</h3>
+							<div class="card">
+								<div class="card-body">
+									<p>
+
+									</p>
 								</div>
 							</div>
 						</div>
 						<div class="row">
-							<div class="col">
-								<div class="form-group">
-									<div class="card">
-										<div class="card-header">
-											<h3 class="mg-clear">
-												Köpare/Behörig företrädare
-											</h3>
+							<div class="col-lg-9">
+								<h3 class="mg-md h3-style">
+									<strong>RESTSKULD</strong>
+								</h3>
+								<div class="row row-bloc-3-style">
+									<div class="col-lg-6">
+										<div class="form-group">
+											<div class="card card-style">
+												<div class="card-header">
+													<h3 class="mg-clear">
+														Kreditgivare
+													</h3>
+												</div>
+												<div class="card-body">
+													<p>
+														<%= creditors %>
+													</p>
+												</div>
+											</div>
 										</div>
-										<div class="card-body">
-											<p>
-												<%= buyer_representative %>
-											</p>
+										<div class="form-group">
+											<div class="card">
+												<div class="card-header">
+													<h3 class="mg-clear">
+														Kontonummer
+													</h3>
+												</div>
+												<div class="card-body">
+													<p>
+														<%= account_number %>
+													</p>
+												</div>
+											</div>
+										</div>
+										<div class="form-group">
+											<div class="card">
+												<div class="card-header">
+													<h3 class="mg-clear">
+														Uppgiftslämnare
+													</h3>
+												</div>
+												<div class="card-body">
+													<p>
+														<%= informants %>
+													</p>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="col-lg-6">
+										<div class="form-group container-div-style">
+											<div class="form-group">
+												<div class="card">
+													<div class="card-header">
+														<h3 class="mg-clear">
+															Restskuld
+														</h3>
+													</div>
+													<div class="card-body">
+														<p>
+															<%= balance_due %>
+														</p>
+													</div>
+												</div>
+											</div>
+											<div class="form-group">
+												<div class="card">
+													<div class="card-header">
+														<h3 class="mg-clear">
+															Kontrollerad datum
+														</h3>
+													</div>
+													<div class="card-body">
+														<p>
+															<%= checked_date %>
+														</p>
+													</div>
+												</div>
+											</div>
+											<div class="form-group">
+												<div class="card">
+													<div class="card-header">
+														<h3 class="mg-clear">
+															Signatur
+														</h3>
+													</div>
+													<div class="card-body">
+														<p>
+															<%= signature %>
+														</p>
+													</div>
+												</div>
+											</div>
 										</div>
 									</div>
 								</div>
@@ -762,42 +545,295 @@
 						</div>
 					</div>
 				</div>
-			</div>
-		</div>
-		<div class="row no-gutters voffset-lg">
-			<div class="col-lg-4 offset-lg-4 col-sm-6 offset-sm-3 col">
-				<!-- <div class="text-center">
-					<a href="http://localhost:9000/contracts" class="btn btn-d btn-clean btn-lg btn-save-style " id="save-btn">Print</a>
-				</div> -->
-				<div class="text-center">
-					<a href="http://localhost:9000/contracts" class="btn btn-wire btn-cancel-style btn-lg" id="cancel-btn">Cancel</a>
+				<div class="row">
+					<div class="col">
+					</div>
+					<div class="col">
+						<h3 class="mg-md h3-style">
+							<strong>REGLERING INKÖP</strong>
+						</h3>
+						<div class="form-group">
+							<div class="card">
+								<div class="card-header">
+									<h3 class="mg-clear">
+										Inköpspris ink moms
+									</h3>
+								</div>
+								<div class="card-body">
+									<p>
+										<%= purchase_price %>
+									</p>
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="card">
+								<div class="card-header">
+									<h3 class="mg-clear">
+										Moms
+									</h3>
+								</div>
+								<div class="card-body">
+									<p>
+										<%= vat %>
+									</p>
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="card">
+								<div class="card-header">
+									<h3 class="mg-clear">
+										Avgår lösen av restskuld
+									</h3>
+								</div>
+								<div class="card-body">
+									<p>
+										<%= resolves_the_redemption_of_my_residual_debt %>
+									</p>
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="card">
+								<div class="card-header">
+									<h3 class="mg-clear">
+										Övriga avdrag
+									</h3>
+								</div>
+								<div class="card-body">
+									<p>
+										<%= other_deductions %>
+									</p>
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="card">
+								<div class="card-header">
+									<h3 class="mg-clear">
+										Övriga betalningar
+									</h3>
+								</div>
+								<div class="card-body">
+									<p>
+										<%= other_payments %>
+									</p>
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="card">
+								<div class="card-header">
+									<h3 class="mg-clear">
+										Att erhålla
+									</h3>
+								</div>
+								<div class="card-body">
+									<p>
+										<%= to_obtain %>
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row voffset-md">
+					<div class="col">
+						<div class="card">
+							<div class="card-header">
+								<h3 class="mg-clear">
+									SÄLJARE/REGISTRERAD ÄGARE
+								</h3>
+							</div>
+							<div class="card-body">
+								<div class="row">
+									<div class="col">
+										<div class="form-group">
+											<div class="card">
+												<div class="card-header">
+													<h3 class="mg-clear">
+														Datum
+													</h3>
+												</div>
+												<div class="card-body">
+													<p>
+														<%= date %>
+													</p>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="col">
+										<div class="form-group">
+											<div class="card">
+												<div class="card-header">
+													<h3 class="mg-clear">
+														Ort
+													</h3>
+												</div>
+												<div class="card-body">
+													<p>
+														<%= city %>
+													</p>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col">
+										<div class="form-group">
+											<div class="card">
+												<div class="card-header">
+													<h3 class="mg-clear">
+														Säljare/Behörig företrädare
+													</h3>
+												</div>
+												<div class="card-body">
+													<p>
+														<%= representative %>
+													</p>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col">
+						<div class="card">
+							<div class="card-header">
+								<h3 class="mg-clear">
+									KÖPARE
+								</h3>
+							</div>
+							<div class="card-body">
+								<div class="row">
+									<div class="col">
+										<div class="form-group">
+											<div class="card">
+												<div class="card-header">
+													<h3 class="mg-clear">
+														Datum
+													</h3>
+												</div>
+												<div class="card-body">
+													<p>
+														<%= buyer_date %>
+													</p>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="col">
+										<div class="form-group">
+											<div class="card">
+												<div class="card-header">
+													<h3 class="mg-clear">
+														Ort
+													</h3>
+												</div>
+												<div class="card-body">
+													<p>
+														<%= buyer_city %>
+													</p>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col">
+										<div class="form-group">
+											<div class="card">
+												<div class="card-header">
+													<h3 class="mg-clear">
+														Köpare/Behörig företrädare
+													</h3>
+												</div>
+												<div class="card-body">
+													<p>
+														<%= buyer_representative %>
+													</p>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row no-gutters voffset-lg">
+					<div class="col-lg-4 offset-lg-4 col-sm-6 offset-sm-3 col">
+						<div class="text-center">
+							<!-- <a href="http://localhost:9000/pdf/" class="btn btn-d btn-clean btn-lg btn-save-style " id="save-btn">Print</a> -->
+
+							<a class="btn btn-d btn-clean btn-lg btn-save-style " id="save-btn"
+								onclick="export_div()">Print</a>
+						</div>
+						<div class="text-center">
+							<a href="http://localhost:9000/contracts" class="btn btn-wire btn-cancel-style btn-lg"
+								id="cancel-btn">Cancel</a>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
+		<!-- bloc-3 END -->
+
+		<!-- ScrollToTop Button -->
+		<a class="bloc-button btn btn-d scrollToTop" onclick="scrollToTarget('1',this)"><span
+				class="fa fa-chevron-up"></span></a>
+		<!-- ScrollToTop Button END-->
+
+
 	</div>
-</div>
-<!-- bloc-3 END -->
+	<!-- Main container END -->
 
-<!-- ScrollToTop Button -->
-<a class="bloc-button btn btn-d scrollToTop" onclick="scrollToTarget('1',this)"><span class="fa fa-chevron-up"></span></a>
-<!-- ScrollToTop Button END-->
+	<script>
+		// https://www.codementor.io/@amehjoseph/convert-html-css-content-to-a-sleek-multiple-page-pdf-file-using-jspdf-javascript-library-eyyz74hci
+		function export_div() {
+			margins = {
+				top: 70,
+				bottom: 40,
+				left: 30,
+				width: 550
+			};
+			var pdf = new jsPDF('p', 'pt', 'a4');
+			pdf.setFontSize(18);
+			pdf.fromHTML(document.getElementById('bloc-3'),
+				margins.left, // x coord
+				margins.top,
+				{
+					// y coord
+					width: margins.width// max width of content on PDF
+				}, function (dispose) {},
+				margins);
+			pdf.save('div.pdf')
+		}
+	</script>
 
 
-</div>
-<!-- Main container END -->
-    
+	<script src="/static/js/jquery-3.3.1.min.js?4506"></script>
+	<script src="/static/js/bootstrap.bundle.min.js?4435"></script>
+	<script src="/static/js/blocs.min.js?6887"></script>
+	<script src="/static/js/lazysizes.min.js" defer></script>
 
-<script src="/static/js/jquery-3.3.1.min.js?4506"></script>
-<script src="/static/js/bootstrap.bundle.min.js?4435"></script>
-<script src="/static/js/blocs.min.js?6887"></script>
-<script src="/static/js/lazysizes.min.js" defer></script>
-<!-- Additional JS END -->
+	<!-- <script src="https://unpkg.com/jspdf@latest/dist/jspdf.min.js"></script> -->
+	<script src="https://html2canvas.hertzen.com/dist/html2canvas.js"></script>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.min.js"></script>
+	<!-- Additional JS END -->
 
 
 
-<!-- Preloader -->
-<div id="page-loading-blocs-notifaction" class="page-preloader"></div>
-<!-- Preloader END -->
+	<!-- Preloader -->
+	<div id="page-loading-blocs-notifaction" class="page-preloader"></div>
+	<!-- Preloader END -->
 
 </body>
+
 </html>
