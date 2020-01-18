@@ -9,6 +9,24 @@ const { query } = require("./schemas/queries");
 const { mutation } = require("./schemas/mutations");
 const path = require('path');
 const auth = require('./auth');
+const passport = require('passport')
+
+// const requireAuth = passport.authenticate('ourloginstrategy', {session:false})
+
+
+function requireAuth(req, res, next) {
+  const grantAcces = false
+  // Try to find the user 
+  // if you can find it make grantAcces true
+
+  if(grantAcces) {
+    next();
+  } else {
+    // Forbidden
+    // Redirect to login
+    res.sendStatus(403);
+  }
+}
 
 const schema = new GraphQLSchema({
   query,
@@ -16,6 +34,7 @@ const schema = new GraphQLSchema({
 });
 
 var app = express();
+
 
 app.use(
   '/graphql',
@@ -37,14 +56,14 @@ app.post('/submit-vd', function (req, res) {
   res.end();
 });
 
-app.get('/vd/:contract_id', function(req, res) {
+app.get('/vd/:contract_id', requireAuth, function(req, res) {
 
   var contract_id = req.params.contract_id;
 
   res.render(__dirname + "/ui/value_declaration/contract.html");
 });
 
-app.get('/contract/:contract_id', function(req, res) {
+app.get('/contract/:contract_id', requireAuth, function(req, res) {
 
   var contract_id = req.params.contract_id;
 
@@ -314,6 +333,8 @@ app.get('/login', (req, res) => {
 });
 
 app.post('/signup', auth.signup);
+
+app.post('/signin', auth.signin);
 
 app.listen(9000, () =>
   console.log('GraphQL server running on localhost:9000')

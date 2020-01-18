@@ -1,7 +1,6 @@
 1. Login
-2. Second form UI
-3. Filter functionality
-4. Edit
-5. Second form create
-6. Second form delete
-7. Second form PDF
+2. Filter functionality
+3. Edit
+4. Second form create
+5. Second form delete
+6. Second form PDF

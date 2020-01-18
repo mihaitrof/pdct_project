@@ -4,8 +4,12 @@ const passport = require('passport');
 const jwt = require('jwt-simple');
 const bcrypt = require('bcryptjs');
 const secret = require('./config/secret')
+const JwtStrategy = require('passport-jwt').Strategy
+const ExtractJwt = require('passport-jwt').ExtractJwt
+const LocalStrategy = require('passport-local');
 
-// const requireAuth = passport.AuthenticatorResponse('jwt', {session:false})
+
+// const requireAuth = passport.authenticate('local', {session:false})
 
 const tokenForUser = (user) => {
     const timestamp = new Date().getTime()
@@ -40,9 +44,8 @@ const signup = (req, res) => {
                     '") {id}}'
             };
             console.log(q)
-            // var query = {query: q};
 
-            fetch('http://localhost:9000/graphql', {
+            fetch('graphql', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(q),
@@ -58,4 +61,18 @@ const signup = (req, res) => {
             // return next(err)
         })
 }
-module.exports = { signup, signin }
+
+const jwtOptions = {
+    jwtFromRequest: ExtractJwt.fromHeader('authorization'),
+    secretOrKey: secret.secret
+}
+
+const jwtLogin = new JwtStrategy(jwtOptions, (payload,done) => {
+    console.log(payload.iat);
+    return done(null,true);
+})
+
+passport.use("ourloginstrategy",jwtLogin)
+passport.use("loginOptions", jwtOptions)
+
+module.exports = { signup, signin, jwtOptions, jwtLogin }
