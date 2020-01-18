@@ -1,0 +1,777 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <link rel="shortcut icon" type="image/png" href="favicon.png">
+    
+	<link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css?1957">
+	<link rel="stylesheet" type="text/css" href="style.css?5567">
+	<link rel="stylesheet" type="text/css" href="./css/font-awesome.min.css">
+	
+    <title>contract</title>
+
+
+    
+<!-- Analytics -->
+ 
+<!-- Analytics END -->
+    
+</head>
+<body>
+<!-- Main container -->
+<div class="page-container">
+    
+<!-- bloc-3 -->
+<div class="bloc l-bloc" id="bloc-3">
+	<div class="container bloc-lg">
+		<div class="row">
+			<div class="col-md-6 col-lg-4">
+				<h1 class="mg-md h1-style">
+					VARUDEKLARATION
+				</h1>
+			</div>
+			<div class="col-md-6 col-lg-8">
+				<div class="blockquote text-right">
+					<p class="float-lg-none" id="bilaga">
+						Bilaga
+					</p>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col">
+				<h3 class="mg-md text-md-center text-lg-left">
+					begagnad bil
+				</h3>
+				<div>
+					<div class="row">
+						<div class="col">
+							<div class="form-group">
+								<label>
+									Fabrikat/typ<br>
+								</label>
+								<input class="form-control" id="fabrikat-typ" />
+							</div>
+						</div>
+						<div class="col">
+							<div class="form-group">
+								<label>
+									&nbsp;Årsmodell/Tillverkningsår<br>och -månad<br>
+								</label>
+								<input class="form-control" id="årsmodell" />
+							</div>
+						</div>
+						<div class="col">
+							<div class="form-group">
+								<label>
+									Mätarställning
+								</label>
+								<input class="form-control" id="mätarställning" />
+							</div>
+						</div>
+						<div class="col">
+							<div class="form-group">
+								<label>
+									Reg.nr
+								</label>
+								<input class="form-control" id="reg-nr" />
+							</div>
+						</div>
+					</div>
+				</div>
+				<h3 class="mg-md h3-style">
+					&nbsp;Motoreffekt<br> (enl. registreringsbevis)<br>
+				</h3>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col">
+				<div class="form-group">
+					<label>
+						kW
+					</label>
+					<input class="form-control" id="kw" />
+				</div>
+			</div>
+			<div class="col">
+				<div class="form-group">
+					<label>
+						hkr
+					</label>
+					<input class="form-control" id="hkr" />
+				</div>
+			</div>
+			<div class="col">
+				<div class="form-group">
+					<label>
+						Drivmedel
+					</label>
+				</div>
+				<div class="form-check">
+					<input class="form-check-input" type="checkbox" id="drivmedel-bensin" />
+					<label class="form-check-label">
+						bensin
+					</label>
+				</div>
+				<div class="form-check">
+					<input class="form-check-input" type="checkbox" id="drivmedel-diesel" />
+					<label class="form-check-label">
+						diesel
+					</label>
+				</div>
+				<div class="form-check">
+					<input class="form-check-input" type="checkbox" id="drivmedel-ovrigt" />
+					<label class="form-check-label">
+						övrigt
+					</label>
+				</div>
+				<div class="form-group">
+					<input class="form-control" placeholder="..." id="drivmedel-ovrigt-value" />
+				</div>
+				<div class="form-check">
+					<input class="form-check-input" type="checkbox" id="drivmedel-katalysator" />
+					<label class="form-check-label">
+						katalysator
+					</label>
+				</div>
+			</div>
+			<div class="col">
+				<div class="form-group">
+					<label>
+						Växellåda
+					</label>
+					<div class="form-check">
+						<input class="form-check-input" type="checkbox" id="växellåda-automat" />
+						<label class="form-check-label">
+							automat
+						</label>
+					</div>
+					<div class="form-check">
+						<input class="form-check-input" type="checkbox" id="växellåda-manuell" />
+						<label class="form-check-label">
+							manuell
+						</label>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col">
+				<h3 class="mg-md h3-style">
+					<strong>GARANTIER</strong> utfärdade av generalagenten<br>Om ja, se separata villkor utfärdade av generalagenten<br>
+				</h3>
+				<div class="row">
+					<div class="col">
+						<p class="mg-md">
+							<strong>Nybilsgaranti</strong>
+						</p>
+						<div class="form-check">
+							<input class="form-check-input" type="checkbox" id="nybilsgaranti-ja" />
+							<label class="form-check-label">
+								Ja
+							</label>
+						</div>
+						<div class="form-check">
+							<input class="form-check-input" type="checkbox" id="nybilsgaranti-nej" />
+							<label class="form-check-label">
+								Nej
+							</label>
+						</div>
+					</div>
+					<div class="col">
+						<p class="mg-md">
+							<strong>Rostskyddsgaranti</strong><br>
+						</p>
+						<div class="form-check">
+							<input class="form-check-input" type="checkbox" id="rostskyddsgaranti-ja" />
+							<label class="form-check-label">
+								Ja
+							</label>
+						</div>
+						<div class="form-check">
+							<input class="form-check-input" type="checkbox" id="rostskyddsgaranti-nej" />
+							<label class="form-check-label">
+								Nej
+							</label>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col">
+						<p class="mg-md">
+							<strong>Vagnskadegaranti</strong><br>
+						</p>
+						<div class="form-check">
+							<input class="form-check-input" type="checkbox" id="vagnskadegaranti-ja" />
+							<label class="form-check-label">
+								Ja
+							</label>
+						</div>
+						<div class="form-check">
+							<input class="form-check-input" type="checkbox" id="vagnskadegaranti-nej" />
+							<label class="form-check-label">
+								Nej
+							</label>
+						</div>
+					</div>
+					<div class="col">
+						<p class="mg-md">
+							<strong>Avgasåtagande</strong>
+						</p>
+						<div class="form-check">
+							<input class="form-check-input" type="checkbox" id="avgasåtagande-ja" />
+							<label class="form-check-label">
+								Ja
+							</label>
+						</div>
+						<div class="form-check">
+							<input class="form-check-input" type="checkbox" id="avgasåtagande-nej" />
+							<label class="form-check-label">
+								Nej
+							</label>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-lg-11">
+						<h3 class="mg-md h3-style">
+							<strong>REPARATIONSOBJEKT&nbsp;</strong>m.m.<br>
+						</h3>
+						<div class="form-check">
+							<input class="form-check-input" type="checkbox" id="reparationsobjekt" />
+							<label class="form-check-label">
+								Bilen säljs som reparationsobjekt eller skrotbil. En bil som har fel eller brister vad gäller trafiksäkerheten får säljas som reparations-/renoveringsobjekt eller skrotbil om detta tydligt framgår av köpekontraktet. Bilen får i dessa fall inte köras utan ska transporteras från platsen.
+							</label>
+						</div>
+					</div>
+					<div class="col-lg-11">
+						<h3 class="mg-md h3-style">
+							<strong>BILENS SÄKERHET (gäller alla bilar)</strong><br>
+						</h3>
+						<div class="form-check">
+							<input class="form-check-input" type="checkbox" id="b-säkerhet" />
+							<label class="form-check-label">
+								Bilens säkerhet överensstämmer med resultat i bifogat protokoll från obliga- torisk kontrollbesiktning.
+							</label>
+						</div>
+						<p>
+							Om besiktningsprotokoll saknas ska normer för obligatorisk kontrollbesiktning till- lämpas. Komponentsystem som befinns vara i sådant skick att de skulle godkän- nas utan anmärkning markeras med en ”bock” i Pos-ruta 1–30.
+						</p>
+					</div>
+				</div>
+			</div>
+			<div class="col">
+				<div class="row">
+					<div class="col">
+						<h3 class="mg-md h3-style">
+							<strong>GARANTIER</strong> utfärdade av säljaren (Garantin upphör när endera av angiven tid/körsträcka uppnåtts.)<br>
+						</h3>
+						<div class="row">
+							<div class="col">
+								<p class="mg-md">
+									<strong>MRF garanti</strong><br>
+								</p>
+								<div class="form-check">
+									<input class="form-check-input" type="checkbox" id="mrf-garanti-ja" />
+									<label class="form-check-label">
+										Ja
+									</label>
+								</div>
+								<div class="form-check checkbox-style">
+									<input class="form-check-input" type="checkbox" id="mrf-garanti-nej" />
+									<label class="form-check-label">
+										Nej
+									</label>
+								</div>
+							</div>
+							<div class="col">
+								<p class="mg-md">
+									<strong>antal månader</strong><br>
+								</p>
+								<div class="form-group">
+									<input class="form-control" id="mrf-garanti-antalmånader" />
+								</div>
+							</div>
+							<div class="col">
+								<p class="mg-md">
+									<strong>eller km</strong><br>
+								</p>
+								<input class="form-control" id="mrf-garanti-eller-km" />
+							</div>
+						</div>
+						<div class="row">
+							<div class="col">
+								<p class="mg-md">
+									<strong>Annan garanti som omfattar hela bilen</strong><br>
+								</p>
+								<div class="form-check">
+									<input class="form-check-input" type="checkbox" id="annan-garanti--ja" />
+									<label class="form-check-label">
+										Ja
+									</label>
+								</div>
+								<div class="form-check checkbox-style">
+									<input class="form-check-input" type="checkbox" id="annan-garanti--nej" />
+									<label class="form-check-label">
+										Nej
+									</label>
+								</div>
+							</div>
+							<div class="col">
+								<p class="mg-md">
+									<strong>antal månader</strong><br>
+								</p>
+								<input class="form-control" id="annan-garanti-antal-månader" />
+							</div>
+							<div class="col">
+								<p class="mg-md">
+									<strong>eller km</strong><br>
+								</p>
+								<input class="form-control" id="antal-månader-eller-km" />
+							</div>
+						</div>
+						<div class="row">
+							<div class="col">
+								<p class="mg-md">
+									<strong>Garanti som omfattar delar av bilen</strong><br>
+								</p>
+								<div class="form-check">
+									<input class="form-check-input" type="checkbox" id="garanti-som--ja" />
+									<label class="form-check-label">
+										Ja
+									</label>
+								</div>
+								<div class="form-check checkbox-style">
+									<input class="form-check-input" type="checkbox" id="garanti-som--nej" />
+									<label class="form-check-label">
+										Nej
+									</label>
+								</div>
+							</div>
+							<div class="col">
+								<p class="mg-md">
+									<strong>antal månader</strong><br>
+								</p>
+								<input class="form-control" id="garanti-som-antal-månader" />
+							</div>
+							<div class="col">
+								<p class="mg-md">
+									<strong>eller km</strong><br>
+								</p>
+								<input class="form-control" id="garanti-som--eller-km" />
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col">
+						<h3 class="mg-md h3-style">
+							<strong>KAMREM</strong><br>
+						</h3>
+						<div class="row">
+							<div class="col">
+								<p class="mg-md">
+									<strong>Bytt</strong><br>
+								</p>
+								<div class="form-check">
+									<input class="form-check-input" type="checkbox" id="bytt-ja" />
+									<label class="form-check-label">
+										Ja
+									</label>
+								</div>
+								<div class="form-check checkbox-style">
+									<input class="form-check-input" type="checkbox" id="bytt-nej" />
+									<label class="form-check-label">
+										Nej
+									</label>
+								</div>
+							</div>
+							<div class="col">
+								<p class="mg-md">
+									<strong>Senast vid</strong><br>
+								</p>
+								<div class="form-group">
+									<input class="form-control" id="senast-in-km" placeholder=".. km" />
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col">
+								<p class="mg-md">
+									<strong>Årlig fordonsskatt</strong><br>
+								</p>
+								<input class="form-control" id="årlig-fordonsskatt" />
+							</div>
+							<div class="col">
+								<p class="mg-md">
+									<strong>Servicebok</strong><br>
+								</p>
+								<div class="form-check">
+									<input class="form-check-input" type="checkbox" id="servicebok-ja" />
+									<label class="form-check-label">
+										Ja
+									</label>
+								</div>
+								<div class="form-check checkbox-style">
+									<input class="form-check-input" type="checkbox" id="servicebok-nej" />
+									<label class="form-check-label">
+										Nej
+									</label>
+								</div>
+							</div>
+							<div class="col">
+								<p class="mg-md">
+									<strong>Senaste kontrollbesiktning</strong><br>
+								</p>
+								<input class="form-control" id="senaste-kontrollbesiktning-datum" placeholder="datum" />
+								<input class="form-control" placeholder="mätarställning" id="senaste-kontrollbesiktning-mätarställning" />
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col">
+						<h3 class="mg-md h3-style">
+							<strong>BILENS KONDITION</strong><br>
+						</h3>
+						<div class="row">
+							<div class="col offset-lg-0">
+								<div class="form-check">
+									<input class="form-check-input" type="checkbox" id="b-kondition" />
+									<label class="form-check-label">
+										Ej konditionsdeklarerad (Bilen kostar 30 000 kronor eller mindre.) Bedömningsgrunder N = Normalt skick O = Osäker funktion/viss försämring jämfört med normalt F = Felaktig/kräver reparation
+									</label>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col">
+				<div class="row">
+					<div class="col-lg-6">
+						<div class="form-group">
+							<label>
+								Koppling
+							</label>
+						</div>
+						<div class="row">
+							<div class="col">
+								<input class="form-control" id="kopp" placeholder="Bedömning" />
+							</div>
+							<div class="col">
+								<input class="form-control" placeholder="Rep. kostnader" id="kopp-rep" />
+							</div>
+						</div>
+						<div class="form-group">
+							<label>
+								Växellåda
+							</label>
+							<div class="row">
+								<div class="col">
+									<input class="form-control" id="vax-bedömning" placeholder="Bedömning" />
+								</div>
+								<div class="col">
+									<input class="form-control" placeholder="Rep. kostnader" id="vax-rep" />
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<label>
+								Slutväxel, drivaxlar, drivknutar
+							</label>
+							<div class="row">
+								<div class="col">
+									<input class="form-control" id="slut-bedömning" placeholder="Bedömning" />
+								</div>
+								<div class="col">
+									<input class="form-control" placeholder="Rep. kostnader" id="slut-rep" />
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<label>
+								Värme, värmefläkt, ev. värmesits
+							</label>
+							<div class="row">
+								<div class="col">
+									<input class="form-control" id="varme-bedömning" placeholder="Bedömning" />
+								</div>
+								<div class="col">
+									<input class="form-control" placeholder="Rep. kostnader" id="varme-rep" />
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<label>
+								Batteri
+							</label>
+							<div class="row">
+								<div class="col">
+									<input class="form-control" placeholder="Bedömning" id="batteri-bedömning" />
+								</div>
+								<div class="col">
+									<input class="form-control" id="batteri-rep" placeholder="Rep. kostnader" />
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<label>
+								Startmotor
+							</label>
+							<div class="row">
+								<div class="col">
+									<input class="form-control" id="startmotor-bedömning" placeholder="Bedömning" />
+								</div>
+								<div class="col">
+									<input class="form-control" placeholder="Rep. kostnader" id="startmotor-rep" />
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<label>
+								Generator
+							</label>
+							<div class="row">
+								<div class="col">
+									<input class="form-control" id="gentr-bedömning" placeholder="Bedömning" />
+								</div>
+								<div class="col">
+									<input class="form-control" placeholder="Rep. kostnader" id="gentr-rep" />
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<label>
+								Motor
+							</label>
+							<div class="row">
+								<div class="col">
+									<input class="form-control" placeholder="Bedömning" id="motor-bedömning" />
+								</div>
+								<div class="col">
+									<input class="form-control" id="moto-rep" placeholder="Rep. kostnader" />
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<label>
+								Tändsystem
+							</label>
+							<div class="row">
+								<div class="col">
+									<input class="form-control" id="tändsystem--bedömning" placeholder="Bedömning" />
+								</div>
+								<div class="col">
+									<input class="form-control" placeholder="Rep. kostnader" id="tändsystem-rep" />
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<label>
+								Cyl-balans/kompression
+							</label>
+							<div class="row">
+								<div class="col">
+									<input class="form-control" id="cyl-balans-kompression-bedömning" placeholder="Bedömning" />
+								</div>
+								<div class="col">
+									<input class="form-control" placeholder="Rep. kostnader" id="cyl-balans-kompression-rep" />
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<label>
+								Missljud/läckage
+							</label>
+							<div class="row">
+								<div class="col">
+									<input class="form-control" id="missljud-läckage-bedömning" placeholder="Bedömning" />
+								</div>
+								<div class="col">
+									<input class="form-control" placeholder="Rep. kostnader" id="missljud-läckage-rep" />
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<label>
+								Bränslesystem
+							</label>
+							<div class="row">
+								<div class="col">
+									<input class="form-control" id="bränslesystem-bedömning" placeholder="Bedömning" />
+								</div>
+								<div class="col">
+									<input class="form-control" placeholder="Rep. kostnader" id="bränslesystem-rep" />
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<label>
+								Kylsystem
+							</label>
+							<div class="row">
+								<div class="col">
+									<input class="form-control" id="kylsystem-bedömning" placeholder="Bedömning" />
+								</div>
+								<div class="col">
+									<input class="form-control" placeholder="Rep. kostnader" id="kylsystem-rep" />
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<label>
+								Klimatanläggning
+							</label>
+							<div class="row">
+								<div class="col">
+									<input class="form-control" id="klimatanläggning-bedömning" placeholder="Bedömning" />
+								</div>
+								<div class="col">
+									<input class="form-control" placeholder="Rep. kostnader" id="klimatanläggning-rep" />
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<label>
+								Lack, kaross, interiör
+							</label>
+							<div class="row">
+								<div class="col">
+									<input class="form-control" id="lac-bedömning" placeholder="Bedömning" />
+								</div>
+								<div class="col">
+									<input class="form-control" placeholder="Rep. kostnader" id="lack-rep" />
+								</div>
+							</div>
+							<label>
+								Däck, mönsterdjup/mm
+							</label>
+						</div>
+						<div class="form-group">
+							<div class="row">
+								<div class="col">
+									<div class="form-group">
+										<input class="form-control" placeholder="VF" id="vf" />
+									</div>
+								</div>
+								<div class="col">
+									<div class="form-group">
+										<input class="form-control" placeholder="HF" id="hf" />
+									</div>
+								</div>
+								<div class="col">
+									<div class="form-group">
+										<input class="form-control" placeholder="VB" id="vb" />
+									</div>
+								</div>
+								<div class="col">
+									<div class="form-group">
+										<input class="form-control" placeholder="HB" id="hb" />
+									</div>
+								</div>
+								<div class="col">
+									<div class="form-group">
+										<input class="form-control" placeholder="Res" id="res" />
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col">
+									<input class="form-control" id="däck-bedömning" placeholder="Bedömning" />
+								</div>
+								<div class="col">
+									<input class="form-control" placeholder="Rep. kostnader" id="däck-rep" />
+								</div>
+							</div>
+							<label>
+								Övrigt
+							</label>
+							<div class="row">
+								<div class="col">
+									<input class="form-control" placeholder="Bedömning" id="övrigt--bedömning" />
+								</div>
+								<div class="col">
+									<input class="form-control" placeholder="Rep. kostnader" id="övrigt-rep" />
+								</div>
+							</div>
+							<input class="form-control" placeholder="Beräknad total reparationskostnad kr" id="input_159" />
+						</div>
+					</div>
+					<div class="col-lg-6">
+						<img src="img/lazyload-ph.png" data-src="img/Screenshot%202020-01-17%20at%208.45.27%20AM.png" class="img-fluid mx-auto d-block lazyload" />
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col">
+				<h3 class="mg-md h3-style">
+					<strong>Anmärkningar, övriga upplysningar, ange pos.</strong><br>
+				</h3>
+				<div class="form-group">
+					<label>
+						Stolvärme ur funk förrarsidan
+					</label><textarea class="form-control " rows="4" cols="50" id="stolvärme"></textarea>
+				</div>
+				<div class="form-group">
+					<label>
+						Undersökning och provkörning (datum och signatur)
+					</label><textarea class="form-control" rows="4" cols="50" id="undersökning"></textarea>
+				</div>
+			</div>
+		</div>
+		<div class="row no-gutters">
+			<div class="col-lg-4 offset-lg-4 col-sm-6 offset-sm-3 col">
+				<div class="text-center">
+					<a href="index.html" class="btn btn-d btn-clean btn-lg btn-save-style" id="save-btn">Save</a>
+				</div>
+				<div class="text-center">
+					<a href="index.html" class="btn btn-wire btn-cancel-style btn-lg" id="cancel-btn">Cancel</a>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-10 align-self-end">
+				<p class="float-lg-none">
+					<strong>Deklarationen är utarbetad i samråd mellan Konsumentverket och MRF.</strong>
+				</p>
+			</div>
+			<div class="col">
+				<p>
+					<strong>VÄND!</strong>
+				</p>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- bloc-3 END -->
+
+<!-- ScrollToTop Button -->
+<a class="bloc-button btn btn-d scrollToTop" onclick="scrollToTarget('1',this)"><span class="fa fa-chevron-up"></span></a>
+<!-- ScrollToTop Button END-->
+
+
+</div>
+<!-- Main container END -->
+    
+
+<script src="./js/jquery-3.3.1.min.js?327"></script>
+<script src="./js/bootstrap.bundle.min.js?9544"></script>
+<script src="./js/blocs.min.js?6687"></script>
+<script src="./js/lazysizes.min.js" defer></script>
+<!-- Additional JS END -->
+
+
+
+<!-- Preloader -->
+<div id="page-loading-blocs-notifaction" class="page-preloader"></div>
+<!-- Preloader END -->
+
+</body>
+</html>
