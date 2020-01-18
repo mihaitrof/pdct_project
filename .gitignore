@@ -1,3 +1,4 @@
 node_modules/
-key
-key.pub
+# key
+# key.pub
+# config/

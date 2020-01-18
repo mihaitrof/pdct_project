@@ -1,7 +1,6 @@
 "use strict";
 require("isomorphic-fetch");
 require("underscore");
-// require('html');
 const graphql = require("graphql");
 const express = require("express");
 const expressGraphQl = require("express-graphql");
@@ -9,6 +8,7 @@ const { GraphQLSchema } = graphql;
 const { query } = require("./schemas/queries");
 const { mutation } = require("./schemas/mutations");
 const path = require('path');
+const auth = require('./auth');
 
 const schema = new GraphQLSchema({
   query,
@@ -312,6 +312,8 @@ app.get('/login', (req, res) => {
   res.render(__dirname + "/ui/index.html");
 
 });
+
+app.post('/signup', auth.signup);
 
 app.listen(9000, () =>
   console.log('GraphQL server running on localhost:9000')
