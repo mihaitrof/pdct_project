@@ -25,37 +25,24 @@ app.use(
   })
 );
 
-// app.set('views', __dirname + '/views');
 app.engine('html', require('ejs').renderFile);
 app.use('/static', express.static('ui'));
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, '/ui/css')));
 
-app.get('/pdf/', (req,res) => {
+app.post('/submit-vd', function (req, res) {
+  console.log(req.body);
 
+  res.end();
+});
 
+app.get('/vd/:contract_id', function(req, res) {
 
-  // const domElement = document.getElementById('your-id')
-  //     html2canvas(domElement, { onclone: (document) => {
-  //       document.getElementById('print-button').style.visibility = 'hidden'
-  //     }})
-  //     .then((canvas) => {
-  //         const img = canvas.toDataURL('image/png')
-  //         const pdf = new jsPdf()
-  //         pdf.addImage(imgData, 'JPEG', 0, 0, width, height)
-  //         pdf.save('your-filename.pdf')
+  var contract_id = req.params.contract_id;
 
-
-})
-
-// function export_div(){
-//   var pdf = new jsPDF("p", "pt", "a4");
-//   pdf.addHTML($('#bloc-3'), 15, 15, function() {
-//     pdf.save('contract.pdf');
-//   });
-// }
-
+  res.render(__dirname + "/ui/value_declaration/contract.html");
+});
 
 app.get('/contract/:contract_id', function(req, res) {
 
@@ -319,6 +306,12 @@ app.post('/submit-form', (req, res) => {
   
   res.end();
 })
+
+app.get('/login', (req, res) => {
+
+  res.render(__dirname + "/ui/index.html");
+
+});
 
 app.listen(9000, () =>
   console.log('GraphQL server running on localhost:9000')

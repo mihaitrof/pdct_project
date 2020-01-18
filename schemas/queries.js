@@ -130,7 +130,8 @@ const RootQuery = new GraphQLObjectType({
           .then(res => res)
           .catch(err => err);
       }
-    }
+    },
+
   }
 });
 

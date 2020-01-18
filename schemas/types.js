@@ -96,7 +96,21 @@ const PurchaseAgreementType = new GraphQLObjectType({
   }
 });
 
+const UserType = new GraphQLObjectType({
+  name: "User",
+  type: "Query",
+  fields: {
+    id: { type: GraphQLString },
+    name: { type: GraphQLString},
+    email: { type: GraphQLString },
+    password: { type: GraphQLString },
+  }
+});
+
+
+
 exports.ContractIdsType = ContractIdsType;
 exports.BalanceDueType = BalanceDueType;
 exports.PurchaseAgreementType = PurchaseAgreementType;
 exports.ContractType = ContractType;
+exports.UserType = UserType;
