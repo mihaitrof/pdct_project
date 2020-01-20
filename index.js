@@ -50,20 +50,20 @@ app.use('/static', express.static('ui'));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, '/ui/css')));
 
-app.post('/submit-vd', function (req, res) {
+app.post('/submit-vd/:contract_id', function (req, res) {
   console.log(req.body);
 
   res.end();
 });
 
-app.get('/vd/:contract_id', requireAuth, function(req, res) {
+app.get('/vd/:contract_id', /*requireAuth,*/ function(req, res) {
 
   var contract_id = req.params.contract_id;
 
   res.render(__dirname + "/ui/value_declaration/contract.html");
 });
 
-app.get('/contract/:contract_id', requireAuth, function(req, res) {
+app.get('/contract/:contract_id', /*requireAuth,*/ function(req, res) {
 
   var contract_id = req.params.contract_id;
 
