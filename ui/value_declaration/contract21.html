@@ -88,7 +88,7 @@
 				</h3>
 			</div>
 		</div>
-		<div class="row">
+		<div class="row"><!--engine_output>-->
 			<div class="col">
 				<div class="form-group">
 					<label>
@@ -105,7 +105,7 @@
 					<input class="form-control" name="hkr" />
 				</div>
 			</div>
-			<div class="col">
+			<div class="col"><!--general_info.fuel-->
 				<div class="form-group">
 					<label>
 						Drivmedel
@@ -139,7 +139,7 @@
 					</label>
 				</div>
 			</div>
-			<div class="col">
+			<div class="col"><!--general_info.gearbox-->
 				<div class="form-group">
 					<label>
 						Växellåda
@@ -165,8 +165,8 @@
 					<strong>GARANTIER</strong> utfärdade av generalagenten<br>Om ja, se separata villkor utfärdade av generalagenten<br>
 				</h3>
 				<div class="row">
-					<div class="col">
-						<p class="mg-md">
+					<div class="col"> <!--warrancy.bumper-->
+						<p class="mg-md"> 
 							<strong>Nybilsgaranti</strong>
 						</p>
 						<div class="form-check">
@@ -176,24 +176,24 @@
 							</label>
 						</div>
 						<div class="form-check">
-							<input class="form-check-input" type="checkbox" id="bumper-no" />
+							<input class="form-check-input" type="checkbox" name="bumper-no" />
 							<label class="form-check-label">
 								Nej
 							</label>
 						</div>
 					</div>
-					<div class="col">
+					<div class="col"> <!--warrancy.corrosion-->
 						<p class="mg-md">
 							<strong>Rostskyddsgaranti</strong><br>
 						</p>
 						<div class="form-check">
-							<input class="form-check-input" type="checkbox" id="corrosion-yes" />
+							<input class="form-check-input" type="checkbox" name="corrosion-yes" />
 							<label class="form-check-label">
 								Ja
 							</label>
 						</div>
 						<div class="form-check">
-							<input class="form-check-input" type="checkbox" id="corrosion-no" />
+							<input class="form-check-input" type="checkbox" name="corrosion-no" />
 							<label class="form-check-label">
 								Nej
 							</label>
@@ -206,13 +206,13 @@
 							<strong>Vagnskadegaranti</strong><br>
 						</p>
 						<div class="form-check">
-							<input class="form-check-input" type="checkbox" id="collision_damage-yes" />
+							<input class="form-check-input" type="checkbox" name="collision_damage-yes" />
 							<label class="form-check-label">
 								Ja
 							</label>
 						</div>
 						<div class="form-check">
-							<input class="form-check-input" type="checkbox" id="collision_damage-no" />
+							<input class="form-check-input" type="checkbox" name="collision_damage-no" />
 							<label class="form-check-label">
 								Nej
 							</label>
@@ -223,13 +223,13 @@
 							<strong>Avgasåtagande</strong>
 						</p>
 						<div class="form-check">
-							<input class="form-check-input" type="checkbox" id="exhaust_commitment-yes" />
+							<input class="form-check-input" type="checkbox" name="exhaust_commitment-yes" />
 							<label class="form-check-label">
 								Ja
 							</label>
 						</div>
 						<div class="form-check">
-							<input class="form-check-input" type="checkbox" id="exhaust_commitment-no" />
+							<input class="form-check-input" type="checkbox" name="exhaust_commitment-no" />
 							<label class="form-check-label">
 								Nej
 							</label>
@@ -271,24 +271,24 @@
 							<strong>GARANTIER</strong> utfärdade av säljaren (Garantin upphör när endera av angiven tid/körsträcka uppnåtts.)<br>
 						</h3>
 						<div class="row">
-							<div class="col">
+							<div class="col"><!--mrf : Just for debuging and testing later-->
 								<p class="mg-md">
 									<strong>MRF garanti</strong><br>
 								</p>
 								<div class="form-check">
-									<input class="form-check-input" type="checkbox" id="mrf-garanti-ja" />
+									<input class="form-check-input" type="checkbox" name="mrf-yes" />
 									<label class="form-check-label">
 										Ja
 									</label>
 								</div>
 								<div class="form-check checkbox-style">
-									<input class="form-check-input" type="checkbox" id="mrf-garanti-nej" />
+									<input class="form-check-input" type="checkbox" name="mrf-no" />
 									<label class="form-check-label">
 										Nej
 									</label>
 								</div>
 							</div>
-							<div class="col">
+							<div class="col"> <!--mrf.months_number-->
 								<p class="mg-md">
 									<strong>antal månader</strong><br>
 								</p>
@@ -296,7 +296,7 @@
 									<input class="form-control" name="mrf_months_number" type="number" />
 								</div>
 							</div>
-							<div class="col">
+							<div class="col"><!--mrf.km-->
 								<p class="mg-md">
 									<strong>eller km</strong><br>
 								</p>
@@ -308,26 +308,26 @@
 								<p class="mg-md">
 									<strong>Annan garanti som omfattar hela bilen</strong><br>
 								</p>
-								<div class="form-check">
-									<input class="form-check-input" type="checkbox" id="annan-garanti--ja" />
+								<div class="form-check"><!--other_warranty : Just for debuging and testing later-->
+									<input class="form-check-input" type="checkbox" name="other_warranty-yes" />
 									<label class="form-check-label">
 										Ja
 									</label>
 								</div>
 								<div class="form-check checkbox-style">
-									<input class="form-check-input" type="checkbox" id="annan-garanti--nej" />
+									<input class="form-check-input" type="checkbox" name="other_warranty-no" />
 									<label class="form-check-label">
 										Nej
 									</label>
 								</div>
 							</div>
-							<div class="col">
+							<div class="col"><!--other_warranty.months_number-->
 								<p class="mg-md">
 									<strong>antal månader</strong><br>
 								</p>
-								<input class="form-control" name="other_warrancy_months" type="number" />
+								<input class="form-control" name="other_warrancy_months_number" type="number" />
 							</div>
-							<div class="col">
+							<div class="col"><!--other_warranty.km-->
 								<p class="mg-md">
 									<strong>eller km</strong><br>
 								</p>
@@ -335,30 +335,30 @@
 							</div>
 						</div>
 						<div class="row">
-							<div class="col">
+							<div class="col"><!--car_parts_id-->
 								<p class="mg-md">
 									<strong>Garanti som omfattar delar av bilen</strong><br>
 								</p>
-								<div class="form-check">
-									<input class="form-check-input" type="checkbox" id="garanti-som--ja" />
+								<div class="form-check"><!--car_parts : Just for debuging and testing later-->
+									<input class="form-check-input" type="checkbox" name="car_parts-yes" />
 									<label class="form-check-label">
 										Ja
 									</label>
 								</div>
 								<div class="form-check checkbox-style">
-									<input class="form-check-input" type="checkbox" id="garanti-som--nej" />
+									<input class="form-check-input" type="checkbox" name="car_parts-no" />
 									<label class="form-check-label">
 										Nej
 									</label>
 								</div>
 							</div>
-							<div class="col">
+							<div class="col"><!--car_parts.months_number-->
 								<p class="mg-md">
 									<strong>antal månader</strong><br>
 								</p>
-								<input class="form-control" name="car_parts_months" />
+								<input class="form-control" name="car_parts_months_number" />
 							</div>
-							<div class="col">
+							<div class="col"><!--car_parts.km-->
 								<p class="mg-md">
 									<strong>eller km</strong><br>
 								</p>
@@ -368,23 +368,23 @@
 					</div>
 				</div>
 				<div class="row">
-					<div class="col">
+					<div class="col"><!--timing_belt-->
 						<h3 class="mg-md h3-style">
 							<strong>KAMREM</strong><br>
 						</h3>
 						<div class="row">
-							<div class="col">
+							<div class="col"><!--timing_belt.changed-->
 								<p class="mg-md">
 									<strong>Bytt</strong><br>
 								</p>
 								<div class="form-check">
-									<input class="form-check-input" type="checkbox" name="changed_yes" />
+									<input class="form-check-input" type="checkbox" name="timing_belt_changed_yes" />
 									<label class="form-check-label">
 										Ja
 									</label>
 								</div>
 								<div class="form-check checkbox-style">
-									<input class="form-check-input" type="checkbox" name="changed_no" />
+									<input class="form-check-input" type="checkbox" name="timing_belt_changed_no" />
 									<label class="form-check-label">
 										Nej
 									</label>
@@ -395,40 +395,42 @@
 									<strong>Senast vid</strong><br>
 								</p>
 								<div class="form-group">
-									<input class="form-control" id="senast-in-km" placeholder=".. km" />
+									<input class="form-control" name="timing_belt_senast_vid" placeholder=".. km" />
 								</div>
 							</div>
 						</div>
 						<div class="row">
-							<div class="col">
+							<div class="col"><!--timing_belt.annual_tax-->
 								<p class="mg-md">
 									<strong>Årlig fordonsskatt</strong><br>
 								</p>
-								<input class="form-control" name="annual_tax" />
+								<input class="form-control" name="timing_belt.annual_tax" />
 							</div>
-							<div class="col">
+							<div class="col"><!--timing_belt.service_box-->
 								<p class="mg-md">
 									<strong>Servicebok</strong><br>
 								</p>
 								<div class="form-check">
-									<input class="form-check-input" type="checkbox" name="service_box-yes" />
+									<input class="form-check-input" type="checkbox" name="timing_belt_service_box-yes" />
 									<label class="form-check-label">
 										Ja
 									</label>
 								</div>
 								<div class="form-check checkbox-style">
-									<input class="form-check-input" type="checkbox" id="service_box-no" />
+									<input class="form-check-input" type="checkbox" name="timing_belt_service_box-no" />
 									<label class="form-check-label">
 										Nej
 									</label>
 								</div>
 							</div>
-							<div class="col">
+							<div class="col"><!--latest_inspection-->
 								<p class="mg-md">
 									<strong>Senaste kontrollbesiktning</strong><br>
 								</p>
+								<!--latest_inspection.date-->
 								<input class="form-control" name="latest_inspection_date" placeholder="datum" />
-								<input class="form-control" placeholder="mätarställning" id="latest_inspection_mileage" type="number" />
+								<!--latest_inspection.mileage-->
+								<input class="form-control" placeholder="mätarställning" name="latest_inspection_mileage" type="number" />
 							</div>
 						</div>
 					</div>
@@ -455,7 +457,7 @@
 		<div class="row">
 			<div class="col">
 				<div class="row">
-					<div class="col-lg-6">
+					<div class="col-lg-6"><!--body-->
 						<div class="form-group">
 							<label>
 								Koppling

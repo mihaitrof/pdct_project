@@ -25,6 +25,7 @@
 <div class="page-container">
     
 <!-- bloc-3 -->
+<form method="POST" id="submit_vd" onsubmit="setAction()"></form>
 <div class="bloc l-bloc" id="bloc-3">
 	<div class="container bloc-lg">
 		<div class="row">
@@ -53,7 +54,7 @@
 								<label>
 									Fabrikat/typ<br>
 								</label>
-								<input class="form-control" id="fabrikat-typ" />
+								<input class="form-control" name="type" />
 							</div>
 						</div>
 						<div class="col">
@@ -61,7 +62,7 @@
 								<label>
 									&nbsp;Årsmodell/Tillverkningsår<br>och -månad<br>
 								</label>
-								<input class="form-control" id="årsmodell" />
+								<input class="form-control" name="manufacture_date"  type="date" />
 							</div>
 						</div>
 						<div class="col">
@@ -69,7 +70,7 @@
 								<label>
 									Mätarställning
 								</label>
-								<input class="form-control" id="mätarställning" />
+								<input class="form-control" name="mileage" type="number" />
 							</div>
 						</div>
 						<div class="col">
@@ -77,7 +78,7 @@
 								<label>
 									Reg.nr
 								</label>
-								<input class="form-control" id="reg-nr" />
+								<input class="form-control" name="registration_number" />
 							</div>
 						</div>
 					</div>
@@ -93,7 +94,7 @@
 					<label>
 						kW
 					</label>
-					<input class="form-control" id="kw" />
+					<input class="form-control" name="kw" type="number" />
 				</div>
 			</div>
 			<div class="col">
@@ -101,7 +102,7 @@
 					<label>
 						hkr
 					</label>
-					<input class="form-control" id="hkr" />
+					<input class="form-control" name="hkr" />
 				</div>
 			</div>
 			<div class="col">
@@ -164,35 +165,35 @@
 					<strong>GARANTIER</strong> utfärdade av generalagenten<br>Om ja, se separata villkor utfärdade av generalagenten<br>
 				</h3>
 				<div class="row">
-					<div class="col">
+					<div class="col"> <!--warrancy.bumper-->
 						<p class="mg-md">
 							<strong>Nybilsgaranti</strong>
 						</p>
 						<div class="form-check">
-							<input class="form-check-input" type="checkbox" id="nybilsgaranti-ja" />
+							<input class="form-check-input" type="checkbox" name="bumper-yes" />
 							<label class="form-check-label">
 								Ja
 							</label>
 						</div>
 						<div class="form-check">
-							<input class="form-check-input" type="checkbox" id="nybilsgaranti-nej" />
+							<input class="form-check-input" type="checkbox" name="bumper-no" />
 							<label class="form-check-label">
 								Nej
 							</label>
 						</div>
 					</div>
-					<div class="col">
+					<div class="col"> <!--warrancy.corrosion-->
 						<p class="mg-md">
 							<strong>Rostskyddsgaranti</strong><br>
 						</p>
 						<div class="form-check">
-							<input class="form-check-input" type="checkbox" id="rostskyddsgaranti-ja" />
+							<input class="form-check-input" type="checkbox" name="corrosion-yes" />
 							<label class="form-check-label">
 								Ja
 							</label>
 						</div>
 						<div class="form-check">
-							<input class="form-check-input" type="checkbox" id="rostskyddsgaranti-nej" />
+							<input class="form-check-input" type="checkbox" name="corrosion-no" />
 							<label class="form-check-label">
 								Nej
 							</label>
@@ -200,35 +201,35 @@
 					</div>
 				</div>
 				<div class="row">
-					<div class="col">
+					<div class="col"><!--warrancy.corrosion-->
 						<p class="mg-md">
 							<strong>Vagnskadegaranti</strong><br>
 						</p>
 						<div class="form-check">
-							<input class="form-check-input" type="checkbox" id="vagnskadegaranti-ja" />
+							<input class="form-check-input" type="checkbox" name="collision_damage-yes" />
 							<label class="form-check-label">
 								Ja
 							</label>
 						</div>
 						<div class="form-check">
-							<input class="form-check-input" type="checkbox" id="vagnskadegaranti-nej" />
+							<input class="form-check-input" type="checkbox" name="collision_damage-no" />
 							<label class="form-check-label">
 								Nej
 							</label>
 						</div>
 					</div>
-					<div class="col">
+					<div class="col"><!--warrancy.exhaust_commitement-->
 						<p class="mg-md">
 							<strong>Avgasåtagande</strong>
 						</p>
 						<div class="form-check">
-							<input class="form-check-input" type="checkbox" id="avgasåtagande-ja" />
+							<input class="form-check-input" type="checkbox" name="exhaust_commitment-yes" />
 							<label class="form-check-label">
 								Ja
 							</label>
 						</div>
 						<div class="form-check">
-							<input class="form-check-input" type="checkbox" id="avgasåtagande-nej" />
+							<input class="form-check-input" type="checkbox" name="exhaust_commitment-no" />
 							<label class="form-check-label">
 								Nej
 							</label>
@@ -236,23 +237,23 @@
 					</div>
 				</div>
 				<div class="row">
-					<div class="col-lg-11">
+					<div class="col-lg-11"> <!--general_info.repair_property-->
 						<h3 class="mg-md h3-style">
 							<strong>REPARATIONSOBJEKT&nbsp;</strong>m.m.<br>
 						</h3>
 						<div class="form-check">
-							<input class="form-check-input" type="checkbox" id="reparationsobjekt" />
+							<input class="form-check-input" type="checkbox" name="repair_property" />
 							<label class="form-check-label">
 								Bilen säljs som reparationsobjekt eller skrotbil. En bil som har fel eller brister vad gäller trafiksäkerheten får säljas som reparations-/renoveringsobjekt eller skrotbil om detta tydligt framgår av köpekontraktet. Bilen får i dessa fall inte köras utan ska transporteras från platsen.
 							</label>
 						</div>
 					</div>
-					<div class="col-lg-11">
+					<div class="col-lg-11"> <!--general_info.car_safety_id-->
 						<h3 class="mg-md h3-style">
 							<strong>BILENS SÄKERHET (gäller alla bilar)</strong><br>
 						</h3>
 						<div class="form-check">
-							<input class="form-check-input" type="checkbox" id="b-säkerhet" />
+							<input class="form-check-input" type="checkbox" name="car_safety_id" />
 							<label class="form-check-label">
 								Bilens säkerhet överensstämmer med resultat i bifogat protokoll från obliga- torisk kontrollbesiktning.
 							</label>
@@ -270,36 +271,36 @@
 							<strong>GARANTIER</strong> utfärdade av säljaren (Garantin upphör när endera av angiven tid/körsträcka uppnåtts.)<br>
 						</h3>
 						<div class="row">
-							<div class="col">
+							<div class="col"><!--mrf : Just for debuging and testing later-->
 								<p class="mg-md">
 									<strong>MRF garanti</strong><br>
 								</p>
 								<div class="form-check">
-									<input class="form-check-input" type="checkbox" id="mrf-garanti-ja" />
+									<input class="form-check-input" type="checkbox" name="mrf-yes" />
 									<label class="form-check-label">
 										Ja
 									</label>
 								</div>
 								<div class="form-check checkbox-style">
-									<input class="form-check-input" type="checkbox" id="mrf-garanti-nej" />
+									<input class="form-check-input" type="checkbox" name="mrf-no" />
 									<label class="form-check-label">
 										Nej
 									</label>
 								</div>
 							</div>
-							<div class="col">
+							<div class="col"><!--mrf.months_number-->
 								<p class="mg-md">
 									<strong>antal månader</strong><br>
 								</p>
 								<div class="form-group">
-									<input class="form-control" id="mrf-garanti-antalmånader" />
+									<input class="form-control" name="mrf_months_number" type="number" />
 								</div>
 							</div>
-							<div class="col">
+							<div class="col"><!--mrf.km-->
 								<p class="mg-md">
 									<strong>eller km</strong><br>
 								</p>
-								<input class="form-control" id="mrf-garanti-eller-km" />
+								<input class="form-control" name="mrf_km" type="number" />
 							</div>
 						</div>
 						<div class="row">
@@ -307,8 +308,8 @@
 								<p class="mg-md">
 									<strong>Annan garanti som omfattar hela bilen</strong><br>
 								</p>
-								<div class="form-check">
-									<input class="form-check-input" type="checkbox" id="annan-garanti--ja" />
+								<div class="form-check"><!--other_warranty : Just for debuging and testing later-->
+									<input class="form-check-input" type="checkbox" name="other_warranty-yes" />
 									<label class="form-check-label">
 										Ja
 									</label>
@@ -320,70 +321,70 @@
 									</label>
 								</div>
 							</div>
-							<div class="col">
+							<div class="col"><!--other_warranty.months_number-->
 								<p class="mg-md">
 									<strong>antal månader</strong><br>
 								</p>
-								<input class="form-control" id="annan-garanti-antal-månader" />
+								<input class="form-control" name="other_warrancy_months_number" type="number"/>
 							</div>
-							<div class="col">
+							<div class="col"><!--other_warranty.km-->
 								<p class="mg-md">
 									<strong>eller km</strong><br>
 								</p>
-								<input class="form-control" id="antal-månader-eller-km" />
+								<input class="form-control" name="other_warrancy_km" type="number" />
 							</div>
 						</div>
 						<div class="row">
-							<div class="col">
+							<div class="col"><!--car_parts_id-->
 								<p class="mg-md">
 									<strong>Garanti som omfattar delar av bilen</strong><br>
 								</p>
-								<div class="form-check">
-									<input class="form-check-input" type="checkbox" id="garanti-som--ja" />
+								<div class="form-check"><!--car_parts : Just for debuging and testing later-->
+									<input class="form-check-input" type="checkbox" name="car_parts-yes" />
 									<label class="form-check-label">
 										Ja
 									</label>
 								</div>
 								<div class="form-check checkbox-style">
-									<input class="form-check-input" type="checkbox" id="garanti-som--nej" />
+									<input class="form-check-input" type="checkbox" name="car_parts-no" />
 									<label class="form-check-label">
 										Nej
 									</label>
 								</div>
 							</div>
-							<div class="col">
+							<div class="col"><!--car_parts.months_number-->
 								<p class="mg-md">
 									<strong>antal månader</strong><br>
 								</p>
-								<input class="form-control" id="garanti-som-antal-månader" />
+								<input class="form-control" name="car_parts_months_number" />
 							</div>
-							<div class="col">
+							<div class="col"><!--car_parts.km-->
 								<p class="mg-md">
 									<strong>eller km</strong><br>
 								</p>
-								<input class="form-control" id="garanti-som--eller-km" />
+								<input class="form-control" name="car_parts_km" />
 							</div>
 						</div>
 					</div>
 				</div>
 				<div class="row">
-					<div class="col">
+					<div class="col"><!--timing_belt-->
 						<h3 class="mg-md h3-style">
 							<strong>KAMREM</strong><br>
 						</h3>
 						<div class="row">
-							<div class="col">
+							<div class="col"><!--timing_belt.changed-->
 								<p class="mg-md">
 									<strong>Bytt</strong><br>
 								</p>
 								<div class="form-check">
-									<input class="form-check-input" type="checkbox" id="bytt-ja" />
+									<input class="form-check-input" type="checkbox" name="timing_belt_changed_yes" />
 									<label class="form-check-label">
 										Ja
 									</label>
 								</div>
 								<div class="form-check checkbox-style">
-									<input class="form-check-input" type="checkbox" id="bytt-nej" />
+									<input class="form-check-input" type="checkbox" name="timing_belt_changed_no" />
 									<label class="form-check-label">
 										Nej
 									</label>
@@ -394,40 +395,42 @@
 									<strong>Senast vid</strong><br>
 								</p>
 								<div class="form-group">
-									<input class="form-control" id="senast-in-km" placeholder=".. km" />
+									<input class="form-control" name="timing_belt_senast_vid" placeholder=".. km" />
 								</div>
 							</div>
 						</div>
 						<div class="row">
-							<div class="col">
+							<div class="col"><!--timing_belt.annual_tax-->
 								<p class="mg-md">
 									<strong>Årlig fordonsskatt</strong><br>
 								</p>
-								<input class="form-control" id="årlig-fordonsskatt" />
+								<input class="form-control" name="timing_belt.annual_tax" />
 							</div>
-							<div class="col">
+							<div class="col"><!--timing_belt.service_box-->
 								<p class="mg-md">
 									<strong>Servicebok</strong><br>
 								</p>
 								<div class="form-check">
-									<input class="form-check-input" type="checkbox" id="servicebok-ja" />
+									<input class="form-check-input" type="checkbox" name="timing_belt_service_box-yes" />
 									<label class="form-check-label">
 										Ja
 									</label>
 								</div>
 								<div class="form-check checkbox-style">
-									<input class="form-check-input" type="checkbox" id="servicebok-nej" />
+									<input class="form-check-input" type="checkbox" name="timing_belt_service_box-no" />
 									<label class="form-check-label">
 										Nej
 									</label>
 								</div>
 							</div>
-							<div class="col">
+							<div class="col"><!--latest_inspection-->
 								<p class="mg-md">
 									<strong>Senaste kontrollbesiktning</strong><br>
 								</p>
-								<input class="form-control" id="senaste-kontrollbesiktning-datum" placeholder="datum" />
-								<input class="form-control" placeholder="mätarställning" id="senaste-kontrollbesiktning-mätarställning" />
+								<!--latest_inspection.date-->
+								<input class="form-control" name="latest_inspection_date" placeholder="datum" />
+								<!--latest_inspection.mileage-->
+								<input class="form-control" placeholder="mätarställning" name="latest_inspection_mileage" type="number" />
 							</div>
 						</div>
 					</div>
@@ -451,10 +454,10 @@
 				</div>
 			</div>
 		</div>
-		<div class="row"><!--left-->
+		<div class="row">
 			<div class="col">
 				<div class="row">
-					<div class="col-lg-6">
+					<div class="col-lg-6"><!--body-->
 						<div class="row ">
 							<div class="col">
 								<div class="card"> <!--STOMME-->
@@ -466,8 +469,28 @@
 									<div class="card-body">
 										<div class="row">
 											<div class="col-lg-2">
-												<div class="form-check">
-													<input class="form-check-input" type="checkbox" id="stomme-c" />
+												<div class="form-check"><!--body.side_member-->
+													<input class="form-check-input" type="checkbox" name="body_side_member" />
+													<label class="form-check-label">
+													</label>
+												</div>
+												<div class="form-check"><!--body.crossbeam-->
+													<input class="form-check-input" type="checkbox" name="body_crossbeam" />
+													<label class="form-check-label">
+													</label>
+												</div>
+												<div class="form-check"><!--body.floor-->
+													<input class="form-check-input" type="checkbox" name="body_floor" />
+													<label class="form-check-label">
+													</label>
+												</div>
+												<div class="form-check"><!--body.wheel_arch-->
+													<input class="form-check-input" type="checkbox" name="body_wheel_arch" />
+													<label class="form-check-label">
+													</label>
+												</div>
+												<div class="form-check"><!--body.other-->
+													<input class="form-check-input" type="checkbox" name="body_other" />
 													<label class="form-check-label">
 													</label>
 												</div>
@@ -489,15 +512,55 @@
 									<div class="card-body">
 										<div class="row">
 											<div class="col-lg-2">
-												<div class="form-check">
-													<input class="form-check-input" type="checkbox" id="hjulsystem-c" />
+												<div class="form-check"><!--wheel_system.deck-->
+													<input class="form-check-input" type="checkbox" name="wheel_system_deck" />
+													<label class="form-check-label">
+													</label>
+												</div>
+												<div class="form-check"><!--wheel_system.shock-->
+													<input class="form-check-input" type="checkbox" name="wheel_system_shock" />
+													<label class="form-check-label">
+													</label>
+												</div>
+												<div class="form-check"><!--wheel_system.bearings-->
+													<input class="form-check-input" type="checkbox" name="wheel_system_bearings" />
+													<label class="form-check-label">
+													</label>
+												</div>
+												<div class="form-check"><!--wheel_system.spindelled-->
+													<input class="form-check-input" type="checkbox" name="wheel_system_spindelled" />
+													<label class="form-check-label">
+													</label>
+												</div>
+												<div class="form-check"><!--wheel_system.front_link_arm-->
+													<input class="form-check-input" type="checkbox" name="wheel_system_front_link_arm" />
+													<label class="form-check-label">
+													</label>
+												</div>
+												<div class="form-check"><!--wheel_system.back_link_arm-->
+													<input class="form-check-input" type="checkbox" name="wheel_system_back_link_arm" />
+													<label class="form-check-label">
+													</label>
+												</div>
+												<div class="form-check"><!--wheel_system.feather-->
+													<input class="form-check-input" type="checkbox" name="wheel_system_feather" />
+													<label class="form-check-label">
+													</label>
+												</div>
+												<div class="form-check"><!--wheel_system.spring_bracket-->
+													<input class="form-check-input" type="checkbox" name="wheel_system_spring_bracket" />
+													<label class="form-check-label">
+													</label>
+												</div>
+												<div class="form-check"><!--wheel_system.other-->
+													<input class="form-check-input" type="checkbox" name="wheel_system_other" />
 													<label class="form-check-label">
 													</label>
 												</div>
 											</div>
 											<div class="col">
 												<p>
-													Däck <br>Stötdämpare Hjullager <br>Spindelled <br>Länkarm fram<br>–”– bak Fjäder <br>Fjäderfäste Övrigt<br>
+													Däck <br>Stötdämpare <br> Hjullager <br>Spindelled <br>Länkarm fram<br>–”– bak <br>Fjäder <br>Fjäderfäste <br>Övrigt<br>
 												</p>
 											</div>
 										</div>
@@ -512,15 +575,40 @@
 									<div class="card-body">
 										<div class="row">
 											<div class="col-lg-2">
-												<div class="form-check">
-													<input class="form-check-input" type="checkbox" id="drivsystem-c" />
+												<div class="form-check"><!--drive.fuel-->
+													<input class="form-check-input" type="checkbox" name="drive_fuel" />
+													<label class="form-check-label">
+													</label>
+												</div>
+												<div class="form-check"><!--drive.exhaust-->
+													<input class="form-check-input" type="checkbox" name="drive_exhaust" />
+													<label class="form-check-label">
+													</label>
+												</div>
+												<div class="form-check"><!--drive.transmission-->
+													<input class="form-check-input" type="checkbox" name="drive_transmission" />
+													<label class="form-check-label">
+													</label>
+												</div>
+												<div class="form-check"><!--drive.universal_joint-->
+													<input class="form-check-input" type="checkbox" name="drive_universal_joint" />
+													<label class="form-check-label">
+													</label>
+												</div>
+												<div class="form-check"><!--drive.power_supply-->
+													<input class="form-check-input" type="checkbox" name="drive_power_supply" />
+													<label class="form-check-label">
+													</label>
+												</div>
+												<div class="form-check"><!--drive.battery-->
+													<input class="form-check-input" type="checkbox" name="drive_battery" />
 													<label class="form-check-label">
 													</label>
 												</div>
 											</div>
 											<div class="col">
 												<p>
-													Bränslesystem<br> Avgassystem <br>Kraftöverföring <br>Drivknut <br>Elförsörjning Batteri<br>
+													Bränslesystem<br> Avgassystem <br>Kraftöverföring <br>Drivknut <br>Elförsörjning <br>Batteri<br>
 												</p>
 											</div>
 										</div>
@@ -535,15 +623,40 @@
 									<div class="card-body">
 										<div class="row">
 											<div class="col-lg-2">
-												<div class="form-check">
-													<input class="form-check-input" type="checkbox" id="bromssystem-c" />
+												<div class="form-check"><!--braking_system.service_brake_front-->
+													<input class="form-check-input" type="checkbox" name="braking_system_service_brake_front" />
+													<label class="form-check-label">
+													</label>
+												</div>
+												<div class="form-check"><!--braking_system.service_brake_back-->
+													<input class="form-check-input" type="checkbox" name="braking_system_service_brake_back" />
+													<label class="form-check-label">
+													</label>
+												</div>
+												<div class="form-check"><!--braking_system.service_brake_movement-->
+													<input class="form-check-input" type="checkbox" name="braking_system_service_brake_movement" />
+													<label class="form-check-label">
+													</label>
+												</div>
+												<div class="form-check"><!--braking_system.brake_hose-->
+													<input class="form-check-input" type="checkbox" name="braking_system_brake_hose" />
+													<label class="form-check-label">
+													</label>
+												</div>
+												<div class="form-check"><!--braking_system.battery-->
+													<input class="form-check-input" type="checkbox" name="braking_system_battery" />
+													<label class="form-check-label">
+													</label>
+												</div>
+												<div class="form-check"><!--braking_system.other-->
+													<input class="form-check-input" type="checkbox" name="braking_system_other" />
 													<label class="form-check-label">
 													</label>
 												</div>
 											</div>
 											<div class="col">
 												<p>
-													Färdbroms fram<br>–”– bak<br>– ” – rörelseres.<br> Bromsrör<br>Bromsslang<br>Batteri<br>
+													Färdbroms fram<br>–”– bak<br>– ” – rörelseres. <br>Bromsslang<br>Batteri<br> Övrigt<br>
 												</p>
 											</div>
 										</div>
@@ -552,21 +665,36 @@
 								<div class="card"> <!--STYRSYSTEM-->
 									<div class="card-header">
 										<h3 class="mg-clear">
-											KAROSSERI
+											STYRSYSTEM
 										</h3>
 									</div>
 									<div class="card-body">
 										<div class="row">
 											<div class="col-lg-2">
-												<div class="form-check">
-													<input class="form-check-input" type="checkbox" id="karosseri-c" />
+												<div class="form-check"><!--control_system.articulation_joint-->
+													<input class="form-check-input" type="checkbox" name="control_system_articulation_joint" />
+													<label class="form-check-label">
+													</label>
+												</div>
+												<div class="form-check"><!--control_system.steering_gear-->
+													<input class="form-check-input" type="checkbox" name="control_system_steering_gear" />
+													<label class="form-check-label">
+													</label>
+												</div>
+												<div class="form-check"><!--control_system.track_control_arm-->
+													<input class="form-check-input" type="checkbox" name="control_system_track_control_arm" />
+													<label class="form-check-label">
+													</label>
+												</div>
+												<div class="form-check"><!--control_system.other-->
+													<input class="form-check-input" type="checkbox" name="control_system_other" />
 													<label class="form-check-label">
 													</label>
 												</div>
 											</div>
 											<div class="col">
 												<p>
-													Dörr<br>Skärm <br>Vindruta <br>Bilbälte <br>Lastutrymme <br>Övrigt<br>
+													Styrled<br>Styrväxel <br>Styrarm <br>Övrigt <br>
 												</p>
 											</div>
 										</div>
@@ -581,8 +709,33 @@
 									<div class="card-body">
 										<div class="row">
 											<div class="col-lg-2">
-												<div class="form-check">
-													<input class="form-check-input" type="checkbox" />
+												<div class="form-check"><!--karosseri.door-->
+													<input class="form-check-input" type="checkbox"  name="karosseri_door" />
+													<label class="form-check-label">
+													</label>
+												</div>
+												<div class="form-check"><!--karosseri.screen-->
+													<input class="form-check-input" type="checkbox" name="karosseri_screen" />
+													<label class="form-check-label">
+													</label>
+												</div>
+												<div class="form-check"><!--karosseri.windshield-->
+													<input class="form-check-input" type="checkbox" name="karosseri_windshield"/>
+													<label class="form-check-label">
+													</label>
+												</div>
+												<div class="form-check"><!--karosseri.seat_belts-->
+													<input class="form-check-input" type="checkbox" name="karosseri_seat_belts"/>
+													<label class="form-check-label">
+													</label>
+												</div>
+												<div class="form-check"><!--karosseri.loading_space-->
+													<input class="form-check-input" type="checkbox" name="karosseri_loading_space"/>
+													<label class="form-check-label">
+													</label>
+												</div>
+												<div class="form-check"><!--karosseri.other-->
+													<input class="form-check-input" type="checkbox" name="karosseri_other"/>
 													<label class="form-check-label">
 													</label>
 												</div>
@@ -606,20 +759,81 @@
 									<div class="card-body">
 										<div class="row">
 											<div class="col-lg-2">
-												<div class="form-check">
-													<input class="form-check-input" type="checkbox" id="kommunikation-c" />
+												<div class="form-check"><!--communication.windscreen_wiper-->
+													<input class="form-check-input" type="checkbox" name="communication_windscreen_wiper" />
 													<label class="form-check-label">
 													</label>
 												</div>
-												<div class="form-check">
-													<input class="form-check-input" type="checkbox" id="kommunikation-c" />
+												<div class="form-check"><!--communication.windscreen_washer-->
+													<input class="form-check-input" type="checkbox" name="communicatio_windscreen_washer" />
 													<label class="form-check-label">
 													</label>
 												</div>
+												<div class="form-check"><!--communication.rearview_mirror-->
+													<input class="form-check-input" type="checkbox" name="communication_rearview_mirror" />
+													<label class="form-check-label">
+													</label>
+												</div>
+												<div class="form-check"><!--communication.headlight_setting-->
+													<input class="form-check-input" type="checkbox" name="communication_headlight_setting" />
+													<label class="form-check-label">
+													</label>
+												</div>
+												<div class="form-check"><!--communication.headlamp_1-->
+													<input class="form-check-input" type="checkbox" name="communication_headlamp_1" />
+													<label class="form-check-label">
+													</label>
+												</div>
+												<div class="form-check"><!--communication.headlamp_2-->
+													<input class="form-check-input" type="checkbox" name="communication_headlamp_2" />
+													<label class="form-check-label">
+													</label>
+												</div>
+												<div class="form-check"><!--communication.signal_device-->
+													<input class="form-check-input" type="checkbox" name="communication_signal_device" />
+													<label class="form-check-label">
+													</label>
+												</div>
+												<div class="form-check"><!--communication.side_marker-->
+													<input class="form-check-input" type="checkbox" name="communication_side_marker" />
+													<label class="form-check-label">
+													</label>
+												</div>
+												<div class="form-check"><!--communication.headlight_front-->
+													<input class="form-check-input" type="checkbox" name="ommunication_headlight_front" />
+													<label class="form-check-label">
+													</label>
+												</div>
+												<div class="form-check"><!--communication.headlight_back-->
+													<input class="form-check-input" type="checkbox" name="communication_headlight_back" />
+													<label class="form-check-label">
+													</label>
+												</div>
+												<div class="form-check"><!--communication.direction_indicator-->
+													<input class="form-check-input" type="checkbox" name="communication_direction_indicator" />
+													<label class="form-check-label">
+													</label>
+												</div>
+												<div class="form-check"><!--communication.stop_lamps-->
+													<input class="form-check-input" type="checkbox" name="communication_stop_lamps" />
+													<label class="form-check-label">
+													</label>
+												</div>
+												<div class="form-check"><!--communication.reflex-->
+													<input class="form-check-input" type="checkbox" name="communication_reflex" />
+													<label class="form-check-label">
+													</label>
+												</div>
+												<div class="form-check"><!--communication.other-->
+													<input class="form-check-input" type="checkbox" name="communication_other" />
+													<label class="form-check-label">
+													</label>
+												</div>
+
 											</div>
 											<div class="col">
 												<p>
-													Vindrutetorkare <br>Vindrutespolare <br>Backspegel Strålkastare <br>inställning Strålkastare <br>Strålkastarrengörare <br>Signalanordning <br>Sidomarkering <br>Positionslykta fram –”– <br>bak Körriktningsvisare <br>Stopplykta<br>Reflex<br>
+													Vindrutetorkare <br>Vindrutespolare <br>Backspegel <br> Strålkastare inställning <br>Strålkastare <br>Strålkastarrengörare <br>Signalanordning <br>Sidomarkering <br>Positionslykta fram  <br>–”– bak <br>Körriktningsvisare <br>Stopplykta<br>Reflex<br> Other<br>
 												</p>
 											</div>
 										</div>
@@ -634,8 +848,13 @@
 									<div class="card-body">
 										<div class="row">
 											<div class="col-lg-2">
-												<div class="form-check">
-													<input class="form-check-input" type="checkbox" id="instrumentering-c" />
+												<div class="form-check"><!--orchestration.speedometer-->
+													<input class="form-check-input" type="checkbox" name="orchestration_speedometer" />
+													<label class="form-check-label">
+													</label>
+												</div>
+												<div class="form-check"><!--orchestration.other-->
+													<input class="form-check-input" type="checkbox" name="orchestration_other" />
 													<label class="form-check-label">
 													</label>
 												</div>
@@ -657,8 +876,18 @@
 									<div class="card-body">
 										<div class="row">
 											<div class="col-lg-2">
-												<div class="form-check">
-													<input class="form-check-input" type="checkbox" id="övr-anordningar-c" />
+												<div class="form-check"><!--facilities.coupling-->
+													<input class="form-check-input" type="checkbox" name="acilities_coupling" />
+													<label class="form-check-label">
+													</label>
+												</div>
+												<div class="form-check"><!--facilities.trailer_contact-->
+													<input class="form-check-input" type="checkbox" name="facilities_trailer_contact" />
+													<label class="form-check-label">
+													</label>
+												</div>
+												<div class="form-check"><!--facilities.other-->
+													<input class="form-check-input" type="checkbox" name="facilities_other" />
 													<label class="form-check-label">
 													</label>
 												</div>
@@ -680,15 +909,25 @@
 									<div class="card-body">
 										<div class="row">
 											<div class="col-lg-2">
-												<div class="form-check">
-													<input class="form-check-input" type="checkbox" id="miljökontroll-c" />
+												<div class="form-check"><!--environment.purification-->
+													<input class="form-check-input" type="checkbox" name="environment_purification" />
+													<label class="form-check-label">
+													</label>
+												</div>
+												<div class="form-check"><!--environment.emission_control-->
+													<input class="form-check-input" type="checkbox" name="environment_emission_control" />
+													<label class="form-check-label">
+													</label>
+												</div>
+												<div class="form-check"><!--environment.exhaust-->
+													<input class="form-check-input" type="checkbox" name="environment_exhaust" />
 													<label class="form-check-label">
 													</label>
 												</div>
 											</div>
 											<div class="col">
 												<p>
-													Avgasrening <br>EGR- system<br> Avgasrening<br> Avgaser<br>
+													Avgasrening EGR- system<br> Avgasrening<br> Avgaser<br>
 												</p>
 											</div>
 										</div>
@@ -970,10 +1209,10 @@
 		<div class="row no-gutters">
 			<div class="col-lg-4 offset-lg-4 col-sm-6 offset-sm-3 col">
 				<div class="text-center">
-					<a href="index.html" class="btn btn-d btn-clean btn-lg btn-save-style" id="save-btn">Save</a>
+					<a href="submit" class="btn btn-d btn-clean btn-lg btn-save-style" id="save-btn">Save</a>
 				</div>
 				<div class="text-center">
-					<a href="index.html" class="btn btn-wire btn-cancel-style btn-lg" id="cancel-btn">Cancel</a>
+					<a href="http://localhost:9000/contracts" class="btn btn-wire btn-cancel-style btn-lg" id="cancel-btn">Cancel</a>
 				</div>
 			</div>
 		</div>
@@ -991,6 +1230,7 @@
 		</div>
 	</div>
 </div>
+</form>
 <!-- bloc-3 END -->
 
 <!-- ScrollToTop Button -->
@@ -1000,6 +1240,17 @@
 
 </div>
 <!-- Main container END -->
+
+<script>
+
+function setAction() {
+	var url = window.location.href;
+	var contract_id = url.split("/")[4];
+  document.getElementById("submit_vd").action = "http://localhost:9000/submit-vd/" + contract_id;
+  return true;
+}
+
+</script>
     
 
 <script src="/static/js/jquery-3.3.1.min.js?327"></script>
