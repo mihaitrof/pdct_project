@@ -937,30 +937,32 @@
 							</div>
 						</div>
 					</div>
+					<br>
+					<br>
 					<div class="col-lg-6">
 						<div class="form-group">
 							<label>
 								Koppling
 							</label>
-						</div>
-						<div class="row">
-							<div class="col">
-								<input class="form-control" id="kopp" placeholder="Bedömning" />
-							</div>
-							<div class="col">
-								<input class="form-control" placeholder="Rep. kostnader" id="kopp-rep" />
+							<div class="row"><!--car_condition.coupling-->
+								<div class="col">
+									<input class="form-control" name="car_condition_coupling_assess" placeholder="Bedömning" />
+								</div>
+								<div class="col">
+									<input class="form-control" placeholder="Rep. kostnader" name="car_condition_coupling_costs" />
+								</div>
 							</div>
 						</div>
 						<div class="form-group">
 							<label>
 								Växellåda
 							</label>
-							<div class="row">
+							<div class="row"><!--car_condition.gearbox-->
 								<div class="col">
-									<input class="form-control" id="vax-bedömning" placeholder="Bedömning" />
+									<input class="form-control" name="car_condition_gearbox_assess" placeholder="Bedömning" />
 								</div>
 								<div class="col">
-									<input class="form-control" placeholder="Rep. kostnader" id="vax-rep" />
+									<input class="form-control" placeholder="Rep. kostnader" name="car_condition_gearbox_costs" />
 								</div>
 							</div>
 						</div>
@@ -968,12 +970,12 @@
 							<label>
 								Slutväxel, drivaxlar, drivknutar
 							</label>
-							<div class="row">
+							<div class="row"><!--car_condition.end_gear-->
 								<div class="col">
-									<input class="form-control" id="slut-bedömning" placeholder="Bedömning" />
+									<input class="form-control" name="car_condition_end_gear_assess" placeholder="Bedömning" />
 								</div>
 								<div class="col">
-									<input class="form-control" placeholder="Rep. kostnader" id="slut-rep" />
+									<input class="form-control" placeholder="Rep. kostnader" name="car_condition_end_gear_costs" />
 								</div>
 							</div>
 						</div>
@@ -981,12 +983,12 @@
 							<label>
 								Värme, värmefläkt, ev. värmesits
 							</label>
-							<div class="row">
+							<div class="row"><!--car_condition.heating-->
 								<div class="col">
-									<input class="form-control" id="varme-bedömning" placeholder="Bedömning" />
+									<input class="form-control" name="car_condition_heating_assess" placeholder="Bedömning" />
 								</div>
 								<div class="col">
-									<input class="form-control" placeholder="Rep. kostnader" id="varme-rep" />
+									<input class="form-control" placeholder="Rep. kostnader" name="car_condition_heating_costs" />
 								</div>
 							</div>
 						</div>
@@ -994,12 +996,12 @@
 							<label>
 								Batteri
 							</label>
-							<div class="row">
+							<div class="row"><!--car_condition.baterry-->
 								<div class="col">
-									<input class="form-control" placeholder="Bedömning" id="batteri-bedömning" />
+									<input class="form-control" placeholder="Bedömning" name="car_condition_battery_assess" />
 								</div>
 								<div class="col">
-									<input class="form-control" id="batteri-rep" placeholder="Rep. kostnader" />
+									<input class="form-control" name="batteri-rep" placeholder="car_condition_baterry_costs" />
 								</div>
 							</div>
 						</div>
@@ -1007,12 +1009,12 @@
 							<label>
 								Startmotor
 							</label>
-							<div class="row">
+							<div class="row"><!--car_condition.starter-->
 								<div class="col">
-									<input class="form-control" id="startmotor-bedömning" placeholder="Bedömning" />
+									<input class="form-control" name="car_condition_starter_assess" placeholder="Bedömning" />
 								</div>
 								<div class="col">
-									<input class="form-control" placeholder="Rep. kostnader" id="startmotor-rep" />
+									<input class="form-control" placeholder="Rep. kostnader" name="car_condition_starter_costs" />
 								</div>
 							</div>
 						</div>
@@ -1020,12 +1022,12 @@
 							<label>
 								Generator
 							</label>
-							<div class="row">
+							<div class="row"><!--car_condition.generator-->
 								<div class="col">
-									<input class="form-control" id="gentr-bedömning" placeholder="Bedömning" />
+									<input class="form-control" name="car_condition_generator_assess" placeholder="Bedömning" />
 								</div>
 								<div class="col">
-									<input class="form-control" placeholder="Rep. kostnader" id="gentr-rep" />
+									<input class="form-control" placeholder="Rep. kostnader" name="car_condition_generator_costs" />
 								</div>
 							</div>
 						</div>
@@ -1033,12 +1035,12 @@
 							<label>
 								Motor
 							</label>
-							<div class="row">
+							<div class="row"><!--car_condition.engine-->
 								<div class="col">
-									<input class="form-control" placeholder="Bedömning" id="motor-bedömning" />
+									<input class="form-control" placeholder="Bedömning" name="car_condition_engine_assess" />
 								</div>
 								<div class="col">
-									<input class="form-control" id="moto-rep" placeholder="Rep. kostnader" />
+									<input class="form-control" name="car_condition_engine_costs" placeholder="Rep. kostnader" />
 								</div>
 							</div>
 						</div>
@@ -1046,12 +1048,12 @@
 							<label>
 								Tändsystem
 							</label>
-							<div class="row">
+							<div class="row"><!--car_condition.ignition-->
 								<div class="col">
-									<input class="form-control" id="tändsystem--bedömning" placeholder="Bedömning" />
+									<input class="form-control" name="car_condition_ignition_assess" placeholder="Bedömning" />
 								</div>
 								<div class="col">
-									<input class="form-control" placeholder="Rep. kostnader" id="tändsystem-rep" />
+									<input class="form-control" placeholder="Rep. kostnader" name="car_condition_ignition_costs" />
 								</div>
 							</div>
 						</div>
@@ -1059,12 +1061,12 @@
 							<label>
 								Cyl-balans/kompression
 							</label>
-							<div class="row">
+							<div class="row"><!--car_condition.compression-->
 								<div class="col">
-									<input class="form-control" id="cyl-balans-kompression-bedömning" placeholder="Bedömning" />
+									<input class="form-control" name="car_condition_compression_assess" placeholder="Bedömning" />
 								</div>
 								<div class="col">
-									<input class="form-control" placeholder="Rep. kostnader" id="cyl-balans-kompression-rep" />
+									<input class="form-control" placeholder="Rep. kostnader" name="car_condition_compression_costs" />
 								</div>
 							</div>
 						</div>
@@ -1072,12 +1074,12 @@
 							<label>
 								Missljud/läckage
 							</label>
-							<div class="row">
+							<div class="row"><!--car_condition.noise-->
 								<div class="col">
-									<input class="form-control" id="missljud-läckage-bedömning" placeholder="Bedömning" />
+									<input class="form-control" name="car_condition_noise_assess" placeholder="Bedömning" />
 								</div>
 								<div class="col">
-									<input class="form-control" placeholder="Rep. kostnader" id="missljud-läckage-rep" />
+									<input class="form-control" placeholder="Rep. kostnader" name="car_condition_noise_costs" />
 								</div>
 							</div>
 						</div>
@@ -1085,12 +1087,12 @@
 							<label>
 								Bränslesystem
 							</label>
-							<div class="row">
+							<div class="row"><!--car_condition.fuel-->
 								<div class="col">
-									<input class="form-control" id="bränslesystem-bedömning" placeholder="Bedömning" />
+									<input class="form-control" name="car_condition_fuel_assess" placeholder="Bedömning" />
 								</div>
 								<div class="col">
-									<input class="form-control" placeholder="Rep. kostnader" id="bränslesystem-rep" />
+									<input class="form-control" placeholder="Rep. kostnader" name="car_condition_fuel_costs" />
 								</div>
 							</div>
 						</div>
@@ -1098,12 +1100,12 @@
 							<label>
 								Kylsystem
 							</label>
-							<div class="row">
+							<div class="row"><!--car_condition.cooling-->
 								<div class="col">
-									<input class="form-control" id="kylsystem-bedömning" placeholder="Bedömning" />
+									<input class="form-control" name="kylsystem-bedömning" placeholder="Bedömning" />
 								</div>
 								<div class="col">
-									<input class="form-control" placeholder="Rep. kostnader" id="kylsystem-rep" />
+									<input class="form-control" placeholder="Rep. kostnader" name="kylsystem-rep" />
 								</div>
 							</div>
 						</div>
@@ -1111,12 +1113,12 @@
 							<label>
 								Klimatanläggning
 							</label>
-							<div class="row">
+							<div class="row"><!--car_condition.air_conditiong-->
 								<div class="col">
-									<input class="form-control" id="klimatanläggning-bedömning" placeholder="Bedömning" />
+									<input class="form-control" name="klimatanläggning-bedömning" placeholder="Bedömning" />
 								</div>
 								<div class="col">
-									<input class="form-control" placeholder="Rep. kostnader" id="klimatanläggning-rep" />
+									<input class="form-control" placeholder="Rep. kostnader" name="klimatanläggning-rep" />
 								</div>
 							</div>
 						</div>
@@ -1124,12 +1126,12 @@
 							<label>
 								Lack, kaross, interiör
 							</label>
-							<div class="row">
+							<div class="row"><!--car_condition.varnish-->
 								<div class="col">
-									<input class="form-control" id="lac-bedömning" placeholder="Bedömning" />
+									<input class="form-control" name="lac-bedömning" placeholder="Bedömning" />
 								</div>
 								<div class="col">
-									<input class="form-control" placeholder="Rep. kostnader" id="lack-rep" />
+									<input class="form-control" placeholder="Rep. kostnader" name="lack-rep" />
 								</div>
 							</div>
 							<label>
@@ -1138,52 +1140,53 @@
 						</div>
 						<div class="form-group">
 							<div class="row">
-								<div class="col">
+								<div class="col"><!--tires.vf-->
 									<div class="form-group">
-										<input class="form-control" placeholder="VF" id="vf" />
+										<input class="form-control" placeholder="VF" name="vf" />
 									</div>
 								</div>
-								<div class="col">
+								<div class="col"><!--tires.hf-->
 									<div class="form-group">
-										<input class="form-control" placeholder="HF" id="hf" />
+										<input class="form-control" placeholder="HF" name="hf" />
 									</div>
 								</div>
-								<div class="col">
+								<div class="col"><!--tires.vb-->
 									<div class="form-group">
-										<input class="form-control" placeholder="VB" id="vb" />
+										<input class="form-control" placeholder="VB" name="vb" />
 									</div>
 								</div>
-								<div class="col">
+								<div class="col"><!--tires.hb-->
 									<div class="form-group">
-										<input class="form-control" placeholder="HB" id="hb" />
+										<input class="form-control" placeholder="HB" name="hb" />
 									</div>
 								</div>
-								<div class="col">
+								<div class="col"><!--tires.res-->
 									<div class="form-group">
-										<input class="form-control" placeholder="Res" id="res" />
+										<input class="form-control" placeholder="Res" name="res" />
 									</div>
 								</div>
 							</div>
 							<div class="row">
-								<div class="col">
-									<input class="form-control" id="däck-bedömning" placeholder="Bedömning" />
+								<div class="col"><!--tires.assessement-->
+									<input class="form-control" name="däck-bedömning" placeholder="Bedömning" />
 								</div>
-								<div class="col">
-									<input class="form-control" placeholder="Rep. kostnader" id="däck-rep" />
+								<div class="col"><!--tires.rope_costs-->
+									<input class="form-control" placeholder="Rep. kostnader" name="däck-rep" />
 								</div>
 							</div>
 							<label>
 								Övrigt
 							</label>
-							<div class="row">
+							<div class="row"><!--car_condition.other-->
 								<div class="col">
-									<input class="form-control" placeholder="Bedömning" id="övrigt--bedömning" />
+									<input class="form-control" placeholder="Bedömning" name="övrigt--bedömning" />
 								</div>
 								<div class="col">
-									<input class="form-control" placeholder="Rep. kostnader" id="övrigt-rep" />
+									<input class="form-control" placeholder="Rep. kostnader" name="övrigt-rep" />
 								</div>
 							</div>
-							<input class="form-control" placeholder="Beräknad total reparationskostnad kr" id="input_159" />
+							<!--car_condition.total_repair_cost-->
+							<input class="form-control" placeholder="Beräknad total reparationskostnad kr" name="input_159" />
 						</div>
 					</div>
 				</div>
@@ -1194,15 +1197,15 @@
 				<h3 class="mg-md h3-style">
 					<strong>Anmärkningar, övriga upplysningar, ange pos.</strong><br>
 				</h3>
-				<div class="form-group">
+				<div class="form-group"><!--general_info.notes-->
 					<label>
 						Stolvärme ur funk förrarsidan
-					</label><textarea class="form-control" rows="4" cols="50" id="stolvärme"></textarea>
+					</label><textarea class="form-control" rows="4" cols="50" name="general_info_notes"></textarea>
 				</div>
-				<div class="form-group">
+				<div class="form-group"><!--general_info.created-->
 					<label>
 						Undersökning och provkörning (datum och signatur)
-					</label><textarea class="form-control" rows="4" cols="50" id="undersökning"></textarea>
+					</label><textarea class="form-control" rows="4" cols="50" name="general_info_created"></textarea>
 				</div>
 			</div>
 		</div>
