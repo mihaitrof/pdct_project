@@ -52,7 +52,7 @@ app.use(express.static(path.join(__dirname, '/ui/css')));
 
 app.post('/submit-vd/:contract_id', function (req, res) {
   console.log(req.body);
-
+  console.log("asd");
   res.end();
 });
 
