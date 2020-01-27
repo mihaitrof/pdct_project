@@ -112,28 +112,28 @@
 					</label>
 				</div>
 				<div class="form-check">
-					<input class="form-check-input" type="checkbox" id="drivmedel-bensin" />
+					<input class="form-check-input" type="checkbox" name="general_bensin" />
 					<label class="form-check-label">
 						bensin
 					</label>
 				</div>
 				<div class="form-check">
-					<input class="form-check-input" type="checkbox" id="drivmedel-diesel" />
+					<input class="form-check-input" type="checkbox" name="general_diesel" />
 					<label class="form-check-label">
 						diesel
 					</label>
 				</div>
 				<div class="form-check">
-					<input class="form-check-input" type="checkbox" id="drivmedel-ovrigt" />
+					<input class="form-check-input" type="checkbox" name="general_ovrigt" />
 					<label class="form-check-label">
 						övrigt
 					</label>
 				</div>
 				<div class="form-group">
-					<input class="form-control" placeholder="..." id="drivmedel-ovrigt-value" />
+					<input class="form-control" placeholder="..." name="general_ovrigt_value" />
 				</div>
 				<div class="form-check">
-					<input class="form-check-input" type="checkbox" id="drivmedel-katalysator" />
+					<input class="form-check-input" type="checkbox" name="general_katalysator" />
 					<label class="form-check-label">
 						katalysator
 					</label>
@@ -145,13 +145,13 @@
 						Växellåda
 					</label>
 					<div class="form-check">
-						<input class="form-check-input" type="checkbox" id="växellåda-automat" />
+						<input class="form-check-input" type="checkbox" name="gearbox_automat" />
 						<label class="form-check-label">
 							automat
 						</label>
 					</div>
 					<div class="form-check">
-						<input class="form-check-input" type="checkbox" id="växellåda-manuell" />
+						<input class="form-check-input" type="checkbox" name="gearbox_manual" />
 						<label class="form-check-label">
 							manuell
 						</label>
@@ -170,13 +170,13 @@
 							<strong>Nybilsgaranti</strong>
 						</p>
 						<div class="form-check">
-							<input class="form-check-input" type="checkbox" name="bumper-yes" />
+							<input class="form-check-input" type="checkbox" name="bumper_yes" />
 							<label class="form-check-label">
 								Ja
 							</label>
 						</div>
 						<div class="form-check">
-							<input class="form-check-input" type="checkbox" name="bumper-no" />
+							<input class="form-check-input" type="checkbox" name="bumper_no" />
 							<label class="form-check-label">
 								Nej
 							</label>
@@ -187,13 +187,13 @@
 							<strong>Rostskyddsgaranti</strong><br>
 						</p>
 						<div class="form-check">
-							<input class="form-check-input" type="checkbox" name="corrosion-yes" />
+							<input class="form-check-input" type="checkbox" name="corrosion_yes" />
 							<label class="form-check-label">
 								Ja
 							</label>
 						</div>
 						<div class="form-check">
-							<input class="form-check-input" type="checkbox" name="corrosion-no" />
+							<input class="form-check-input" type="checkbox" name="corrosion_no" />
 							<label class="form-check-label">
 								Nej
 							</label>
@@ -206,13 +206,13 @@
 							<strong>Vagnskadegaranti</strong><br>
 						</p>
 						<div class="form-check">
-							<input class="form-check-input" type="checkbox" name="collision_damage-yes" />
+							<input class="form-check-input" type="checkbox" name="collision_damage_yes" />
 							<label class="form-check-label">
 								Ja
 							</label>
 						</div>
 						<div class="form-check">
-							<input class="form-check-input" type="checkbox" name="collision_damage-no" />
+							<input class="form-check-input" type="checkbox" name="collision_damage_no" />
 							<label class="form-check-label">
 								Nej
 							</label>
@@ -223,13 +223,13 @@
 							<strong>Avgasåtagande</strong>
 						</p>
 						<div class="form-check">
-							<input class="form-check-input" type="checkbox" name="exhaust_commitment-yes" />
+							<input class="form-check-input" type="checkbox" name="exhaust_commitment_yes" />
 							<label class="form-check-label">
 								Ja
 							</label>
 						</div>
 						<div class="form-check">
-							<input class="form-check-input" type="checkbox" name="exhaust_commitment-no" />
+							<input class="form-check-input" type="checkbox" name="exhaust_commitment_no" />
 							<label class="form-check-label">
 								Nej
 							</label>
@@ -404,7 +404,7 @@
 								<p class="mg-md">
 									<strong>Årlig fordonsskatt</strong><br>
 								</p>
-								<input class="form-control" name="timing_belt.annual_tax" />
+								<input class="form-control" name="timing_belt_annual_tax" />
 							</div>
 							<div class="col"><!--timing_belt.service_box-->
 								<p class="mg-md">
@@ -765,7 +765,7 @@
 													</label>
 												</div>
 												<div class="form-check"><!--communication.windscreen_washer-->
-													<input class="form-check-input" type="checkbox" name="communicatio_windscreen_washer" />
+													<input class="form-check-input" type="checkbox" name="communication_windscreen_wiper" />
 													<label class="form-check-label">
 													</label>
 												</div>
@@ -877,7 +877,7 @@
 										<div class="row">
 											<div class="col-lg-2">
 												<div class="form-check"><!--facilities.coupling-->
-													<input class="form-check-input" type="checkbox" name="acilities_coupling" />
+													<input class="form-check-input" type="checkbox" name="facilities_coupling" />
 													<label class="form-check-label">
 													</label>
 												</div>
@@ -1001,7 +1001,7 @@
 									<input class="form-control" placeholder="Bedömning" name="car_condition_battery_assess" />
 								</div>
 								<div class="col">
-									<input class="form-control" name="batteri-rep" placeholder="car_condition_baterry_costs" />
+									<input class="form-control" name="car_condition_battery_costs" placeholder="car_condition_baterry_costs" />
 								</div>
 							</div>
 						</div>
@@ -1102,10 +1102,10 @@
 							</label>
 							<div class="row"><!--car_condition.cooling-->
 								<div class="col">
-									<input class="form-control" name="kylsystem-bedömning" placeholder="Bedömning" />
+									<input class="form-control" name="car_condition_cooling_assess" placeholder="Bedömning" />
 								</div>
 								<div class="col">
-									<input class="form-control" placeholder="Rep. kostnader" name="kylsystem-rep" />
+									<input class="form-control" placeholder="Rep. kostnader" name="car_condition_cooling_costs" />
 								</div>
 							</div>
 						</div>
@@ -1115,10 +1115,10 @@
 							</label>
 							<div class="row"><!--car_condition.air_conditiong-->
 								<div class="col">
-									<input class="form-control" name="klimatanläggning-bedömning" placeholder="Bedömning" />
+									<input class="form-control" name="car_condition_air_conditiong_assess" placeholder="Bedömning" />
 								</div>
 								<div class="col">
-									<input class="form-control" placeholder="Rep. kostnader" name="klimatanläggning-rep" />
+									<input class="form-control" placeholder="Rep. kostnader" name="car_condition_air_conditiong_costs" />
 								</div>
 							</div>
 						</div>
@@ -1128,10 +1128,10 @@
 							</label>
 							<div class="row"><!--car_condition.varnish-->
 								<div class="col">
-									<input class="form-control" name="lac-bedömning" placeholder="Bedömning" />
+									<input class="form-control" name="car_condition_varnish_assess" placeholder="Bedömning" />
 								</div>
 								<div class="col">
-									<input class="form-control" placeholder="Rep. kostnader" name="lack-rep" />
+									<input class="form-control" placeholder="Rep. kostnader" name="car_condition_varnish_costs" />
 								</div>
 							</div>
 							<label>
@@ -1168,10 +1168,10 @@
 							</div>
 							<div class="row">
 								<div class="col"><!--tires.assessement-->
-									<input class="form-control" name="däck-bedömning" placeholder="Bedömning" />
+									<input class="form-control" name="tires_assessement" placeholder="Bedömning" />
 								</div>
 								<div class="col"><!--tires.rope_costs-->
-									<input class="form-control" placeholder="Rep. kostnader" name="däck-rep" />
+									<input class="form-control" placeholder="Rep. kostnader" name="tires_rope_costs" />
 								</div>
 							</div>
 							<label>
@@ -1179,14 +1179,14 @@
 							</label>
 							<div class="row"><!--car_condition.other-->
 								<div class="col">
-									<input class="form-control" placeholder="Bedömning" name="övrigt--bedömning" />
+									<input class="form-control" placeholder="Bedömning" name="car_condition_other_asses" />
 								</div>
 								<div class="col">
-									<input class="form-control" placeholder="Rep. kostnader" name="övrigt-rep" />
+									<input class="form-control" placeholder="Rep. kostnader" name="car_condition_other_costs" />
 								</div>
 							</div>
 							<!--car_condition.total_repair_cost-->
-							<input class="form-control" placeholder="Beräknad total reparationskostnad kr" name="input_159" />
+							<input class="form-control" placeholder="Beräknad total reparationskostnad kr" name="car_condition_total_repair_cost" />
 						</div>
 					</div>
 				</div>
