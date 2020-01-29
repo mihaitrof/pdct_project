@@ -1,5 +1,177 @@
 const graphql = require("graphql");
-const { GraphQLObjectType, GraphQLString, GraphQLInt } = graphql;
+const { GraphQLObjectType, GraphQLString, GraphQLInt, GraphQLBoolean } = graphql;
+
+const ValueDeclarationType = new GraphQLObjectType({
+  name: "VD",
+  type: "Query",
+  fields:{
+    // contract_ids
+    contract_id: { type: GraphQLString },
+
+    // body
+    body_id        : {type: GraphQLString},
+    side_member    : {type: GraphQLString},
+    crossbeam      : {type: GraphQLBoolean},
+    floor          : {type: GraphQLBoolean}, 
+    wheel_arch     : {type: GraphQLBoolean}, 
+    other          : {type: GraphQLBoolean}, 
+    declaration_id : {type: GraphQLBoolean}, 
+
+    // braking_system
+    braking_system_id      : {typw: GraphQLString },
+    service_brake_front    : {typw: GraphQLBoolean },
+    service_brake_back     : {typw: GraphQLBoolean },
+    service_brake_movement : {typw: GraphQLBoolean },
+    brake_hose             : {typw: GraphQLBoolean },
+    battery                : {typw: GraphQLBoolean },
+    other                  : {typw: GraphQLBoolean },
+  
+    // car_condition
+    car_condition_id  : {type: GraphQLString   },  
+    coupling          : {type: GraphQLString },  
+    gearbox           : {type: GraphQLString },  
+    end_gear          : {type: GraphQLString },  
+    heating           : {type: GraphQLString },  
+    battery           : {type: GraphQLString },  
+    starter           : {type: GraphQLString },  
+    generator         : {type: GraphQLString },  
+    engine            : {type: GraphQLString },  
+    ignition          : {type: GraphQLString },  
+    compression       : {type: GraphQLString },  
+    noise             : {type: GraphQLString },  
+    fuel              : {type: GraphQLString },  
+    cooling           : {type: GraphQLString },  
+    air_conditioning  : {type: GraphQLString },  
+    varnish           : {type: GraphQLString },  
+    other             : {type: GraphQLString },  
+    total_repair_cost : {type: GraphQLString },  
+
+    // car_parts
+    car_parts_id   : {type: GraphQLString  },
+    months_number  : {type: GraphQLInt   },
+    km             : {type: GraphQLInt   },
+    warranty_type  : {type: GraphQLString },
+
+    // communication
+    communication_id     : {type: GraphQLString}, 
+    windscreen_wiper     : {type: GraphQLBoolean},  
+    windscreen_washer    : {type: GraphQLBoolean},  
+    rearview_mirror      : {type: GraphQLBoolean},  
+    headlight_setting    : {type: GraphQLBoolean},  
+    headlamp_1           : {type: GraphQLBoolean},  
+    headlamp_2           : {type: GraphQLBoolean},  
+    signal_device        : {type: GraphQLBoolean},  
+    side_marker          : {type: GraphQLBoolean},  
+    headlight_front      : {type: GraphQLBoolean},  
+    headlight_back       : {type: GraphQLBoolean},  
+    direction_indicator  : {type: GraphQLBoolean},  
+    stop_lamps           : {type: GraphQLBoolean},  
+    reflex               : {type: GraphQLBoolean},  
+    other                : {type: GraphQLBoolean},  
+
+    // control_system
+    control_system_id  : {type: GraphQLString}, 
+    articulation_joint : {type: GraphQLBoolean },  
+    steering_gear      : {type: GraphQLBoolean },  
+    track_control_arm  : {type: GraphQLBoolean },  
+    other              : {type: GraphQLBoolean }, 
+
+    // declaration
+    declaration_id : {type: GraphQLString}, 
+
+    // drive
+    drive_id        : {type: GraphQLString}, 
+    fuel            : {type: GraphQLBoolean},
+    exhaust         : {type: GraphQLBoolean},
+    transmission    : {type: GraphQLBoolean},
+    universal_joint : {type: GraphQLBoolean},
+    power_supply    : {type: GraphQLBoolean},
+    battery         : {type: GraphQLBoolean},
+
+    // engine_output
+    engine_output_id : {type: GraphQLString},  
+    kw               : {type: GraphQLInt},    
+    hkr              : {type:GraphQLString },  
+
+    // environment
+    environment_id   : {type:  GraphQLString },
+    purification     : {type:  GraphQLBoolean },
+    emission_control : {type:  GraphQLBoolean },
+    exhaust          : {type:  GraphQLBoolean },
+
+    // facilities
+    facilities_id   : {type:  GraphQLString },  
+    coupling        : {type:  GraphQLBoolean },   
+    trailer_contact : {type:  GraphQLBoolean },   
+    other           : {type:  GraphQLBoolean },   
+
+    // general_info
+    type                : {type:  GraphQLString },  
+    manufacture_date    : {type:  GraphQLString },  
+    mileage             : {type:  GraphQLInt},  
+    registration_number : {type:  GraphQLString },  
+    fuel                : {type:  GraphQLString },  
+    gearbox             : {type:  GraphQLString },  
+    repair_property     : {type:  GraphQLBoolean},   
+    notes               : {type:  GraphQLString },  
+    created             : {type:  GraphQLString },  
+
+    // karosseri
+    karosseri_id   : {type:  GraphQLString }, 
+    door           : {type:  GraphQLBoolean },  
+    screen         : {type:  GraphQLBoolean },  
+    windshield     : {type:  GraphQLBoolean },  
+    seat_belts     : {type:  GraphQLBoolean },  
+    loading_space  : {type:  GraphQLBoolean },  
+    other          : {type:  GraphQLBoolean },  
+    declaration_id : {type:  GraphQLString },  
+
+    // latest_inspection
+    latest_inspection_id : {type:  GraphQLString}, 
+    date                 : {type:  GraphQLString}, 
+    mileage              : {type:  GraphQLString} , 
+
+    // mrf
+    mrf_id        : {type:  GraphQLString }, 
+    months_number : {type:  GraphQLInt },  
+    km            : {type:  GraphQLInt },  
+
+    // orchestration
+    orchestration_id : {type:  GraphQLString}, 
+    speedometer      : {type:  GraphQLBoolean},  
+    other            : {type:  GraphQLBoolean},  
+ 
+    // other_warrancy
+    other_warranty_id : {type:  GraphQLString}, 
+    months_number     : {type:  GraphQLInt},  
+    km                : {type:  GraphQLInt},  
+
+    // timing_belt
+    timing_belt_id       :{type:  GraphQLString  },  
+    changed              :{type:  GraphQLString},   
+    annual_tax           :{type:  GraphQLInt  },   
+    service_box          :{type:  GraphQLBoolean  },   
+
+    // warrancy
+    warrancy_id        : {type:  GraphQLString}, 
+    bumper             : {type:  GraphQLBoolean}, 
+    corrosion          : {type:  GraphQLBoolean}, 
+    collision_damage   : {type:  GraphQLBoolean}, 
+    exhaust_commitment : {type:  GraphQLString}, 
+
+    // wheel_system
+    wheel_system_id : {type:  GraphQLString },
+    deck            : {type:  GraphQLBoolean }, 
+    shock           : {type:  GraphQLBoolean }, 
+    bearings        : {type:  GraphQLBoolean }, 
+    spindelled      : {type:  GraphQLBoolean }, 
+    front_link_arm  : {type:  GraphQLBoolean }, 
+    back_link_arm   : {type:  GraphQLBoolean }, 
+    feather         : {type:  GraphQLBoolean }, 
+    spring_bracket  : {type:  GraphQLBoolean }, 
+    other           : {type:  GraphQLBoolean }
+    }
+});
 
 const ContractType = new GraphQLObjectType({
   name: "Contract",

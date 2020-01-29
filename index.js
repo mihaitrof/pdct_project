@@ -110,7 +110,7 @@ app.post('/submit-vd/:contract_id', function (req, res) {
 
   // timing_belt
   const timing_belt_id = contract_id;      
-  // const changed      
+  const changed = req.body.timing_belt_changed_yes === 'on' ? true : false;        
   const annual_tax = req.body.timing_belt_annual_tax;  
   // const service_box   
 
