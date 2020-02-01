@@ -506,7 +506,6 @@ app.post('/submit-form', (req, res) => {
   const other_payments = req.body.other_payments;
   const to_obtain = req.body.to_obtain;
 
-  // var query = { query: '{ contract_id(contract_id: ' + 10 + ') {contract_id} }' };
   var query = {query: 'mutation {addContract(contract_id:' + contract_id +
                                               ',creditors:"' + creditors + 
                                               '",balance_due:"' +  balance_due + 

@@ -51,46 +51,46 @@ const RootMutation = new GraphQLObjectType({
         created             : {type:  GraphQLString },  //$11
 
         //engine_output
-        engine_output_id : {type: GraphQLString},  //$12
+        // engine_output_id : {type: GraphQLString},  //$12
         kw               : {type: GraphQLInt},     //$13   
         hkr              : {type:GraphQLString },  //$14 
 
         //warrancy
-        warrancy_id        : {type:  GraphQLString},  //$15
+        // warrancy_id        : {type:  GraphQLString},  //$15
         bumper             : {type:  GraphQLBoolean}, //$16
         corrosion          : {type:  GraphQLBoolean}, //$17
         collision_damage   : {type:  GraphQLBoolean}, //$18
         exhaust_commitment : {type:  GraphQLString},  //$19
 
         // mrf
-        mrf_id        : {type:  GraphQLString }, //$20
+        // mrf_id        : {type:  GraphQLString }, //$20
         months_number : {type:  GraphQLInt },  //$21
         km            : {type:  GraphQLInt },  //$22
 
         // other_warrancy
-        other_warranty_id : {type:  GraphQLString}, //$23
+        // other_warranty_id : {type:  GraphQLString}, //$23
         months_number     : {type:  GraphQLInt},  //$24
         km                : {type:  GraphQLInt},  //$25
 
         // car_parts
-        car_parts_id   : {type: GraphQLString  }, //$25
+        // car_parts_id   : {type: GraphQLString  }, //$25
         months_number  : {type: GraphQLInt   }, //$27
         car_parts_km : {type: GraphQLInt   }, //$28
         // warranty_type  : {type: GraphQLString }, //$29
 
         // timing_belt
-        timing_belt_id       :{type:  GraphQLString  }, //$30
+        // timing_belt_id       :{type:  GraphQLString  }, //$30
         changed              :{type:  GraphQLString},   //$31
         annual_tax           :{type:  GraphQLInt  },   //$32
         service_box          :{type:  GraphQLBoolean  }, //$33
 
         // latest_inspection
-        latest_inspection_id : {type:  GraphQLString}, //$34
+        // latest_inspection_id : {type:  GraphQLString}, //$34
         date                 : {type:  GraphQLString}, //$35
         mileage              : {type:  GraphQLString}, //$36
 
         // car_condition
-        car_condition_id  : {type: GraphQLString }, //$37
+        // car_condition_id  : {type: GraphQLString }, //$37
         coupling          : {type: GraphQLString }, //$38
         gearbox           : {type: GraphQLString }, //$39
         end_gear          : {type: GraphQLString }, //$40
@@ -110,7 +110,7 @@ const RootMutation = new GraphQLObjectType({
         total_repair_cost : {type: GraphQLString }, //$54
 
         // tires
-        tires_id    :  {type: GraphQLString }, //$55
+        // tires_id    :  {type: GraphQLString }, //$55
         vf          :  {type: GraphQLString }, //$56
         hf          :  {type: GraphQLString }, //$57
         vb          :  {type: GraphQLString }, //$58
@@ -120,7 +120,7 @@ const RootMutation = new GraphQLObjectType({
         rope_costs  :  {type: GraphQLString }, //$62
         
         // body
-        body_id        : {type: GraphQLString}, //$63
+        // body_id        : {type: GraphQLString}, //$63
         side_member    : {type: GraphQLString}, //$64
         crossbeam      : {type: GraphQLBoolean}, //$65
         floor          : {type: GraphQLBoolean}, //$66
@@ -129,7 +129,7 @@ const RootMutation = new GraphQLObjectType({
         declaration_id : {type: GraphQLBoolean}, //$69
 
         // wheel_system
-        wheel_system_id : {type:  GraphQLString }, //$70
+        // wheel_system_id : {type:  GraphQLString }, //$70
         deck            : {type:  GraphQLBoolean }, //$71
         shock           : {type:  GraphQLBoolean }, //$72
         bearings        : {type:  GraphQLBoolean }, //$73
@@ -141,7 +141,7 @@ const RootMutation = new GraphQLObjectType({
         wheel_system_other : {type:  GraphQLBoolean }, //$79
 
         // drive
-        drive_id        : {type: GraphQLString}, //$80
+        // drive_id        : {type: GraphQLString}, //$80
         drive_fuel      : {type: GraphQLBoolean}, //$81
         exhaust         : {type: GraphQLBoolean}, //$82
         transmission    : {type: GraphQLBoolean}, //$83
@@ -150,23 +150,23 @@ const RootMutation = new GraphQLObjectType({
         drive_battery   : {type: GraphQLBoolean}, //$86
 
         // braking_system
-        braking_system_id      : {typw: GraphQLString }, //$87
-        service_brake_front    : {typw: GraphQLBoolean }, //$88
-        service_brake_back     : {typw: GraphQLBoolean }, //$89
-        service_brake_movement : {typw: GraphQLBoolean }, //$90
-        brake_hose             : {typw: GraphQLBoolean }, //$91
-        braking_system_battery : {typw: GraphQLBoolean }, //$92
-        braking_system_other   : {typw: GraphQLBoolean }, //$93
+        // braking_system_id      : {type: GraphQLString }, //$87
+        service_brake_front    : {type: GraphQLBoolean }, //$88
+        service_brake_back     : {type: GraphQLBoolean }, //$89
+        service_brake_movement : {type: GraphQLBoolean }, //$90
+        brake_hose             : {type: GraphQLBoolean }, //$91
+        braking_system_battery : {type: GraphQLBoolean }, //$92
+        braking_system_other   : {type: GraphQLBoolean }, //$93
 
         // control_system
-        control_system_id  : {type: GraphQLString}, //$94
+        // control_system_id  : {type: GraphQLString}, //$94
         articulation_joint : {type: GraphQLBoolean },  //$95
         steering_gear      : {type: GraphQLBoolean },  //$96
         track_control_arm  : {type: GraphQLBoolean },  //$97
         control_system_other : {type: GraphQLBoolean }, //$98
 
         // karosseri
-        karosseri_id   : {type:  GraphQLString }, //$99
+        // karosseri_id   : {type:  GraphQLString }, //$99
         door           : {type:  GraphQLBoolean },  //$100
         screen         : {type:  GraphQLBoolean },  //$101
         windshield     : {type:  GraphQLBoolean },  //$102
@@ -175,7 +175,7 @@ const RootMutation = new GraphQLObjectType({
         karosseri_other : {type:  GraphQLBoolean },  //$105
 
         // communication
-        communication_id     : {type: GraphQLString}, //$106
+        // communication_id     : {type: GraphQLString}, //$106
         windscreen_wiper     : {type: GraphQLBoolean},  //$107
         windscreen_washer    : {type: GraphQLBoolean},  //$108
         rearview_mirror      : {type: GraphQLBoolean},  //$109
@@ -192,20 +192,20 @@ const RootMutation = new GraphQLObjectType({
         communication_other  : {type: GraphQLBoolean},  //$120
 
         // orchestration
-        orchestration_id : {type:  GraphQLString}, //$121
+        // orchestration_id : {type:  GraphQLString}, //$121
         speedometer      : {type:  GraphQLBoolean},  //$122
         orchestration_other : {type:  GraphQLBoolean},  //$123
 
         // facilities
-        facilities_id   : {type:  GraphQLString },  //$124
+        // facilities_id   : {type:  GraphQLString },  //$124
         facilities_coupling : {type:  GraphQLBoolean }, //$125
         trailer_contact : {type:  GraphQLBoolean },   //$126
         facilities_other : {type:  GraphQLBoolean },  //$127
 
         // environment
-        environment_id   : {type:  GraphQLString }, //$128
-        purification     : {type:  GraphQLBoolean }, //$129
-        emission_control : {type:  GraphQLBoolean }, //$130
+        // environment_id   : {type:  GraphQLString }, //$128
+        purification        : {type:  GraphQLBoolean }, //$129
+        emission_control    : {type:  GraphQLBoolean }, //$130
         environment_exhaust : {type:  GraphQLBoolean } //$131
       },
       resolve(parentValue, args) {
@@ -233,7 +233,178 @@ const RootMutation = new GraphQLObjectType({
                        `;
         
         const values = [
-        // TODO
+          // contract_ids
+          args.contract_id, //$1
+
+          // general_info
+          args.type                , //$2
+          args.manufacture_date    , //$3
+          args.mileage             , //$4
+          args.registration_number , //$5
+          args.fuel                , //$6
+          args.gearbox             , //$7
+          args.repair_property     , //$8
+          args.car_safety_id       , //$9
+          args.notes               , //$10
+          args.created             , //$11
+
+          //engine_output
+          // args.engine_output_id ,  //$12
+          args.kw               ,  //$13   
+          args.hkr              ,  //$14 
+
+          //warrancy
+          // args.warrancy_id       , //$15
+          args.bumper            , //$16
+          args.corrosion         , //$17
+          args.collision_damage  , //$18
+          args.exhaust_commitment, //$19
+
+          // mrf
+          // args.mrf_id        ,  //$20
+          args.months_number ,   //$21
+          args.km            ,   //$22
+
+          // other_warrancy
+          // args.other_warranty_id,  //$23
+          args.months_number    ,   //$24
+          args.km               ,   //$25
+
+          // car_parts
+          // args.car_parts_id  ,  //$25
+          args.months_number ,  //$27
+          args.car_parts_km  ,//$28
+          // warranty_type  : {type: GraphQLString }, //$29
+
+          // timing_belt
+          // args.timing_belt_id ,  //$30
+          args.changed        ,  //$31
+          args.annual_tax     ,  //$32
+          args.service_box    ,  //$33
+
+          // latest_inspection
+          // args.latest_inspection_id , //$34
+          args.date                 , //$35
+          args.mileage              , //$36
+
+          // car_condition
+          // args.car_condition_id ,  //$37
+          args.coupling         ,  //$38
+          args.gearbox          ,  //$39
+          args.end_gear         ,  //$40
+          args.heating          ,  //$41
+          args.battery          ,  //$42
+          args.starter          ,  //$43
+          args.generator        ,  //$44
+          args.engine           ,  //$45
+          args.ignition         ,  //$46 
+          args.compression      ,  //$47 
+          args.noise            ,  //$48
+          args.fuel             ,  //$49
+          args.cooling          ,  //$50
+          args.air_conditioning ,  //$51
+          args.varnish          ,  //$52
+          args.other            ,  //$53
+          args.total_repair_cost,  //$54
+
+          // tires
+          // args.tires_id   , //$55
+          args.vf         , //$56
+          args.hf         , //$57
+          args.vb         , //$58
+          args.hb         , //$59
+          args.res        , //$60
+          args.assessement, //$61
+          args.rope_costs , //$62
+          
+          // body
+          // args.body_id       ,//$63
+          args.side_member   ,//$64
+          args.crossbeam     , //$65
+          args.floor         , //$66
+          args.wheel_arch    , //$67
+          args.other         , //$68
+          args.declaration_id, //$69
+
+          // wheel_system
+          // args.wheel_system_id,//$70
+          args.deck           , //$71
+          args.shock          , //$72
+          args.bearings       , //$73
+          args.spindelled     , //$74
+          args.front_link_arm , //$75
+          args.back_link_arm  , //$76
+          args.feather        , //$77
+          args.spring_bracket , //$78
+          args.wheel_system_other,//$79
+
+          // drive
+          // args.drive_id       , //$80
+          args.drive_fuel     ,  //$81
+          args.exhaust        ,  //$82
+          args.transmission   ,  //$83
+          args.universal_joint,  //$84
+          args.power_supply   ,  //$85
+          args.drive_battery  ,  //$86
+
+          // braking_system
+          // args.braking_system_id     ,//$87
+          args.service_brake_front   , //$88
+          args.service_brake_back    , //$89
+          args.service_brake_movement, //$90
+          args.brake_hose            , //$91
+          args.braking_system_battery, //$92
+          args.braking_system_other  , //$93
+
+          // control_system
+          // args.control_system_id     ,  //$94
+          args.articulation_joint    ,   //$95
+          args.steering_gear         ,   //$96
+          args.track_control_arm     ,   //$97
+          args.control_system_other  ,//$98
+
+          // karosseri
+          // args.karosseri_id     , //$99
+          args.door             , //$100
+          args.screen           , //$101
+          args.windshield       , //$102
+          args.seat_belts       , //$103
+          args.loading_space    , //$104
+          args.karosseri_other  ,  //$105
+
+          // communication
+          // args.communication_id    ,  //$106
+          args.windscreen_wiper    ,  //$107
+          args.windscreen_washer   ,  //$108
+          args.rearview_mirror     ,  //$109
+          args.headlight_setting   ,  //$110
+          args.headlamp_1          ,  //$111
+          args.headlamp_2          ,  //$112
+          args.signal_device       ,  //$113
+          args.side_marker         ,  //$114
+          args.headlight_front     ,  //$115
+          args.headlight_back      ,  //$116
+          args.direction_indicator ,  //$117
+          args.stop_lamps          ,  //$118
+          args.reflex              ,  //$119
+          args.communication_other ,  //$120
+
+          // orchestration
+          // args.orchestration_id    , //$121
+          args.speedometer         ,  //$122
+          args.orchestration_other , //$123
+
+          // facilities
+          // args.facilities_id       , //$124
+          args.facilities_coupling , //$125
+          args.trailer_contact     , //$126
+          args.facilities_other    ,  //$127
+
+          // environment
+          // args.environment_id       , //$128
+          args.purification         , //$129
+          args.emission_control     , //$130
+          args.environment_exhaust   //$131
       ];
 
       return db
@@ -353,13 +524,14 @@ const RootMutation = new GraphQLObjectType({
           args.resolves_the_redemption_of_my_residual_debt,
           args.other_deductions,
           args.other_payments,
-          args.to_obtain,
+          args.to_obtain
         ];
 
         return db
           .multi(query, values)
           .then(res => res)
           .catch(err => err);
+        
       }
     },
     // Add balance
@@ -455,9 +627,7 @@ const RootMutation = new GraphQLObjectType({
           .then(res => res)
           .catch(err => err);
       }
-    },
-
-
+    }
   }
 });
 

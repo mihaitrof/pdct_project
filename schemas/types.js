@@ -17,13 +17,13 @@ const ValueDeclarationType = new GraphQLObjectType({
     body_other     : {type: GraphQLBoolean}, 
 
     // braking_system
-    braking_system_id      : {typw: GraphQLString },
-    service_brake_front    : {typw: GraphQLBoolean },
-    service_brake_back     : {typw: GraphQLBoolean },
-    service_brake_movement : {typw: GraphQLBoolean },
-    brake_hose             : {typw: GraphQLBoolean },
-    braking_system_battery : {typw: GraphQLBoolean },
-    braking_system_other   : {typw: GraphQLBoolean },
+    braking_system_id      : {type: GraphQLString },
+    service_brake_front    : {type: GraphQLBoolean },
+    service_brake_back     : {type: GraphQLBoolean },
+    service_brake_movement : {type: GraphQLBoolean },
+    brake_hose             : {type: GraphQLBoolean },
+    braking_system_battery : {type: GraphQLBoolean },
+    braking_system_other   : {type: GraphQLBoolean },
   
     // car_condition
     car_condition_id  : {type: GraphQLString   },  
@@ -294,3 +294,4 @@ exports.BalanceDueType = BalanceDueType;
 exports.PurchaseAgreementType = PurchaseAgreementType;
 exports.ContractType = ContractType;
 exports.UserType = UserType;
+exports.ValueDeclarationType = ValueDeclarationType;
