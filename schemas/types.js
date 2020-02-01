@@ -14,8 +14,7 @@ const ValueDeclarationType = new GraphQLObjectType({
     crossbeam      : {type: GraphQLBoolean},
     floor          : {type: GraphQLBoolean}, 
     wheel_arch     : {type: GraphQLBoolean}, 
-    other          : {type: GraphQLBoolean}, 
-    declaration_id : {type: GraphQLBoolean}, 
+    body_other     : {type: GraphQLBoolean}, 
 
     // braking_system
     braking_system_id      : {typw: GraphQLString },
@@ -23,13 +22,13 @@ const ValueDeclarationType = new GraphQLObjectType({
     service_brake_back     : {typw: GraphQLBoolean },
     service_brake_movement : {typw: GraphQLBoolean },
     brake_hose             : {typw: GraphQLBoolean },
-    battery                : {typw: GraphQLBoolean },
-    other                  : {typw: GraphQLBoolean },
+    braking_system_battery : {typw: GraphQLBoolean },
+    braking_system_other   : {typw: GraphQLBoolean },
   
     // car_condition
     car_condition_id  : {type: GraphQLString   },  
     coupling          : {type: GraphQLString },  
-    gearbox           : {type: GraphQLString },  
+    car_condition_gearbox : {type: GraphQLString },  
     end_gear          : {type: GraphQLString },  
     heating           : {type: GraphQLString },  
     battery           : {type: GraphQLString },  
@@ -49,8 +48,8 @@ const ValueDeclarationType = new GraphQLObjectType({
     // car_parts
     car_parts_id   : {type: GraphQLString  },
     months_number  : {type: GraphQLInt   },
-    km             : {type: GraphQLInt   },
-    warranty_type  : {type: GraphQLString },
+    car_parts_km   : {type: GraphQLInt   },
+    // warranty_type  : {type: GraphQLString },
 
     // communication
     communication_id     : {type: GraphQLString}, 
@@ -67,26 +66,26 @@ const ValueDeclarationType = new GraphQLObjectType({
     direction_indicator  : {type: GraphQLBoolean},  
     stop_lamps           : {type: GraphQLBoolean},  
     reflex               : {type: GraphQLBoolean},  
-    other                : {type: GraphQLBoolean},  
+    communication_other  : {type: GraphQLBoolean},  
 
     // control_system
     control_system_id  : {type: GraphQLString}, 
     articulation_joint : {type: GraphQLBoolean },  
     steering_gear      : {type: GraphQLBoolean },  
     track_control_arm  : {type: GraphQLBoolean },  
-    other              : {type: GraphQLBoolean }, 
+    control_system_other : {type: GraphQLBoolean }, 
 
     // declaration
     declaration_id : {type: GraphQLString}, 
 
     // drive
     drive_id        : {type: GraphQLString}, 
-    fuel            : {type: GraphQLBoolean},
+    drive_fuel      : {type: GraphQLBoolean},
     exhaust         : {type: GraphQLBoolean},
     transmission    : {type: GraphQLBoolean},
     universal_joint : {type: GraphQLBoolean},
     power_supply    : {type: GraphQLBoolean},
-    battery         : {type: GraphQLBoolean},
+    drive_battery   : {type: GraphQLBoolean},
 
     // engine_output
     engine_output_id : {type: GraphQLString},  
@@ -97,13 +96,13 @@ const ValueDeclarationType = new GraphQLObjectType({
     environment_id   : {type:  GraphQLString },
     purification     : {type:  GraphQLBoolean },
     emission_control : {type:  GraphQLBoolean },
-    exhaust          : {type:  GraphQLBoolean },
+    environment_exhaust : {type:  GraphQLBoolean },
 
     // facilities
     facilities_id   : {type:  GraphQLString },  
-    coupling        : {type:  GraphQLBoolean },   
+    facilities_coupling : {type:  GraphQLBoolean },   
     trailer_contact : {type:  GraphQLBoolean },   
-    other           : {type:  GraphQLBoolean },   
+    facilities_other : {type:  GraphQLBoolean },   
 
     // general_info
     type                : {type:  GraphQLString },  
@@ -112,7 +111,8 @@ const ValueDeclarationType = new GraphQLObjectType({
     registration_number : {type:  GraphQLString },  
     fuel                : {type:  GraphQLString },  
     gearbox             : {type:  GraphQLString },  
-    repair_property     : {type:  GraphQLBoolean},   
+    repair_property     : {type:  GraphQLBoolean},  
+    car_safety_id       : {type:  GraphQLString}, 
     notes               : {type:  GraphQLString },  
     created             : {type:  GraphQLString },  
 
@@ -123,13 +123,12 @@ const ValueDeclarationType = new GraphQLObjectType({
     windshield     : {type:  GraphQLBoolean },  
     seat_belts     : {type:  GraphQLBoolean },  
     loading_space  : {type:  GraphQLBoolean },  
-    other          : {type:  GraphQLBoolean },  
-    declaration_id : {type:  GraphQLString },  
+    karosseri_other : {type:  GraphQLBoolean },  
 
     // latest_inspection
     latest_inspection_id : {type:  GraphQLString}, 
     date                 : {type:  GraphQLString}, 
-    mileage              : {type:  GraphQLString} , 
+    latest_inspection_mileage : {type:  GraphQLString} , 
 
     // mrf
     mrf_id        : {type:  GraphQLString }, 
@@ -139,19 +138,29 @@ const ValueDeclarationType = new GraphQLObjectType({
     // orchestration
     orchestration_id : {type:  GraphQLString}, 
     speedometer      : {type:  GraphQLBoolean},  
-    other            : {type:  GraphQLBoolean},  
+    orchestration_other : {type:  GraphQLBoolean},  
  
     // other_warrancy
     other_warranty_id : {type:  GraphQLString}, 
-    months_number     : {type:  GraphQLInt},  
-    km                : {type:  GraphQLInt},  
+    other_warrancy_months_number     : {type:  GraphQLInt},  
+    other_warrancy_km                : {type:  GraphQLInt},  
 
     // timing_belt
     timing_belt_id       :{type:  GraphQLString  },  
     changed              :{type:  GraphQLString},   
     annual_tax           :{type:  GraphQLInt  },   
-    service_box          :{type:  GraphQLBoolean  },   
+    // service_box          :{type:  GraphQLBoolean  },   
 
+    // tires
+    tires_id    :  {type: GraphQLString },
+    vf          :  {type: GraphQLString }, 
+    hf          :  {type: GraphQLString }, 
+    vb          :  {type: GraphQLString }, 
+    hb          :  {type: GraphQLString }, 
+    tires_res   :  {type: GraphQLString }, 
+    assessement :  {type: GraphQLString }, 
+    rope_costs  :  {type: GraphQLString }, 
+   
     // warrancy
     warrancy_id        : {type:  GraphQLString}, 
     bumper             : {type:  GraphQLBoolean}, 
@@ -169,7 +178,7 @@ const ValueDeclarationType = new GraphQLObjectType({
     back_link_arm   : {type:  GraphQLBoolean }, 
     feather         : {type:  GraphQLBoolean }, 
     spring_bracket  : {type:  GraphQLBoolean }, 
-    other           : {type:  GraphQLBoolean }
+    wheel_system_other : {type:  GraphQLBoolean }
     }
 });
 

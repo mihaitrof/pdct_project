@@ -119,10 +119,10 @@ app.post('/submit-vd/:contract_id', function (req, res) {
   const date = req.body.latest_inspection_date;                
   const latest_inspection_mileage = req.body.latest_inspection_mileage;  
 
-  // gearbox
+  // car_condition
   const car_condition_id = contract_id;
   const coupling = req.body.car_condition_coupling_assess + req.body.car_condition_coupling_costs;
-  const gearbox_gearbox = req.body.car_condition_gearbox_assess + req.body.car_condition_gearbox_costs;     
+  const car_condition_gearbox = req.body.car_condition_gearbox_assess + req.body.car_condition_gearbox_costs;     
   const end_gear = req.body.car_condition_end_gear_assess + req.body.car_condition_end_gear_costs;        
   const heating = req.body.car_condition_heating_assess + req.body.car_condition_heating_costs;         
   const battery = req.body.car_condition_battery_assess + req.body.car_condition_battery_costs;       

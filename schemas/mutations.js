@@ -1,7 +1,7 @@
 const graphql = require("graphql");
 const db = require("../pgAdaptor").db;
 const { GraphQLInt, GraphQLObjectType, GraphQLID, GraphQLString, GraphQLBoolean } = graphql;
-const { UserType, ContractType, BalanceDueType, ContractIdsType, PurchaseAgreementType } = require("./types");
+const { UserType, ContractType, BalanceDueType, ContractIdsType, PurchaseAgreementType, ValueDeclarationType } = require("./types");
 
 const RootMutation = new GraphQLObjectType({
   name: "RootMutationType",
@@ -31,6 +31,217 @@ const RootMutation = new GraphQLObjectType({
           .catch(err => err);
       }
     },
+    // Add new value declaration
+    addVD: {
+      type: ValueDeclarationType,
+      args: {
+        // contract_ids
+        contract_id: { type: GraphQLID }, //$1
+
+        // general_info
+        type                : {type:  GraphQLString },  //$2
+        manufacture_date    : {type:  GraphQLString },  //$3
+        mileage             : {type:  GraphQLInt},      //$4
+        registration_number : {type:  GraphQLString },  //$5
+        fuel                : {type:  GraphQLString },  //$6
+        gearbox             : {type:  GraphQLString },  //$7
+        repair_property     : {type:  GraphQLBoolean},  //$8
+        car_safety_id       : {type:  GraphQLString},   //$9
+        notes               : {type:  GraphQLString },  //$10
+        created             : {type:  GraphQLString },  //$11
+
+        //engine_output
+        engine_output_id : {type: GraphQLString},  //$12
+        kw               : {type: GraphQLInt},     //$13   
+        hkr              : {type:GraphQLString },  //$14 
+
+        //warrancy
+        warrancy_id        : {type:  GraphQLString},  //$15
+        bumper             : {type:  GraphQLBoolean}, //$16
+        corrosion          : {type:  GraphQLBoolean}, //$17
+        collision_damage   : {type:  GraphQLBoolean}, //$18
+        exhaust_commitment : {type:  GraphQLString},  //$19
+
+        // mrf
+        mrf_id        : {type:  GraphQLString }, //$20
+        months_number : {type:  GraphQLInt },  //$21
+        km            : {type:  GraphQLInt },  //$22
+
+        // other_warrancy
+        other_warranty_id : {type:  GraphQLString}, //$23
+        months_number     : {type:  GraphQLInt},  //$24
+        km                : {type:  GraphQLInt},  //$25
+
+        // car_parts
+        car_parts_id   : {type: GraphQLString  }, //$25
+        months_number  : {type: GraphQLInt   }, //$27
+        car_parts_km : {type: GraphQLInt   }, //$28
+        // warranty_type  : {type: GraphQLString }, //$29
+
+        // timing_belt
+        timing_belt_id       :{type:  GraphQLString  }, //$30
+        changed              :{type:  GraphQLString},   //$31
+        annual_tax           :{type:  GraphQLInt  },   //$32
+        service_box          :{type:  GraphQLBoolean  }, //$33
+
+        // latest_inspection
+        latest_inspection_id : {type:  GraphQLString}, //$34
+        date                 : {type:  GraphQLString}, //$35
+        mileage              : {type:  GraphQLString}, //$36
+
+        // car_condition
+        car_condition_id  : {type: GraphQLString }, //$37
+        coupling          : {type: GraphQLString }, //$38
+        gearbox           : {type: GraphQLString }, //$39
+        end_gear          : {type: GraphQLString }, //$40
+        heating           : {type: GraphQLString }, //$41
+        battery           : {type: GraphQLString }, //$42
+        starter           : {type: GraphQLString }, //$43
+        generator         : {type: GraphQLString }, //$44
+        engine            : {type: GraphQLString }, //$45
+        ignition          : {type: GraphQLString }, //$46 
+        compression       : {type: GraphQLString }, //$47 
+        noise             : {type: GraphQLString }, //$48
+        fuel              : {type: GraphQLString }, //$49
+        cooling           : {type: GraphQLString }, //$50
+        air_conditioning  : {type: GraphQLString }, //$51
+        varnish           : {type: GraphQLString }, //$52
+        other             : {type: GraphQLString }, //$53
+        total_repair_cost : {type: GraphQLString }, //$54
+
+        // tires
+        tires_id    :  {type: GraphQLString }, //$55
+        vf          :  {type: GraphQLString }, //$56
+        hf          :  {type: GraphQLString }, //$57
+        vb          :  {type: GraphQLString }, //$58
+        hb          :  {type: GraphQLString }, //$59
+        res         :  {type: GraphQLString }, //$60
+        assessement :  {type: GraphQLString }, //$61
+        rope_costs  :  {type: GraphQLString }, //$62
+        
+        // body
+        body_id        : {type: GraphQLString}, //$63
+        side_member    : {type: GraphQLString}, //$64
+        crossbeam      : {type: GraphQLBoolean}, //$65
+        floor          : {type: GraphQLBoolean}, //$66
+        wheel_arch     : {type: GraphQLBoolean}, //$67
+        other          : {type: GraphQLBoolean}, //$68
+        declaration_id : {type: GraphQLBoolean}, //$69
+
+        // wheel_system
+        wheel_system_id : {type:  GraphQLString }, //$70
+        deck            : {type:  GraphQLBoolean }, //$71
+        shock           : {type:  GraphQLBoolean }, //$72
+        bearings        : {type:  GraphQLBoolean }, //$73
+        spindelled      : {type:  GraphQLBoolean }, //$74
+        front_link_arm  : {type:  GraphQLBoolean }, //$75
+        back_link_arm   : {type:  GraphQLBoolean }, //$76
+        feather         : {type:  GraphQLBoolean }, //$77
+        spring_bracket  : {type:  GraphQLBoolean }, //$78
+        wheel_system_other : {type:  GraphQLBoolean }, //$79
+
+        // drive
+        drive_id        : {type: GraphQLString}, //$80
+        drive_fuel      : {type: GraphQLBoolean}, //$81
+        exhaust         : {type: GraphQLBoolean}, //$82
+        transmission    : {type: GraphQLBoolean}, //$83
+        universal_joint : {type: GraphQLBoolean}, //$84
+        power_supply    : {type: GraphQLBoolean}, //$85
+        drive_battery   : {type: GraphQLBoolean}, //$86
+
+        // braking_system
+        braking_system_id      : {typw: GraphQLString }, //$87
+        service_brake_front    : {typw: GraphQLBoolean }, //$88
+        service_brake_back     : {typw: GraphQLBoolean }, //$89
+        service_brake_movement : {typw: GraphQLBoolean }, //$90
+        brake_hose             : {typw: GraphQLBoolean }, //$91
+        braking_system_battery : {typw: GraphQLBoolean }, //$92
+        braking_system_other   : {typw: GraphQLBoolean }, //$93
+
+        // control_system
+        control_system_id  : {type: GraphQLString}, //$94
+        articulation_joint : {type: GraphQLBoolean },  //$95
+        steering_gear      : {type: GraphQLBoolean },  //$96
+        track_control_arm  : {type: GraphQLBoolean },  //$97
+        control_system_other : {type: GraphQLBoolean }, //$98
+
+        // karosseri
+        karosseri_id   : {type:  GraphQLString }, //$99
+        door           : {type:  GraphQLBoolean },  //$100
+        screen         : {type:  GraphQLBoolean },  //$101
+        windshield     : {type:  GraphQLBoolean },  //$102
+        seat_belts     : {type:  GraphQLBoolean },  //$103
+        loading_space  : {type:  GraphQLBoolean },  //$104
+        karosseri_other : {type:  GraphQLBoolean },  //$105
+
+        // communication
+        communication_id     : {type: GraphQLString}, //$106
+        windscreen_wiper     : {type: GraphQLBoolean},  //$107
+        windscreen_washer    : {type: GraphQLBoolean},  //$108
+        rearview_mirror      : {type: GraphQLBoolean},  //$109
+        headlight_setting    : {type: GraphQLBoolean},  //$110
+        headlamp_1           : {type: GraphQLBoolean},  //$111
+        headlamp_2           : {type: GraphQLBoolean},  //$112
+        signal_device        : {type: GraphQLBoolean},  //$113
+        side_marker          : {type: GraphQLBoolean},  //$114
+        headlight_front      : {type: GraphQLBoolean},  //$115
+        headlight_back       : {type: GraphQLBoolean},  //$116
+        direction_indicator  : {type: GraphQLBoolean},  //$117
+        stop_lamps           : {type: GraphQLBoolean},  //$118
+        reflex               : {type: GraphQLBoolean},  //$119
+        communication_other  : {type: GraphQLBoolean},  //$120
+
+        // orchestration
+        orchestration_id : {type:  GraphQLString}, //$121
+        speedometer      : {type:  GraphQLBoolean},  //$122
+        orchestration_other : {type:  GraphQLBoolean},  //$123
+
+        // facilities
+        facilities_id   : {type:  GraphQLString },  //$124
+        facilities_coupling : {type:  GraphQLBoolean }, //$125
+        trailer_contact : {type:  GraphQLBoolean },   //$126
+        facilities_other : {type:  GraphQLBoolean },  //$127
+
+        // environment
+        environment_id   : {type:  GraphQLString }, //$128
+        purification     : {type:  GraphQLBoolean }, //$129
+        emission_control : {type:  GraphQLBoolean }, //$130
+        environment_exhaust : {type:  GraphQLBoolean } //$131
+      },
+      resolve(parentValue, args) {
+        const query = `INSERT INTO declaration(declaration_id) VALUES ($1);
+                       INSERT INTO engine_output(engine_output_id, kw, hkr) VALUES ($1, $13, $14);
+                       INSERT INTO mrf (mrf_id, months_number, km) VALUES ($1, $21, $2);
+                       INSERT INTO other_warrancy (other_warranty_id, months_number, km) VALUES ($1, $24, $25);
+                       INSERT INTO car_parts (car_parts_id, months_number, km) VALUES ($1, $27, $28);
+                       INSERT INTO general_info (type, manufacture_date, mileage, registration_number, fuel, gearbox, repair_property, car_safety_id, notes, created, declaration_id, engine_output_id) VALUES ($2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $1, $1);
+                       INSERT INTO warrancy (warrancy_id, bumper, corrosion, collision_damage, exhaust_commitment, mrf_id, other_warranty_id, car_parts_id, declaration_id) VALUES ($1, $16, $17, $18, $19, $1, $1, $1, $1);
+                       INSERT INTO body (side_member, crossbeam, floor, wheel_arch, other, declaration_id) VALUES ($1, $64, $65, $66, $67, $68, $1);
+                       INSERT INTO drive (drive_id, fuel, exhaust, transmission, universal_joint, power_supply, battery, declaration_id) VALUES ($1, $81, $82, $83, $84, $85, $86, $1);
+                       INSERT INTO braking_system (braking_system_id, service_brake_front, service_brake_back, service_brake_movement, brake_hose, battery, other, declaration_id) VALUES ($1, $88, $89, $90, $91, $92, $93, $1);
+                       INSERT INTO control_system (control_system_id, articulation_joint, steering_gear, track_control_arm, other, declaration_id) VALUES ($1, $95, $96, $97, $98, $1);
+                       INSERT INTO karosseri (karosseri_id, door, screen, windshield, seat_belts, loading_space, other, declaration_id) VALUES ($1, $100, $101, $102, $103, $104, $105, $1);
+                       INSERT INTO communication (communication_id, windscreen_wiper, windscreen_washer, rearview_mirror, headlight_setting, headlamp_1, headlamp_2, signal_device, side_marker, headlight_front, headlight_back, direction_indicator, stop_lamps, reflex, other, declaration_id) VALUES ($1, $107, $108, $109, $110, $111, $112, $113, $114, $115, $116, $117, $118, $119, $120, $1);
+                       INSERT INTO orchestration (orchestration_id, speedometer, other, declaration_id) VALUES ($1, $122, $123, $1);
+                       INSERT INTO facilities (facilities_id, coupling, trailer_contact, other, declaration_id) VALUES ($1, $125, $126, $127, $1);
+                       INSERT INTO timing_belt (timing_belt_id, changed, annual_tax, declaration_id, latest_inspection_id) VALUES ($1, $31, $32, $33, $1, $1);
+                       INSERT INTO latest_inspection (latest_inspection_id, date, mileage) VALUES ($1, $35, $36);
+                       INSERT INTO car_condition (car_condition_id, coupling, gearbox, end_gear, heating, battery, starter, generator, engine, ignition, compression, noise, fuel, cooling, air_conditioning, varnish, other, total_repair_cost, declaration_id, tires_id) VALUES ($1, $38, $39, $40, $41, $42, $43, $44, $45, $46, $47, $48, $49, $50, $51, $52, $53, $54, $1, $1);
+                       INSERT INTO environment (environment_id, purification, emission_control, exhaust, declaration_id) VALUES ($1, $129, $130, $131, $1);
+                       INSERT INTO tires (tires_id, vf, hf, vb, hb, res, assessement, rope_costs) VALUES ($1, $56, $57, $58, $59, $60, $61, $62);
+                       INSERT INTO wheel_system (wheel_system_id, deck, shock, bearings, spindelled, front_link_arm, back_link_arm, feather, spring_bracket, other, declaration_id) VALUES ($1, $71, $72, $73, $74, $75, $76, $77, $78, $79);
+                       `;
+        
+        const values = [
+        // TODO
+      ];
+
+      return db
+        .multi(query, values)
+        .then(res => res)
+        .catch(err => err);
+    }
+  },
     // Add new contract from: <<url>>/create-contract/
     addContract:{
       type: ContractType,
@@ -93,6 +304,7 @@ const RootMutation = new GraphQLObjectType({
                        INSERT INTO purchase_agreement(contract_id, agreement_number, seller_or_buyer, phone, purchase_date) VALUES ($1, $28, $29, $30, $31);
                        INSERT INTO seller(contract_id, name, address, phone, driver_name) VALUES ($1, $32, $33, $34, $35);
                        INSERT INTO regulation_purchase(contract_id, purchase_price, vat, resolves_the_redemption_of_my_residual_debt, other_deductions, other_payments, to_obtain) VALUES ($1, $36, $37, $38, $39, $40, $41);`;
+        
         const values = [
           args.contract_id,
           // balance_due
