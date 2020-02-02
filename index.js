@@ -413,7 +413,130 @@ app.get('/vd/:contract_id', /*requireAuth,*/ function(req, res) {
 
   var contract_id = req.params.contract_id;
 
-  res.render(__dirname + "/ui/value_declaration/contract.html");
+  var q = `{getVd(contract_id: ${contract_id})
+          {type
+          manufacture_date
+          mileage
+          registration_number
+          fuel
+          gearbox
+          repair_property
+          car_safety_id
+          notes
+          created
+          kw  
+          hkr
+          bumper
+          corrosion
+          collision_damage
+          exhaust_commitment
+          mrf_months_number
+          mrf_km
+          other_warrancy_months_number
+          other_warrancy_km
+          months_number
+          car_parts_km
+          changed
+          annual_tax
+          date      
+          latest_inspection_mileage
+          coupling
+          car_condition_gearbox
+          end_gear
+          heating
+          battery
+          starter
+          generator
+          engine
+          ignition
+          compression
+          noise
+          fuel # Problem
+          cooling
+          air_conditioning
+          varnish
+          other
+          total_repair_cost
+          vf
+          hf
+          vb
+          hb
+          tires_res
+          assessement
+          rope_costs
+          side_member
+          crossbeam:
+          floor
+          wheel_arch
+          body_other
+          deck
+          shock
+          bearings
+          spindelled
+          front_link_arm
+          back_link_arm
+          feather
+          spring_bracket
+          wheel_system_other
+          drive_fuel
+          exhaust
+          transmission
+          universal_joint
+          power_supply
+          drive_battery
+          service_brake_front
+          service_brake_back
+          service_brake_movement
+          brake_hose
+          braking_system_battery
+          braking_system_other
+          articulation_joint
+          steering_gear
+          track_control_arm
+          control_system_other
+          door
+          screen
+          windshield
+          seat_belts
+          loading_space
+          karosseri_other
+          windscreen_wiper
+          windscreen_washer
+          rearview_mirror
+          headlight_setting
+          headlamp_1
+          headlamp_2
+          signal_device
+          side_marker
+          headlight_front
+          headlight_back
+          direction_indicator
+          stop_lamps
+          reflex
+          communication_other
+          speedometer
+          orchestration_other
+          facilities_coupling
+          trailer_contact
+          facilities_other
+          purification
+          emission_control
+          environment_exhaust}}`
+
+    var query = {query: q};
+  
+    fetch('http://localhost:9000/graphql', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(query)
+    })
+      .then(result => result.json())
+      .then(result => {
+          var data = result.data.getVd;
+          // console.log(data.getVd);
+          // res.render(__dirname + "/ui/view-contract/index.html", data);
+          res.render(__dirname + "/ui/value_declaration/contract.html", data);
+        });
 });
 
 app.get('/contract/:contract_id', /*requireAuth,*/ function(req, res) {
