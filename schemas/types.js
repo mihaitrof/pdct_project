@@ -112,7 +112,7 @@ const ValueDeclarationType = new GraphQLObjectType({
     fuel                : {type:  GraphQLString },  
     gearbox             : {type:  GraphQLString },  
     repair_property     : {type:  GraphQLBoolean},  
-    car_safety_id       : {type:  GraphQLString}, 
+    car_safety_id       : {type:  GraphQLInt}, 
     notes               : {type:  GraphQLString },  
     created             : {type:  GraphQLString },  
 
@@ -132,8 +132,8 @@ const ValueDeclarationType = new GraphQLObjectType({
 
     // mrf
     mrf_id        : {type:  GraphQLString }, 
-    months_number : {type:  GraphQLInt },  
-    km            : {type:  GraphQLInt },  
+    mrf_months_number : {type:  GraphQLInt },  
+    mrf_km            : {type:  GraphQLInt },  
 
     // orchestration
     orchestration_id : {type:  GraphQLString}, 
@@ -149,7 +149,7 @@ const ValueDeclarationType = new GraphQLObjectType({
     timing_belt_id       :{type:  GraphQLString  },  
     changed              :{type:  GraphQLString},   
     annual_tax           :{type:  GraphQLInt  },   
-    // service_box          :{type:  GraphQLBoolean  },   
+    service_box          :{type:  GraphQLBoolean  },   
 
     // tires
     tires_id    :  {type: GraphQLString },

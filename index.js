@@ -64,6 +64,7 @@ app.post('/submit-vd/:contract_id', function (req, res) {
   const manufacture_date = req.body.manufacture_date;
   const mileage = req.body.mileage;
   const registration_number = req.body.registration_number;
+  const fuel = 0;
   if(req.body.general_bensin === 'on'){
     const fuel = '1';
   } else if(req.body.general_diesel === 'on'){
@@ -76,7 +77,7 @@ app.post('/submit-vd/:contract_id', function (req, res) {
   
   const gearbox = req.body.gearbox_automat === 'on' ? '1' : '2';          
   const repair_property = req.body.repair_property === 'on' ? true : false;   
-  const car_safety_id = req.body.car_safety_id === 'on' ? true : false;        
+  const car_safety_id = req.body.car_safety_id === 'on' ? 1 : 0;        
   const notes = req.body.general_info_notes;            
   const created = req.body.general_info_created;                
     
@@ -132,7 +133,7 @@ app.post('/submit-vd/:contract_id', function (req, res) {
   const ignition = req.body.car_condition_ignition_assess + req.body.car_condition_ignition_costs;               
   const compression = req.body.car_condition_compression_assess + req.body.car_condition_compression_costs;            
   const noise = req.body.car_condition_noise_assess + req.body.car_condition_noise_costs;                 
-  const fuel = req.body.car_condition_fuel_assess + req.body.car_condition_fuel_costs;                  
+  const car_condition_fuel = req.body.car_condition_fuel_assess + req.body.car_condition_fuel_costs;                  
   const cooling = req.body.car_condition_cooling_assess + req.body.car_condition_cooling_costs;               
   const air_conditioning = req.body.car_condition_air_conditiong_assess + req.body.car_condition_air_conditiong_costs;     
   const varnish = req.body.car_condition_varnish_assess + req.body.car_condition_varnish_costs;                
@@ -237,65 +238,174 @@ app.post('/submit-vd/:contract_id', function (req, res) {
   const emission_control = req.body.environment_emission_control === 'on' ? true : false; 
   const environment_exhaust  = req.body.environment_exhaust === 'on' ? true : false;          
 
-  // var query = { query: '{ contract_id(contract_id: ' + 10 + ') {contract_id} }' };
-  // var query = {query: 'mutation {addContract(contract_id:' + contract_id +
-  //                                             ',creditors:"' + creditors + 
-  //                                             '",balance_due:"' +  balance_due + 
-  //                                             '",account_number:"' + account_number +
-  //                                             '",checked_date:"' + checked_date + 
-  //                                             '",informants:"' +  informants +
-  //                                             '",signature:"' + signature + 
-  //                                             '",buyer_date:"' + buyer_date + 
-  //                                             '",buyer_city:"' + buyer_city + 
-  //                                             '",buyer_representative:"' + buyer_representative + 
-  //                                             '",registration_property:"' + registration_property + 
-  //                                             '",chassis_numer:"' + chassis_numer + 
-  //                                             '",mileage:' + mileage + 
-  //                                             ',valuation:' + valuation + 
-  //                                             ',first_registration_date:"' + first_registration_date + 
-  //                                             '",manufactured_date:"' + manufactured_date + 
-  //                                             '",colour:"' + colour + 
-  //                                             '",valuation_date:"' + valuation_date + 
-  //                                             '",deduction:"' + deduction + 
-  //                                             '",approved_check:"' + approved_check + 
-  //                                             '",service_book:"' + service_book + 
-  //                                             '",warranty:"' + warranty + 
-  //                                             '",purchase_price_adjusted:' + purchase_price_adjusted + 
-  //                                             ',condition_and_notes:"' + condition_and_notes + 
-  //                                             '",date:"' + date + 
-  //                                             '",city:"' + city + 
-  //                                             '",representative:"' + representative + 
-  //                                             '",agreement_number:"' + agreement_number + 
-  //                                             '",seller_or_buyer:"' + seller_or_buyer + 
-  //                                             '",phone:"' + phone + 
-  //                                             '",purchase_date:"' + purchase_date + 
-  //                                             '",name:"' + name + 
-  //                                             '",address:"' + address + 
-  //                                             '",seller_phone:"' + seller_phone + 
-  //                                             '",driver_name_phone:"' + driver_name_phone + 
-  //                                             '",purchase_price:' + purchase_price + 
-  //                                             ',vat:' + vat + 
-  //                                             ',resolves_the_redemption_of_my_residual_debt:"' + resolves_the_redemption_of_my_residual_debt + 
-  //                                             '",other_deductions:"' + other_deductions + 
-  //                                             '",other_payments:"' + other_payments + 
-  //                                             '",to_obtain:"' + to_obtain + 
-  //                                             '") {contract_id}}'
-  // }
+  var query = {query: 'mutation {addVD(contract_id:' + contract_id +
+                                
+                                              // general_info
+                                              ',type:"' + type +              
+                                              '",manufacture_date:"' + manufacture_date  +
+                                              '",mileage:' + mileage  +
+                                              ',registration_number:"' + registration_number  +
+                                              '",fuel:"' + fuel +
+                                              '",gearbox:"' + gearbox  +
+                                              '",repair_property:' + repair_property  +
+                                              ',car_safety_id:' + car_safety_id  +
+                                              ',notes:"' +  notes +
+                                              '",created:"' + created  +
 
-  // console.log(query);
+                                              // engine_output
+                                              '",kw:' + kw  +   
+                                              ',hkr:"' + hkr + 
+
+                                              // warrancy
+                                              '",bumper:' + bumper +  
+                                              ',corrosion:' + corrosion +  
+                                              ',collision_damage:' + collision_damage +  
+                                              ',exhaust_commitment:"' + exhaust_commitment +  
+
+                                              // mrf
+                                              '",mrf_months_number:' + mrf_months_number +
+                                              ',mrf_km:' + mrf_km +       
+                                              
+                                              // other_warrancy
+                                              ',other_warrancy_months_number:' + other_warrancy_months_number + 
+                                              ',other_warrancy_km:' + other_warrancy_km + 
+
+                                              // car_parts
+                                              ',months_number:' + months_number + 
+                                              ',car_parts_km:' + car_parts_km +
+
+                                              // timing_belt
+                                              ',changed:"' + changed +       
+                                              '",annual_tax:' + annual_tax +   
+                                              // 'service_box' + service_box +  
+
+                                              // latest_inspection
+                                              ',date:"' + date + 
+                                              '",latest_inspection_mileage:"' + latest_inspection_mileage + 
+
+                                              // car_condition
+                                              '",coupling:"' + coupling +        
+                                              '",car_condition_gearbox:"' + car_condition_gearbox +        
+                                              '",end_gear:"' + end_gear +       
+                                              '",heating:"' + heating +        
+                                              '",battery:"' +  battery +      
+                                              '",starter:"' +  starter +      
+                                              '",generator:"' + generator +        
+                                              '",engine:"' + engine +          
+                                              '",ignition:"' + ignition +         
+                                              '",compression:"' + compression +      
+                                              '",noise:"' + noise +            
+                                              '",car_condition_fuel:"' + car_condition_fuel +             
+                                              '",cooling:"' + cooling +          
+                                              '",air_conditioning:"' + air_conditioning + 
+                                              '",varnish:"' + varnish +         
+                                              '",other:"' + other +            
+                                              '",total_repair_cost:"' + total_repair_cost + 
+
+                                              // tires
+                                              '",vf:"' + vf +          
+                                              '",hf:"' + hf +         
+                                              '",vb:"' + vb +        
+                                              '",hb:"' + hb +        
+                                              '",tires_res:"' + tires_res +         
+                                              '",assessement:"' + assessement + 
+                                              '",rope_costs:"' + rope_costs + 
+
+                                              // body
+                                              '",side_member:' + side_member + 
+                                              ',crossbeam:' + crossbeam +     
+                                              ',floor:' + floor +         
+                                              ',wheel_arch:' + wheel_arch +     
+                                              ',body_other:' + body_other +   
+                                              
+                                              // wheel_system
+                                              ',deck:' + deck +         
+                                              ',shock:' + shock +        
+                                              ',bearings:' + bearings +        
+                                              ',spindelled:' + spindelled +     
+                                              ',front_link_arm:' + front_link_arm +  
+                                              ',back_link_arm:' + back_link_arm +  
+                                              ',feather:' + feather +       
+                                              ',spring_bracket:' + spring_bracket +   
+                                              ',wheel_system_other:' + wheel_system_other + 
+
+                                              // drive
+                                              ',drive_fuel:' + drive_fuel +    
+                                              ',exhaust:' + exhaust +        
+                                              ',transmission:' + transmission +   
+                                              ',universal_joint:' + universal_joint +
+                                              ',power_supply:' + power_supply +    
+                                              ',drive_battery:' + drive_battery +  
+
+                                              // braking_system
+                                              ',service_brake_front:' + service_brake_front +   
+                                              ',service_brake_back:' + service_brake_back +   
+                                              ',service_brake_movement:' + service_brake_movement +
+                                              ',brake_hose:' + brake_hose +           
+                                              ',braking_system_battery:' + braking_system_battery + 
+                                              ',braking_system_other:' + braking_system_other +  
+
+                                              // control_system
+                                              ',articulation_joint:' + articulation_joint + 
+                                              ',steering_gear:' + steering_gear +     
+                                              ',track_control_arm:' + track_control_arm +  
+                                              ',control_system_other:' + control_system_other +
+
+                                              // karosseri
+                                              ',door:' + door +       
+                                              ',screen:' + screen +         
+                                              ',windshield:' + windshield +      
+                                              ',seat_belts:' + seat_belts +   
+                                              ',loading_space:' + loading_space + 
+                                              ',karosseri_other:' + karosseri_other + 
+
+                                              // communication
+                                              ',windscreen_wiper:'  + windscreen_wiper +   
+                                              ',windscreen_washer:' + windscreen_washer +  
+                                              ',rearview_mirror:' + rearview_mirror +    
+                                              ',headlight_setting:' + headlight_setting + 
+                                              ',headlamp_1:' + headlamp_1 +         
+                                              ',headlamp_2:' + headlamp_2 +         
+                                              ',signal_device:' + signal_device +      
+                                              ',side_marker:' + side_marker +        
+                                              ',headlight_front:' + headlight_front +    
+                                              ',headlight_back:' + headlight_back +     
+                                              ',direction_indicator:' + direction_indicator + 
+                                              ',stop_lamps:' + stop_lamps +         
+                                              ',reflex:' + reflex +             
+                                              ',communication_other:' + communication_other +  
+
+                                              // orchestration
+                                              ',speedometer:' + speedometer +     
+                                              ',orchestration_other:' + orchestration_other +
+                                              
+                                              // facilities
+                                              ',facilities_coupling:' + facilities_coupling + 
+                                              ',trailer_contact:' + trailer_contact +
+                                              ',facilities_other:' + facilities_other +
+
+                                              // environment
+                                              ',purification:' + purification +
+                                              ',emission_control:' + emission_control +     
+                                              ',environment_exhaust:' + environment_exhaust + 
+                          
+                                              ') {contract_id}}'
+  }
+
+  console.log(query);
   
-  // fetch('http://localhost:9000/graphql', {
-  //   method: 'POST',
-  //   headers: { 'Content-Type': 'application/json' },
-  //   body: JSON.stringify(query),
-  // })
-  //   .then(re => re.json())
-  //   .then(re => {
-  //     res.redirect('/contracts');
-  //   });
+  fetch('http://localhost:9000/graphql', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(query),
+  })
+    .then(re => re.json())
+    .then(re => {
+      res.redirect('/contracts');
+    });
 
   //_______________________________________________________
-  res.redirect('/contracts');
+  // res.redirect('/contracts');
   res.end();
 });
 
