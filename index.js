@@ -122,22 +122,22 @@ app.post('/submit-vd/:contract_id', function (req, res) {
 
   // car_condition
   const car_condition_id = contract_id;
-  const coupling = req.body.car_condition_coupling_assess + req.body.car_condition_coupling_costs;
-  const car_condition_gearbox = req.body.car_condition_gearbox_assess + req.body.car_condition_gearbox_costs;     
-  const end_gear = req.body.car_condition_end_gear_assess + req.body.car_condition_end_gear_costs;        
-  const heating = req.body.car_condition_heating_assess + req.body.car_condition_heating_costs;         
-  const battery = req.body.car_condition_battery_assess + req.body.car_condition_battery_costs;       
-  const starter = req.body.car_condition_starter_assess + req.body.car_condition_starter_costs;      
-  const generator = req.body.car_condition_generator_assess + req.body.car_condition_generator_costs;              
-  const engine = req.body.car_condition_engine_assess + req.body.car_condition_engine_costs;                
-  const ignition = req.body.car_condition_ignition_assess + req.body.car_condition_ignition_costs;               
-  const compression = req.body.car_condition_compression_assess + req.body.car_condition_compression_costs;            
-  const noise = req.body.car_condition_noise_assess + req.body.car_condition_noise_costs;                 
-  const car_condition_fuel = req.body.car_condition_fuel_assess + req.body.car_condition_fuel_costs;                  
-  const cooling = req.body.car_condition_cooling_assess + req.body.car_condition_cooling_costs;               
-  const air_conditioning = req.body.car_condition_air_conditiong_assess + req.body.car_condition_air_conditiong_costs;     
-  const varnish = req.body.car_condition_varnish_assess + req.body.car_condition_varnish_costs;                
-  const other = req.body.car_condition_other_asses + req.body.car_condition_other_costs;                 
+  const coupling = req.body.car_condition_coupling_assess + ' ' + req.body.car_condition_coupling_costs;
+  const car_condition_gearbox = req.body.car_condition_gearbox_assess + ' ' + req.body.car_condition_gearbox_costs;     
+  const end_gear = req.body.car_condition_end_gear_assess + ' ' + req.body.car_condition_end_gear_costs;        
+  const heating = req.body.car_condition_heating_assess + ' ' + req.body.car_condition_heating_costs;         
+  const battery = req.body.car_condition_battery_assess + ' ' + req.body.car_condition_battery_costs;       
+  const starter = req.body.car_condition_starter_assess + ' ' + req.body.car_condition_starter_costs;      
+  const generator = req.body.car_condition_generator_assess + ' ' + req.body.car_condition_generator_costs;              
+  const engine = req.body.car_condition_engine_assess + ' ' +req.body.car_condition_engine_costs;                
+  const ignition = req.body.car_condition_ignition_assess + ' ' + req.body.car_condition_ignition_costs;               
+  const compression = req.body.car_condition_compression_assess + ' ' + req.body.car_condition_compression_costs;            
+  const noise = req.body.car_condition_noise_assess + ' ' + req.body.car_condition_noise_costs;                 
+  const car_condition_fuel = req.body.car_condition_fuel_assess + ' ' +req.body.car_condition_fuel_costs;                  
+  const cooling = req.body.car_condition_cooling_assess + ' ' +req.body.car_condition_cooling_costs;               
+  const air_conditioning = req.body.car_condition_air_conditiong_assess + ' ' +req.body.car_condition_air_conditiong_costs;     
+  const varnish = req.body.car_condition_varnish_assess + ' ' +req.body.car_condition_varnish_costs;                
+  const other = req.body.car_condition_other_asses + ' ' + req.body.car_condition_other_costs;                 
   const total_repair_cost = req.body.car_condition_total_repair_cost;      
         
   // tires
@@ -465,7 +465,7 @@ app.get('/vd/:contract_id', /*requireAuth,*/ function(req, res) {
           assessement
           rope_costs
           side_member
-          crossbeam:
+          crossbeam
           floor
           wheel_arch
           body_other
@@ -533,8 +533,159 @@ app.get('/vd/:contract_id', /*requireAuth,*/ function(req, res) {
       .then(result => result.json())
       .then(result => {
           var data = result.data.getVd;
-          // console.log(data.getVd);
-          // res.render(__dirname + "/ui/view-contract/index.html", data);
+          data.mileage = data.mileage.toString();
+          switch(data.gearbox){
+            case '0':
+              data.gearbox_automat = false;
+              data.gearbox_manual = false;
+              break;
+            case '1':
+              data.gearbox_automat = 'checked';
+              data.gearbox_manual = false;
+              break;
+            case '2':
+              data.gearbox_automat = false;
+              data.gearbox_manual = 'checked';
+              break;
+          }
+          switch(data.fuel){
+            case '0':
+              data.general_bensin = false;
+              data.general_diesel = false;
+              data.general_ovrigt = false;
+              data.general_katalysator = false;
+              break;
+            case '1':
+              data.general_bensin = 'checked';
+              data.general_diesel = false;
+              data.general_ovrigt = false;
+              data.general_katalysator = false;
+              break;
+            case '2':
+              data.general_bensin = false;
+              data.general_diesel = 'checked';
+              data.general_ovrigt = false;
+              data.general_katalysator = false;
+              break;
+            case '3':
+              data.general_bensin = false;
+              data.general_diesel = false;
+              data.general_ovrigt = 'checked';
+              data.general_katalysator = false;
+              break;
+            case '4':
+              data.general_bensin = false;
+              data.general_diesel = false;
+              data.general_ovrigt = false;
+              data.general_katalysator = 'checked';
+              break;
+          }
+          
+          Object.keys(data).forEach(function(key) {
+            if(typeof data[key] == 'boolean'){
+              if(data[key] == true){
+                data[key] = 'checked';
+              }
+            }
+
+            if(data[key] == 'true'){
+                data[key] = 'checked';
+            }
+          });
+
+          switch(data.bumper){
+            case 'checked':
+              data.bumper_yes = 'checked';
+              data.bumper_no = false;
+              break;
+            default:
+              data.bumper_yes = false;
+              data.bumper_no = 'checked';
+              break;
+          }
+
+          switch(data.service_book){
+            case 'checked':
+              data.timing_belt_service_box_yes = 'checked';
+              data.timing_belt_service_box_no = false;
+              break;
+            default:
+              data.timing_belt_service_box_yes = false;
+              data.timing_belt_service_box_no = 'checked';
+              break;
+          }
+
+          switch(data.corrosion){
+            case 'checked':
+              data.corrosion_yes = 'checked';
+              data.corrosion_no = false;
+              break;
+            default:
+              data.corrosion_yes = false;
+              data.corrosion_no = 'checked';
+              break;
+          }
+
+          switch(data.exhaust_commitment){
+            case 'checked':
+              data.exhaust_commitment_yes = 'checked';
+              data.exhaust_commitment_no = false;
+              break;
+            default:
+              data.exhaust_commitment_yes = false;
+              data.exhaust_commitment_no = 'checked';
+              break;
+          }
+
+          switch(data.collision_damage){
+            case 'checked':
+              data.collision_damage_yes = 'checked';
+              data.collision_damage_no = false;
+              break;
+            default:
+              data.collision_damage_yes = false;
+              data.collision_damage_no = 'checked';
+              break;
+          }
+
+          switch(data.changed){
+            case 'checked':
+              data.timing_belt_changed_yes = 'checked';
+              data.timing_belt_changed_no = false;
+              break;
+            default:
+              data.timing_belt_changed_yes = false;
+              data.timing_belt_changed_no = 'checked';
+              break;
+          }
+
+          if(data.mrf_months_number === null && data.mrf_km === null){
+            data.mrf_yes = false;
+            data.mrf_no = 'checked';
+          }
+
+          if(data.other_warrancy_months_number === null && data.other_warrancy_months_number === null){
+            data.other_warranty_yes = false;
+            data.other_warranty_no = 'checked';
+          }else{
+            data.other_warranty_yes = 'checked';
+            data.other_warranty_no = false;
+          }
+
+          if(data.months_number === null && data.car_parts_km === null){
+            data.car_parts_yes = false;
+            data.car_parts_no = 'checked';
+          } else{
+            data.car_parts_yes = 'checked';
+            data.car_parts_no = false;
+          }
+
+          console.log("__________",  data.changed);
+
+          Object.keys(data).forEach(function(key) {
+            data[key] = data[key] + ' disabled';
+          });    
+          
           res.render(__dirname + "/ui/value_declaration/contract.html", data);
         });
 });

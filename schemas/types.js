@@ -38,7 +38,7 @@ const ValueDeclarationType = new GraphQLObjectType({
     ignition          : {type: GraphQLString },  
     compression       : {type: GraphQLString },  
     noise             : {type: GraphQLString },  
-    fuel              : {type: GraphQLString },  
+    car_condition_fuel  : {type: GraphQLString },  
     cooling           : {type: GraphQLString },  
     air_conditioning  : {type: GraphQLString },  
     varnish           : {type: GraphQLString },  
@@ -149,7 +149,7 @@ const ValueDeclarationType = new GraphQLObjectType({
     timing_belt_id       :{type:  GraphQLString  },  
     changed              :{type:  GraphQLString},   
     annual_tax           :{type:  GraphQLInt  },   
-    service_box          :{type:  GraphQLBoolean  },   
+    service_book        :{type:  GraphQLBoolean  },   
 
     // tires
     tires_id    :  {type: GraphQLString },

@@ -11,7 +11,32 @@ const RootQuery = new GraphQLObjectType({
       args: { contract_id: { type: GraphQLID } },
       resolve(parentValue, args) {
         const query = `SELECT 
-                          a.*, b.*, c.*, d.*, e.*, f.*, g.*, h.*, i.*, k.*, l.*, m.*, n.*, o.*, p.*, r.*, s.*, t.*, u.*, v.*, x.*, y.*
+                          a.*, b.*, c.*, d.*, e.*, f.*, g.*, h.*, i.*, 
+                          k.fuel AS drive_fuel, 
+                          k.exhaust, 
+                          k.transmission, 
+                          k.universal_joint, 
+                          k.power_supply, 
+                          k.battery AS drive_battery, 
+                          l.*, m.*, n.*, o.*, p.*, r.*, s.*, t.*, u.*, 
+                          v.coupling AS coupling,
+                          v.gearbox AS car_condition_gearbox,
+                          v.end_gear AS end_gear,
+                          v.heating AS heating,
+                          v.battery AS battery,
+                          v.starter AS starter,
+                          v.generator AS generator,
+                          v.engine AS engine,
+                          v.ignition AS ignition,
+                          v.compression AS compression,
+                          v.noise AS noise,
+                          v.fuel AS car_condition_fuel,
+                          v.cooling AS cooling,
+                          v.air_conditioning AS air_conditioning,
+                          v.varnish AS varnish,
+                          v.other AS other,
+                          v.total_repair_cost AS total_repair_cost,
+                          x.*, y.*
                        FROM 
                           contract_ids a
                        JOIN 
