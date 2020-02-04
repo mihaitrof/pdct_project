@@ -451,7 +451,7 @@ app.get('/vd/:contract_id', /*requireAuth,*/ function(req, res) {
           ignition
           compression
           noise
-          fuel # Problem
+          car_condition_fuel
           cooling
           air_conditioning
           varnish
@@ -608,6 +608,42 @@ app.get('/vd/:contract_id', /*requireAuth,*/ function(req, res) {
           data.car_condition_battery_assess = data.battery.split(" ")[0];
           data.car_condition_battery_costs = data.battery.split(" ")[1];
 
+          data.car_condition_starter_assess = data.starter.split(" ")[0];
+          data.car_condition_starter_costs = data.starter.split(" ")[1];
+
+          data.car_condition_generator_assess = data.generator.split(" ")[0];
+          data.car_condition_generator_costs = data.generator.split(" ")[1];
+
+          data.car_condition_engine_assess = data.engine.split(" ")[0];
+          data.car_condition_engine_costs = data.engine.split(" ")[1];
+
+          data.car_condition_ignition_assess = data.ignition.split(" ")[0];
+          data.car_condition_ignition_costs = data.ignition.split(" ")[1];
+
+          data.car_condition_compression_assess = data.compression.split(" ")[0];
+          data.car_condition_compression_costs = data.compression.split(" ")[1];
+
+          data.car_condition_compression_costs = data.noise.split(" ")[0];
+          data.car_condition_compression_costs = data.noise.split(" ")[1];
+
+          data.car_condition_fuel_assess = data.car_condition_fuel.split(" ")[0];
+          data.car_condition_fuel_costs = data.car_condition_fuel.split(" ")[1];
+
+          data.car_condition_cooling_assess = data.cooling.split(" ")[0];
+          data.car_condition_cooling_costs = data.cooling.split(" ")[1];
+
+          data.car_condition_air_conditiong_assess = data.cooling.split(" ")[0];
+          data.car_condition_air_conditiong_costs = data.cooling.split(" ")[1];
+
+          data.car_condition_varnish_assess = data.varnish.split(" ")[0];
+          data.car_condition_varnish_costs = data.varnish.split(" ")[1];
+
+          data.tires_assessement = data.assessement.split(" ")[0];
+          data.tires_rope_costs = data.assessement.split(" ")[1];
+
+          data.car_condition_other_asses = data.other.split(" ")[0];
+          data.car_condition_other_costs = data.other.split(" ")[1];
+
           switch(data.bumper){
             case 'checked':
               data.bumper_yes = 'checked';
@@ -695,7 +731,7 @@ app.get('/vd/:contract_id', /*requireAuth,*/ function(req, res) {
             data.car_parts_no = false;
           }
 
-          console.log("__________",  data.coupling);
+          console.log("__________",  data.notes);
 
           Object.keys(data).forEach(function(key) {
             data[key] = data[key] + ' disabled';
