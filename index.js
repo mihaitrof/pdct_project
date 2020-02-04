@@ -731,7 +731,7 @@ app.get('/vd/:contract_id', /*requireAuth,*/ function(req, res) {
             data.car_parts_no = false;
           }
 
-          console.log("__________",  data.notes);
+          console.log("__________", typeof data.manufacture_date);
 
           Object.keys(data).forEach(function(key) {
             data[key] = data[key] + ' disabled';
