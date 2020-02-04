@@ -593,6 +593,21 @@ app.get('/vd/:contract_id', /*requireAuth,*/ function(req, res) {
             }
           });
 
+          data.car_condition_coupling_assess = data.coupling.split(" ")[0];
+          data.car_condition_coupling_costs = data.coupling.split(" ")[1];
+
+          data.car_condition_gearbox_assess = data.car_condition_gearbox.split(" ")[0];
+          data.car_condition_gearbox_costs = data.car_condition_gearbox.split(" ")[1];
+
+          data.car_condition_end_gear_assess = data.end_gear.split(" ")[0];
+          data.car_condition_end_gear_costs = data.end_gear.split(" ")[1];
+
+          data.car_condition_heating_assess = data.heating.split(" ")[0];
+          data.car_condition_heating_costs = data.heating.split(" ")[1];
+
+          data.car_condition_battery_assess = data.battery.split(" ")[0];
+          data.car_condition_battery_costs = data.battery.split(" ")[1];
+
           switch(data.bumper){
             case 'checked':
               data.bumper_yes = 'checked';
@@ -680,7 +695,7 @@ app.get('/vd/:contract_id', /*requireAuth,*/ function(req, res) {
             data.car_parts_no = false;
           }
 
-          console.log("__________",  data.changed);
+          console.log("__________",  data.coupling);
 
           Object.keys(data).forEach(function(key) {
             data[key] = data[key] + ' disabled';

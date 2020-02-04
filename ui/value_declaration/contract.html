@@ -392,7 +392,7 @@
 							</div>
 							<div class="col">
 								<p class="mg-md">
-									<strong>Senast vid</strong><br>
+									<!-- <strong>Senast vid</strong><br> -->
 								</p>
 								<!-- <div class="form-group">
 									<input class="form-control" name="timing_belt_senast_vid" placeholder=".. km" />
@@ -424,13 +424,6 @@
 								</div>
 							</div>
 							<div class="col"><!--latest_inspection-->
-								<p class="mg-md">
-									<strong>Senaste kontrollbesiktning</strong><br>
-								</p>
-								<!--latest_inspection.date-->
-								<input class="form-control" name="latest_inspection_date" placeholder="datum" />
-								<!--latest_inspection.mileage-->
-								<input class="form-control" placeholder="mätarställning" name="latest_inspection_mileage" type="number" />
 							</div>
 						</div>
 					</div>
@@ -443,7 +436,7 @@
 						<div class="row">
 							<div class="col offset-lg-0">
 								<div class="form-check">
-									<input class="form-check-input" type="checkbox" id="b-kondition" />
+									<input class="form-check-input" type="checkbox" id="b-kondition" checked disabled/>
 									<label class="form-check-label">
 										Ej konditionsdeklarerad (Bilen kostar 30 000 kronor eller mindre.) Bedömningsgrunder N = Normalt skick O = Osäker funktion/viss försämring jämfört med normalt F = Felaktig/kräver reparation
 									</label>
@@ -946,10 +939,10 @@
 							</label>
 							<div class="row"><!--car_condition.coupling-->
 								<div class="col">
-									<input class="form-control" name="car_condition_coupling_assess" placeholder="Bedömning" value='<%= coupling %>'/>
+									<input class="form-control" name="car_condition_coupling_assess" placeholder="Bedömning" value=<%= car_condition_coupling_assess %>/>
 								</div>
 								<div class="col">
-									<input class="form-control" placeholder="Rep. kostnader" name="car_condition_coupling_costs" />
+									<input class="form-control" placeholder="Rep. kostnader" name="car_condition_coupling_costs" value=<%= car_condition_coupling_costs %>/>
 								</div>
 							</div>
 						</div>
@@ -959,10 +952,10 @@
 							</label>
 							<div class="row"><!--car_condition.gearbox-->
 								<div class="col">
-									<input class="form-control" name="car_condition_gearbox_assess" placeholder="Bedömning" />
+									<input class="form-control" name="car_condition_gearbox_assess" placeholder="Bedömning" value=<%= car_condition_gearbox_assess %>/>
 								</div>
 								<div class="col">
-									<input class="form-control" placeholder="Rep. kostnader" name="car_condition_gearbox_costs" />
+									<input class="form-control" placeholder="Rep. kostnader" name="car_condition_gearbox_costs" value=<%= car_condition_gearbox_costs %>/>
 								</div>
 							</div>
 						</div>
@@ -972,10 +965,10 @@
 							</label>
 							<div class="row"><!--car_condition.end_gear-->
 								<div class="col">
-									<input class="form-control" name="car_condition_end_gear_assess" placeholder="Bedömning" />
+									<input class="form-control" name="car_condition_end_gear_assess" placeholder="Bedömning" value=<%= car_condition_end_gear_assess %>/>
 								</div>
 								<div class="col">
-									<input class="form-control" placeholder="Rep. kostnader" name="car_condition_end_gear_costs" />
+									<input class="form-control" placeholder="Rep. kostnader" name="car_condition_end_gear_costs" value=<%= car_condition_end_gear_costs %>/>
 								</div>
 							</div>
 						</div>
@@ -985,10 +978,10 @@
 							</label>
 							<div class="row"><!--car_condition.heating-->
 								<div class="col">
-									<input class="form-control" name="car_condition_heating_assess" placeholder="Bedömning" />
+									<input class="form-control" name="car_condition_heating_assess" placeholder="Bedömning" value=<%= car_condition_heating_assess %>/>
 								</div>
 								<div class="col">
-									<input class="form-control" placeholder="Rep. kostnader" name="car_condition_heating_costs" />
+									<input class="form-control" placeholder="Rep. kostnader" name="car_condition_heating_costs" value=<%= car_condition_heating_costs %>/>
 								</div>
 							</div>
 						</div>
@@ -998,10 +991,10 @@
 							</label>
 							<div class="row"><!--car_condition.baterry-->
 								<div class="col">
-									<input class="form-control" placeholder="Bedömning" name="car_condition_battery_assess" />
+									<input class="form-control" placeholder="Bedömning" name="car_condition_battery_assess" value=<%= car_condition_battery_assess %>/>
 								</div>
 								<div class="col">
-									<input class="form-control" name="car_condition_battery_costs" placeholder="car_condition_baterry_costs" />
+									<input class="form-control" name="car_condition_battery_costs" placeholder="Rep. kostnader" value=<%= car_condition_battery_costs %>/>
 								</div>
 							</div>
 						</div>
