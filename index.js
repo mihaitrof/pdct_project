@@ -1098,6 +1098,28 @@ app.get('/register', (req,res) => {
 
 })
 
+app.post('/signup', (req, res) => {
+
+  var email = req.body.email;
+  var password = req.body.password;
+
+  var q = `mutation {addUser(email:"${email}",password:"${password}") {id}}`;
+
+  var query = {query: q};
+
+  console.log(query);
+
+  fetch('http://localhost:9000/graphql', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(query)
+  })
+    .then(result => result.json())
+    .then(result => {
+      res.redirect('/dashboard/');
+    });
+})
+
 // app.post('/signup', auth.signup);
 
 // app.post('/signin', auth.signin);
