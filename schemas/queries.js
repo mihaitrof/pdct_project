@@ -1,6 +1,6 @@
 const { db } = require("../pgAdaptor");
 const { GraphQLObjectType, GraphQLID, GraphQLList, GraphQLInt } = require("graphql");
-const { ContractType, ContractIdsType, BalanceDueType, PurchaseAgreementType, ValueDeclarationType } = require("./types");
+const { ContractType, ContractIdsType, BalanceDueType, DeclarationIdType, PurchaseAgreementType, ValueDeclarationType } = require("./types");
 
 const RootQuery = new GraphQLObjectType({
   name: "RootQueryType",
@@ -172,6 +172,20 @@ const RootQuery = new GraphQLObjectType({
                        WHERE
                           c.contract_id = $1;`;
           const values = [args.contract_id];
+        return db
+          .one(query, values)
+          .then(res => res)
+          .catch(err => err);
+      }
+    },
+
+    getDeclarationID: {
+      type: DeclarationIdType,
+      args: { contract_id: { type: GraphQLID } },
+      resolve(parentValue, args) {
+        const query = `SELECT * FROM declaration WHERE contract_id=$1`;
+        const values = [args.contract_id];
+
         return db
           .one(query, values)
           .then(res => res)

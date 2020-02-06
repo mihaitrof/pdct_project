@@ -96,7 +96,7 @@ app.post('/submit-vd/:contract_id', function (req, res) {
   // mrf
   const mrf_id = contract_id;    
   const mrf_months_number = req.body.car_parts_months_number;
-  const mrf_km = req.body.km;  
+  const mrf_km = req.body.mrf_km;  
 
   // other_warrancy
   const other_warranty_id = contract_id;
@@ -112,13 +112,13 @@ app.post('/submit-vd/:contract_id', function (req, res) {
   // timing_belt
   const timing_belt_id = contract_id;      
   const changed = req.body.timing_belt_changed_yes === 'on' ? true : false;        
-  const annual_tax = req.body.timing_belt_annual_tax;  
+  const annual_tax = req.body.annual_tax ? req.body.annual_tax : 0;  
   // const service_box   
 
   // latest_inspection
   const latest_inspection_id = contract_id;
-  const date = req.body.latest_inspection_date;                
-  const latest_inspection_mileage = req.body.latest_inspection_mileage;  
+  const date = '2020-01-01';                
+  const latest_inspection_mileage = 0;  
 
   // car_condition
   const car_condition_id = contract_id;
@@ -409,6 +409,31 @@ app.post('/submit-vd/:contract_id', function (req, res) {
   res.end();
 });
 
+app.get('/vd/new/:contract_id', /*requireAuth,*/ function(req, res) {
+  
+  var contract_id = req.params.contract_id;
+
+  var q = `{getDeclarationID(contract_id: ${contract_id})
+          {declaration_id}}`
+
+  var query = {query: q};
+
+  fetch('http://localhost:9000/graphql', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(query)
+  })
+    .then(result => result.json())
+    .then(result => {
+      
+        if(result.data.getDeclarationID == null){
+          res.render(__dirname + "/ui/view_vd/contract.html");
+        }else{
+          res.redirect('/vd/' + contract_id);
+        }
+      });
+});
+
 app.get('/vd/:contract_id', /*requireAuth,*/ function(req, res) {
 
   var contract_id = req.params.contract_id;
@@ -548,6 +573,10 @@ app.get('/vd/:contract_id', /*requireAuth,*/ function(req, res) {
               data.gearbox_manual = 'checked';
               break;
           }
+          data.general_bensin = false;
+          data.general_diesel = false;
+          data.general_ovrigt = false;
+          data.general_katalysator = false;
           switch(data.fuel){
             case '0':
               data.general_bensin = false;
@@ -730,8 +759,6 @@ app.get('/vd/:contract_id', /*requireAuth,*/ function(req, res) {
             data.car_parts_yes = 'checked';
             data.car_parts_no = false;
           }
-
-          console.log("__________", typeof data.manufacture_date);
 
           Object.keys(data).forEach(function(key) {
             data[key] = data[key] + ' disabled';

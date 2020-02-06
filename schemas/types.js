@@ -251,6 +251,14 @@ const ContractIdsType = new GraphQLObjectType({
   }
 });
 
+const DeclarationIdType = new GraphQLObjectType({
+  name: "DeclarationId",
+  type: "Query",
+  fields: {
+    declaration_id: { type: GraphQLString }
+  }
+});
+
 const BalanceDueType = new GraphQLObjectType({
   name: "BalanceDue",
   type: "Query",
@@ -295,3 +303,4 @@ exports.PurchaseAgreementType = PurchaseAgreementType;
 exports.ContractType = ContractType;
 exports.UserType = UserType;
 exports.ValueDeclarationType = ValueDeclarationType;
+exports.DeclarationIdType = DeclarationIdType;

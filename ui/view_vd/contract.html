@@ -1,0 +1,1268 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <link rel="shortcut icon" type="image/png" href="favicon.png">
+    
+	<link rel="stylesheet" type="text/css" href="/static/css/bootstrap.min.css?1957">
+	<link rel="stylesheet" type="text/css" href="/static/style.css?5567">
+	<link rel="stylesheet" type="text/css" href="/static/css/font-awesome.min.css">
+	
+    <title>contract</title>
+
+
+    
+<!-- Analytics -->
+ 
+<!-- Analytics END -->
+    
+</head>
+<body>
+<!-- Main container -->
+<div class="page-container">
+    
+<!-- bloc-3 -->
+<form method="POST" id="submit_vd" onclick="setAction()">
+<div class="bloc l-bloc" id="bloc-3">
+	<div class="container bloc-lg">
+		<div class="row">
+			<div class="col-md-6 col-lg-4">
+				<h1 class="mg-md h1-style">
+					VARUDEKLARATION
+				</h1>
+			</div>
+			<div class="col-md-6 col-lg-8">
+				<div class="blockquote text-right">
+					<p class="float-lg-none" id="bilaga">
+						Bilaga
+					</p>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col">
+				<h3 class="mg-md text-md-center text-lg-left">
+					begagnad bil
+				</h3>
+				<div>
+					<div class="row">
+						<div class="col">
+							<div class="form-group">
+								<label>
+									Fabrikat/typ<br>
+								</label>
+								<input class="form-control" name="type"  required/>
+							</div>
+						</div>
+						<div class="col">
+							<div class="form-group">
+								<label>
+									&nbsp;Årsmodell/Tillverkningsår<br>och -månad<br>
+								</label>
+								<input class="form-control" name="manufacture_date"  type="date" required/>
+							</div>
+						</div>
+						<div class="col">
+							<div class="form-group">
+								<label>
+									Mätarställning
+								</label>
+								<input class="form-control" name="mileage" type="number"  required/>
+							</div>
+						</div>
+						<div class="col">
+							<div class="form-group">
+								<label>
+									Reg.nr
+								</label>
+								<input class="form-control" name="registration_number" required/>
+							</div>
+						</div>
+					</div>
+				</div>
+				<h3 class="mg-md h3-style">
+					&nbsp;Motoreffekt<br> (enl. registreringsbevis)<br>
+				</h3>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col">
+				<div class="form-group">
+					<label>
+						kW
+					</label>
+					<input class="form-control" name="kw" type="number" required/>
+				</div>
+			</div>
+			<div class="col">
+				<div class="form-group">
+					<label>
+						hkr
+					</label>
+					<input class="form-control" name="hkr" required/>
+				</div>
+			</div>
+			<div class="col">
+				<div class="form-group">
+					<label>
+						Drivmedel
+					</label>
+				</div>
+				<div class="form-check">
+					<input class="form-check-input" type="checkbox" name="general_bensin" />
+					<label class="form-check-label">
+						bensin
+					</label>
+				</div>
+				<div class="form-check">
+					<input class="form-check-input" type="checkbox" name="general_diesel" />
+					<label class="form-check-label">
+						diesel
+					</label>
+				</div>
+				<div class="form-check">
+					<input class="form-check-input" type="checkbox" name="general_ovrigt" />
+					<label class="form-check-label">
+						övrigt
+					</label>
+				</div>
+				<!-- <div class="form-group">
+					<input class="form-control" placeholder="..." name="general_ovrigt_value" />
+				</div> -->
+				<div class="form-check">
+					<input class="form-check-input" type="checkbox" name="general_katalysator" />
+					<label class="form-check-label">
+						katalysator
+					</label>
+				</div>
+			</div>
+			<div class="col">
+				<div class="form-group">
+					<label>
+						Växellåda
+					</label>
+					<div class="form-check">
+						<input class="form-check-input" type="checkbox" name="gearbox_automat"  />
+						<label class="form-check-label">
+							automat
+						</label>
+					</div>
+					<div class="form-check">
+						<input class="form-check-input" type="checkbox" name="gearbox_manual" />
+						<label class="form-check-label">
+							manuell
+						</label>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col">
+				<h3 class="mg-md h3-style">
+					<strong>GARANTIER</strong> utfärdade av generalagenten<br>Om ja, se separata villkor utfärdade av generalagenten<br>
+				</h3>
+				<div class="row">
+					<div class="col"> <!--warrancy.bumper-->
+						<p class="mg-md">
+							<strong>Nybilsgaranti</strong>
+						</p>
+						<div class="form-check">
+							<input class="form-check-input" type="checkbox" name="bumper_yes" />
+							<label class="form-check-label">
+								Ja
+							</label>
+						</div>
+						<div class="form-check">
+							<input class="form-check-input" type="checkbox" name="bumper_no" />
+							<label class="form-check-label">
+								Nej
+							</label>
+						</div>
+					</div>
+					<div class="col"> <!--warrancy.corrosion-->
+						<p class="mg-md">
+							<strong>Rostskyddsgaranti</strong><br>
+						</p>
+						<div class="form-check">
+							<input class="form-check-input" type="checkbox" name="corrosion_yes" readonly="readonly" />
+							<label class="form-check-label">
+								Ja
+							</label>
+						</div>
+						<div class="form-check">
+							<input class="form-check-input" type="checkbox" name="corrosion_no" readonly="readonly" />
+							<label class="form-check-label">
+								Nej
+							</label>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col"><!--warrancy.corrosion-->
+						<p class="mg-md">
+							<strong>Vagnskadegaranti</strong><br>
+						</p>
+						<div class="form-check">
+							<input class="form-check-input" type="checkbox" name="collision_damage_yes" readonly="readonly" />
+							<label class="form-check-label">
+								Ja
+							</label>
+						</div>
+						<div class="form-check">
+							<input class="form-check-input" type="checkbox" name="collision_damage_no" readonly="readonly" />
+							<label class="form-check-label">
+								Nej
+							</label>
+						</div>
+					</div>
+					<div class="col"><!--warrancy.exhaust_commitement-->
+						<p class="mg-md">
+							<strong>Avgasåtagande</strong>
+						</p>
+						<div class="form-check">
+							<input class="form-check-input" type="checkbox" name="exhaust_commitment_yes" readonly="readonly"  />
+							<label class="form-check-label">
+								Ja
+							</label>
+						</div>
+						<div class="form-check">
+							<input class="form-check-input" type="checkbox" name="exhaust_commitment_no" readonly="readonly"  />
+							<label class="form-check-label">
+								Nej
+							</label>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-lg-11"> <!--general_info.repair_property-->
+						<h3 class="mg-md h3-style">
+							<strong>REPARATIONSOBJEKT&nbsp;</strong>m.m.<br>
+						</h3>
+						<div class="form-check">
+							<input class="form-check-input" type="checkbox" name="repair_property"  />
+							<label class="form-check-label">
+								Bilen säljs som reparationsobjekt eller skrotbil. En bil som har fel eller brister vad gäller trafiksäkerheten får säljas som reparations-/renoveringsobjekt eller skrotbil om detta tydligt framgår av köpekontraktet. Bilen får i dessa fall inte köras utan ska transporteras från platsen.
+							</label>
+						</div>
+					</div>
+					<div class="col-lg-11"> <!--general_info.car_safety_id-->
+						<h3 class="mg-md h3-style">
+							<strong>BILENS SÄKERHET (gäller alla bilar)</strong><br>
+						</h3>
+						<div class="form-check">
+							<input class="form-check-input" type="checkbox" name="car_safety_id" />
+							<label class="form-check-label">
+								Bilens säkerhet överensstämmer med resultat i bifogat protokoll från obliga- torisk kontrollbesiktning.
+							</label>
+						</div>
+						<p>
+							Om besiktningsprotokoll saknas ska normer för obligatorisk kontrollbesiktning till- lämpas. Komponentsystem som befinns vara i sådant skick att de skulle godkän- nas utan anmärkning markeras med en ”bock” i Pos-ruta 1–30.
+						</p>
+					</div>
+				</div>
+			</div>
+			<div class="col">
+				<div class="row">
+					<div class="col">
+						<h3 class="mg-md h3-style">
+							<strong>GARANTIER</strong> utfärdade av säljaren (Garantin upphör när endera av angiven tid/körsträcka uppnåtts.)<br>
+						</h3>
+						<div class="row">
+							<div class="col"><!--mrf : Just for debuging and testing later-->
+								<p class="mg-md">
+									<strong>MRF garanti</strong><br>
+								</p>
+								<div class="form-check">
+									<input class="form-check-input" type="checkbox" name="mrf_yes" />
+									<label class="form-check-label">
+										Ja
+									</label>
+								</div>
+								<div class="form-check checkbox-style">
+									<input class="form-check-input" type="checkbox" name="mrf_no" />
+									<label class="form-check-label">
+										Nej
+									</label>
+								</div>
+							</div>
+							<div class="col"><!--mrf.months_number-->
+								<p class="mg-md">
+									<strong>antal månader</strong><br>
+								</p>
+								<div class="form-group">
+									<input class="form-control" name="mrf_months_number" type="number"  />
+								</div>
+							</div>
+							<div class="col"><!--mrf.km-->
+								<p class="mg-md">
+									<strong>eller km</strong><br>
+								</p>
+								<input class="form-control" name="mrf_km" type="number" />
+							</div>
+						</div>
+						<div class="row">
+							<div class="col">
+								<p class="mg-md">
+									<strong>Annan garanti som omfattar hela bilen</strong><br>
+								</p>
+								<div class="form-check"><!--other_warranty : Just for debuging and testing later-->
+									<input class="form-check-input" type="checkbox" name="other_warranty_yes"  />
+									<label class="form-check-label">
+										Ja
+									</label>
+								</div>
+								<div class="form-check checkbox-style">
+									<input class="form-check-input" type="checkbox" id="other_warranty_no" />
+									<label class="form-check-label">
+										Nej
+									</label>
+								</div>
+							</div>
+							<div class="col"><!--other_warranty.months_number-->
+								<p class="mg-md">
+									<strong>antal månader</strong><br>
+								</p>
+								<input class="form-control" name="other_warrancy_months_number" type="number" />
+							</div>
+							<div class="col"><!--other_warranty.km-->
+								<p class="mg-md">
+									<strong>eller km</strong><br>
+								</p>
+								<input class="form-control" name="other_warrancy_km" type="number" />
+							</div>
+						</div>
+						<div class="row">
+							<div class="col"><!--car_parts_id-->
+								<p class="mg-md">
+									<strong>Garanti som omfattar delar av bilen</strong><br>
+								</p>
+								<div class="form-check"><!--car_parts : Just for debuging and testing later-->
+									<input class="form-check-input" type="checkbox" name="car_parts_yes" />
+									<label class="form-check-label">
+										Ja
+									</label>
+								</div>
+								<div class="form-check checkbox-style">
+									<input class="form-check-input" type="checkbox" name="car_parts_no" />
+									<label class="form-check-label">
+										Nej
+									</label>
+								</div>
+							</div>
+							<div class="col"><!--car_parts.months_number-->
+								<p class="mg-md">
+									<strong>antal månader</strong><br>
+								</p>
+								<input class="form-control" name="car_parts_months_number" />
+							</div>
+							<div class="col"><!--car_parts.km-->
+								<p class="mg-md">
+									<strong>eller km</strong><br>
+								</p>
+								<input class="form-control" name="car_parts_km" />
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col"><!--timing_belt-->
+						<h3 class="mg-md h3-style">
+							<strong>KAMREM</strong><br>
+						</h3>
+						<div class="row">
+							<div class="col"><!--timing_belt.changed-->
+								<p class="mg-md">
+									<strong>Bytt</strong><br>
+								</p>
+								<div class="form-check">
+									<input class="form-check-input" type="checkbox" name="timing_belt_changed_yes" />
+									<label class="form-check-label">
+										Ja
+									</label>
+								</div>
+								<div class="form-check checkbox-style">
+									<input class="form-check-input" type="checkbox" name="timing_belt_changed_no" />
+									<label class="form-check-label">
+										Nej
+									</label>
+								</div>
+							</div>
+							<div class="col">
+								<p class="mg-md">
+									<!-- <strong>Senast vid</strong><br> -->
+								</p>
+								<!-- <div class="form-group">
+									<input class="form-control" name="timing_belt_senast_vid" placeholder=".. km" />
+								</div> -->
+							</div>
+						</div>
+						<div class="row">
+							<div class="col"><!--timing_belt.annual_tax-->
+								<p class="mg-md">
+									<strong>Årlig fordonsskatt</strong><br>
+								</p>
+								<input class="form-control" name="annual_tax" type="number"/>
+							</div>
+							<div class="col"><!--timing_belt.service_box-->
+								<p class="mg-md">
+									<strong>Servicebok</strong><br>
+								</p>
+								<div class="form-check">
+									<input class="form-check-input" type="checkbox" name="timing_belt_service_box_yes" />
+									<label class="form-check-label">
+										Ja
+									</label>
+								</div>
+								<div class="form-check checkbox-style">
+									<input class="form-check-input" type="checkbox" name="timing_belt_service_box_no" />
+									<label class="form-check-label">
+										Nej
+									</label>
+								</div>
+							</div>
+							<div class="col"><!--latest_inspection-->
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col">
+						<h3 class="mg-md h3-style">
+							<strong>BILENS KONDITION</strong><br>
+						</h3>
+						<div class="row">
+							<div class="col offset-lg-0">
+								<div class="form-check">
+									<input class="form-check-input" type="checkbox" id="b-kondition" checked disabled/>
+									<label class="form-check-label">
+										Ej konditionsdeklarerad (Bilen kostar 30 000 kronor eller mindre.) Bedömningsgrunder N = Normalt skick O = Osäker funktion/viss försämring jämfört med normalt F = Felaktig/kräver reparation
+									</label>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col">
+				<div class="row">
+					<div class="col-lg-6"><!--body-->
+						<div class="row ">
+							<div class="col">
+								<div class="card"> <!--STOMME-->
+									<div class="card-header">
+										<h3 class="mg-clear">
+											STOMME
+										</h3>
+									</div>
+									<div class="card-body">
+										<div class="row">
+											<div class="col-lg-2">
+												<div class="form-check"><!--body.side_member-->
+													<input class="form-check-input" type="checkbox" name="body_side_member"/>
+													<label class="form-check-label">
+													</label>
+												</div>
+												<div class="form-check"><!--body.crossbeam-->
+													<input class="form-check-input" type="checkbox" name="body_crossbeam"/>
+													<label class="form-check-label">
+													</label>
+												</div>
+												<div class="form-check"><!--body.floor-->
+													<input class="form-check-input" type="checkbox" name="body_floor"/>
+													<label class="form-check-label">
+													</label>
+												</div>
+												<div class="form-check"><!--body.wheel_arch-->
+													<input class="form-check-input" type="checkbox" name="body_wheel_arch"/>
+													<label class="form-check-label">
+													</label>
+												</div>
+												<div class="form-check"><!--body.other-->
+													<input class="form-check-input" type="checkbox" name="body_other"/>
+													<label class="form-check-label">
+													</label>
+												</div>
+											</div>
+											<div class="col">
+												<p>
+													Sidobalk <br>Tvärbalk <br>Golv <br>Hjulhus <br>Övrigt
+												</p>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="card"><!--HJULSYSTEM-->
+									<div class="card-header">
+										<h3 class="mg-clear">
+											HJULSYSTEM
+										</h3>
+									</div>
+									<div class="card-body">
+										<div class="row">
+											<div class="col-lg-2">
+												<div class="form-check"><!--wheel_system.deck-->
+													<input class="form-check-input" type="checkbox" name="wheel_system_deck" />
+													<label class="form-check-label">
+													</label>
+												</div>
+												<div class="form-check"><!--wheel_system.shock-->
+													<input class="form-check-input" type="checkbox" name="wheel_system_shock"/>
+													<label class="form-check-label">
+													</label>
+												</div>
+												<div class="form-check"><!--wheel_system.bearings-->
+													<input class="form-check-input" type="checkbox" name="wheel_system_bearings"/>
+													<label class="form-check-label">
+													</label>
+												</div>
+												<div class="form-check"><!--wheel_system.spindelled-->
+													<input class="form-check-input" type="checkbox" name="wheel_system_spindelled"/>
+													<label class="form-check-label">
+													</label>
+												</div>
+												<div class="form-check"><!--wheel_system.front_link_arm-->
+													<input class="form-check-input" type="checkbox" name="wheel_system_front_link_arm"/>
+													<label class="form-check-label">
+													</label>
+												</div>
+												<div class="form-check"><!--wheel_system.back_link_arm-->
+													<input class="form-check-input" type="checkbox" name="wheel_system_back_link_arm" />
+													<label class="form-check-label">
+													</label>
+												</div>
+												<div class="form-check"><!--wheel_system.feather-->
+													<input class="form-check-input" type="checkbox" name="wheel_system_feather"/>
+													<label class="form-check-label">
+													</label>
+												</div>
+												<div class="form-check"><!--wheel_system.spring_bracket-->
+													<input class="form-check-input" type="checkbox" name="wheel_system_spring_bracket"/>
+													<label class="form-check-label">
+													</label>
+												</div>
+												<div class="form-check"><!--wheel_system.other-->
+													<input class="form-check-input" type="checkbox" name="wheel_system_other"/>
+													<label class="form-check-label">
+													</label>
+												</div>
+											</div>
+											<div class="col">
+												<p>
+													Däck <br>Stötdämpare <br> Hjullager <br>Spindelled <br>Länkarm fram<br>–”– bak <br>Fjäder <br>Fjäderfäste <br>Övrigt<br>
+												</p>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="card"><!--DRIVSYSTEM-->
+									<div class="card-header">
+										<h3 class="mg-clear">
+											DRIVSYSTEM
+										</h3>
+									</div>
+									<div class="card-body">
+										<div class="row">
+											<div class="col-lg-2">
+												<div class="form-check"><!--drive.fuel-->
+													<input class="form-check-input" type="checkbox" name="drive_fuel"/>
+													<label class="form-check-label">
+													</label>
+												</div>
+												<div class="form-check"><!--drive.exhaust-->
+													<input class="form-check-input" type="checkbox" name="drive_exhaust"/>
+													<label class="form-check-label">
+													</label>
+												</div>
+												<div class="form-check"><!--drive.transmission-->
+													<input class="form-check-input" type="checkbox" name="drive_transmission"/>
+													<label class="form-check-label">
+													</label>
+												</div>
+												<div class="form-check"><!--drive.universal_joint-->
+													<input class="form-check-input" type="checkbox" name="drive_universal_joint" />
+													<label class="form-check-label">
+													</label>
+												</div>
+												<div class="form-check"><!--drive.power_supply-->
+													<input class="form-check-input" type="checkbox" name="drive_power_supply"/>
+													<label class="form-check-label">
+													</label>
+												</div>
+												<div class="form-check"><!--drive.battery-->
+													<input class="form-check-input" type="checkbox" name="drive_battery" />
+													<label class="form-check-label">
+													</label>
+												</div>
+											</div>
+											<div class="col">
+												<p>
+													Bränslesystem<br> Avgassystem <br>Kraftöverföring <br>Drivknut <br>Elförsörjning <br>Batteri<br>
+												</p>
+											</div>
+										</div>
+									</div>
+								</div>	
+								<div class="card"><!--BROMSSYSTEM-->
+									<div class="card-header">
+										<h3 class="mg-clear h3-bloc-3-style">
+											BROMSSYSTEM
+										</h3>
+									</div>
+									<div class="card-body">
+										<div class="row">
+											<div class="col-lg-2">
+												<div class="form-check"><!--braking_system.service_brake_front-->
+													<input class="form-check-input" type="checkbox" name="braking_system_service_brake_front" />
+													<label class="form-check-label">
+													</label>
+												</div>
+												<div class="form-check"><!--braking_system.service_brake_back-->
+													<input class="form-check-input" type="checkbox" name="braking_system_service_brake_back" />
+													<label class="form-check-label">
+													</label>
+												</div>
+												<div class="form-check"><!--braking_system.service_brake_movement-->
+													<input class="form-check-input" type="checkbox" name="braking_system_service_brake_movement" />
+													<label class="form-check-label">
+													</label>
+												</div>
+												<div class="form-check"><!--braking_system.brake_hose-->
+													<input class="form-check-input" type="checkbox" name="braking_system_brake_hose" />
+													<label class="form-check-label">
+													</label>
+												</div>
+												<div class="form-check"><!--braking_system.battery-->
+													<input class="form-check-input" type="checkbox" name="braking_system_battery" />
+													<label class="form-check-label">
+													</label>
+												</div>
+												<div class="form-check"><!--braking_system.other-->
+													<input class="form-check-input" type="checkbox" name="braking_system_other"/>
+													<label class="form-check-label">
+													</label>
+												</div>
+											</div>
+											<div class="col">
+												<p>
+													Färdbroms fram<br>–”– bak<br>– ” – rörelseres. <br>Bromsslang<br>Batteri<br> Övrigt<br>
+												</p>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="card"> <!--STYRSYSTEM-->
+									<div class="card-header">
+										<h3 class="mg-clear">
+											STYRSYSTEM
+										</h3>
+									</div>
+									<div class="card-body">
+										<div class="row">
+											<div class="col-lg-2">
+												<div class="form-check"><!--control_system.articulation_joint-->
+													<input class="form-check-input" type="checkbox" name="control_system_articulation_joint" />
+													<label class="form-check-label">
+													</label>
+												</div>
+												<div class="form-check"><!--control_system.steering_gear-->
+													<input class="form-check-input" type="checkbox" name="control_system_steering_gear" />
+													<label class="form-check-label">
+													</label>
+												</div>
+												<div class="form-check"><!--control_system.track_control_arm-->
+													<input class="form-check-input" type="checkbox" name="control_system_track_control_arm" />
+													<label class="form-check-label">
+													</label>
+												</div>
+												<div class="form-check"><!--control_system.other-->
+													<input class="form-check-input" type="checkbox" name="control_system_other" />
+													<label class="form-check-label">
+													</label>
+												</div>
+											</div>
+											<div class="col">
+												<p>
+													Styrled<br>Styrväxel <br>Styrarm <br>Övrigt <br>
+												</p>
+											</div>
+										</div>
+									</div>
+								</div>	
+								<div class="card"> <!--KAROSSERI-->
+									<div class="card-header">
+										<h3 class="mg-clear">
+											KAROSSERI
+										</h3>
+									</div>
+									<div class="card-body">
+										<div class="row">
+											<div class="col-lg-2">
+												<div class="form-check"><!--karosseri.door-->
+													<input class="form-check-input" type="checkbox"  name="karosseri_door" />
+													<label class="form-check-label">
+													</label>
+												</div>
+												<div class="form-check"><!--karosseri.screen-->
+													<input class="form-check-input" type="checkbox" name="karosseri_screen" />
+													<label class="form-check-label">
+													</label>
+												</div>
+												<div class="form-check"><!--karosseri.windshield-->
+													<input class="form-check-input" type="checkbox" name="karosseri_windshield" />
+													<label class="form-check-label">
+													</label>
+												</div>
+												<div class="form-check"><!--karosseri.seat_belts-->
+													<input class="form-check-input" type="checkbox" name="karosseri_seat_belts" />
+													<label class="form-check-label">
+													</label>
+												</div>
+												<div class="form-check"><!--karosseri.loading_space-->
+													<input class="form-check-input" type="checkbox" name="karosseri_loading_space" />
+													<label class="form-check-label">
+													</label>
+												</div>
+												<div class="form-check"><!--karosseri.other-->
+													<input class="form-check-input" type="checkbox" name="karosseri_other" />
+													<label class="form-check-label">
+													</label>
+												</div>
+											</div>
+											<div class="col">
+												<p>
+													Dörr<br>Skärm <br>Vindruta <br>Bilbälte <br>Lastutrymme <br>Övrigt<br>
+												</p>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col">
+								<div class="card"><!--KOMMUNIKATION-->
+									<div class="card-header">
+										<h3 class="mg-clear h3-kommunikation-style">
+											KOMMUNIKATION
+										</h3>
+									</div>
+									<div class="card-body">
+										<div class="row">
+											<div class="col-lg-2">
+												<div class="form-check"><!--communication.windscreen_wiper-->
+													<input class="form-check-input" type="checkbox" name="communication_windscreen_wiper" />
+													<label class="form-check-label">
+													</label>
+												</div>
+												<div class="form-check"><!--communication.windscreen_washer-->
+													<input class="form-check-input" type="checkbox" name="communication_windscreen_wiper" />
+													<label class="form-check-label">
+													</label>
+												</div>
+												<div class="form-check"><!--communication.rearview_mirror-->
+													<input class="form-check-input" type="checkbox" name="communication_rearview_mirror" />
+													<label class="form-check-label">
+													</label>
+												</div>
+												<div class="form-check"><!--communication.headlight_setting-->
+													<input class="form-check-input" type="checkbox" name="communication_headlight_setting" />
+													<label class="form-check-label">
+													</label>
+												</div>
+												<div class="form-check"><!--communication.headlamp_1-->
+													<input class="form-check-input" type="checkbox" name="communication_headlamp_1" />
+													<label class="form-check-label">
+													</label>
+												</div>
+												<div class="form-check"><!--communication.headlamp_2-->
+													<input class="form-check-input" type="checkbox" name="communication_headlamp_2" />
+													<label class="form-check-label">
+													</label>
+												</div>
+												<div class="form-check"><!--communication.signal_device-->
+													<input class="form-check-input" type="checkbox" name="communication_signal_device" />
+													<label class="form-check-label">
+													</label>
+												</div>
+												<div class="form-check"><!--communication.side_marker-->
+													<input class="form-check-input" type="checkbox" name="communication_side_marker" />
+													<label class="form-check-label">
+													</label>
+												</div>
+												<div class="form-check"><!--communication.headlight_front-->
+													<input class="form-check-input" type="checkbox" name="ommunication_headlight_front" />
+													<label class="form-check-label">
+													</label>
+												</div>
+												<div class="form-check"><!--communication.headlight_back-->
+													<input class="form-check-input" type="checkbox" name="communication_headlight_back" />
+													<label class="form-check-label">
+													</label>
+												</div>
+												<div class="form-check"><!--communication.direction_indicator-->
+													<input class="form-check-input" type="checkbox" name="communication_direction_indicator" />
+													<label class="form-check-label">
+													</label>
+												</div>
+												<div class="form-check"><!--communication.stop_lamps-->
+													<input class="form-check-input" type="checkbox" name="communication_stop_lamps" />
+													<label class="form-check-label">
+													</label>
+												</div>
+												<div class="form-check"><!--communication.reflex-->
+													<input class="form-check-input" type="checkbox" name="communication_reflex" />
+													<label class="form-check-label">
+													</label>
+												</div>
+												<div class="form-check"><!--communication.other-->
+													<input class="form-check-input" type="checkbox" name="communication_other" />
+													<label class="form-check-label">
+													</label>
+												</div>
+
+											</div>
+											<div class="col">
+												<p>
+													Vindrutetorkare <br>Vindrutespolare <br>Backspegel <br> Strålkastare inställning <br>Strålkastare <br>Strålkastarrengörare <br>Signalanordning <br>Sidomarkering <br>Positionslykta fram  <br>–”– bak <br>Körriktningsvisare <br>Stopplykta<br>Reflex<br> Other<br>
+												</p>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="card"><!--INSTRUMENTERING-->
+									<div class="card-header">
+										<h3 class="mg-clear h3-bloc-3-style">
+											INSTRUMENTERING
+										</h3>
+									</div>
+									<div class="card-body">
+										<div class="row">
+											<div class="col-lg-2">
+												<div class="form-check"><!--orchestration.speedometer-->
+													<input class="form-check-input" type="checkbox" name="orchestration_speedometer" />
+													<label class="form-check-label">
+													</label>
+												</div>
+												<div class="form-check"><!--orchestration.other-->
+													<input class="form-check-input" type="checkbox" name="orchestration_other" />
+													<label class="form-check-label">
+													</label>
+												</div>
+											</div>
+											<div class="col">
+												<p>
+													Hastighetsmätare <br>Övrigt<br>
+												</p>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="card"><!--ÖVR. ANORDNINGAR-->
+									<div class="card-header">
+										<h3 class="mg-clear h3-bloc-3-style">
+											ÖVR. ANORDNINGAR
+										</h3>
+									</div>
+									<div class="card-body">
+										<div class="row">
+											<div class="col-lg-2">
+												<div class="form-check"><!--facilities.coupling-->
+													<input class="form-check-input" type="checkbox" name="facilities_coupling" />
+													<label class="form-check-label">
+													</label>
+												</div>
+												<div class="form-check"><!--facilities.trailer_contact-->
+													<input class="form-check-input" type="checkbox" name="facilities_trailer_contact" />
+													<label class="form-check-label">
+													</label>
+												</div>
+												<div class="form-check"><!--facilities.other-->
+													<input class="form-check-input" type="checkbox" name="facilities_other" />
+													<label class="form-check-label">
+													</label>
+												</div>
+											</div>
+											<div class="col">
+												<p>
+													Kopplingsanordning<br> Släpvagnskontakt<br> Övrigt<br>
+												</p>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="card"><!--MILJÖKONTROLL-->
+									<div class="card-header">
+										<h3 class="mg-clear h3-bloc-3-style">
+											MILJÖKONTROLL
+										</h3>
+									</div>
+									<div class="card-body">
+										<div class="row">
+											<div class="col-lg-2">
+												<div class="form-check"><!--environment.purification-->
+													<input class="form-check-input" type="checkbox" name="environment_purification" />
+													<label class="form-check-label">
+													</label>
+												</div>
+												<div class="form-check"><!--environment.emission_control-->
+													<input class="form-check-input" type="checkbox" name="environment_emission_control" />
+													<label class="form-check-label">
+													</label>
+												</div>
+												<div class="form-check"><!--environment.exhaust-->
+													<input class="form-check-input" type="checkbox" name="environment_exhaust" />
+													<label class="form-check-label">
+													</label>
+												</div>
+											</div>
+											<div class="col">
+												<p>
+													Avgasrening EGR- system<br> Avgasrening<br> Avgaser<br>
+												</p>
+											</div>
+										</div>
+									</div>
+								</div>
+								
+							</div>
+						</div>
+					</div>
+					<br>
+					<br>
+					<div class="col-lg-6">
+						<div class="form-group">
+							<label>
+								Koppling
+							</label>
+							<div class="row"><!--car_condition.coupling-->
+								<div class="col">
+									<input class="form-control" name="car_condition_coupling_assess" placeholder="Bedömning" />
+								</div>
+								<div class="col">
+									<input class="form-control" placeholder="Rep. kostnader" name="car_condition_coupling_costs" />
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<label>
+								Växellåda
+							</label>
+							<div class="row"><!--car_condition.gearbox-->
+								<div class="col">
+									<input class="form-control" name="car_condition_gearbox_assess" placeholder="Bedömning" />
+								</div>
+								<div class="col">
+									<input class="form-control" placeholder="Rep. kostnader" name="car_condition_gearbox_costs" />
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<label>
+								Slutväxel, drivaxlar, drivknutar
+							</label>
+							<div class="row"><!--car_condition.end_gear-->
+								<div class="col">
+									<input class="form-control" name="car_condition_end_gear_assess" placeholder="Bedömning" />
+								</div>
+								<div class="col">
+									<input class="form-control" placeholder="Rep. kostnader" name="car_condition_end_gear_costs" />
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<label>
+								Värme, värmefläkt, ev. värmesits
+							</label>
+							<div class="row"><!--car_condition.heating-->
+								<div class="col">
+									<input class="form-control" name="car_condition_heating_assess" placeholder="Bedömning" />
+								</div>
+								<div class="col">
+									<input class="form-control" placeholder="Rep. kostnader" name="car_condition_heating_costs" />
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<label>
+								Batteri
+							</label>
+							<div class="row"><!--car_condition.baterry-->
+								<div class="col">
+									<input class="form-control" placeholder="Bedömning" name="car_condition_battery_assess" />
+								</div>
+								<div class="col">
+									<input class="form-control" name="car_condition_battery_costs" placeholder="Rep. kostnader" />
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<label>
+								Startmotor
+							</label>
+							<div class="row"><!--car_condition.starter-->
+								<div class="col">
+									<input class="form-control" name="car_condition_starter_assess" placeholder="Bedömning" />
+								</div>
+								<div class="col">
+									<input class="form-control" placeholder="Rep. kostnader" name="car_condition_starter_costs" />
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<label>
+								Generator
+							</label>
+							<div class="row"><!--car_condition.generator-->
+								<div class="col">
+									<input class="form-control" name="car_condition_generator_assess" placeholder="Bedömning" />
+								</div>
+								<div class="col">
+									<input class="form-control" placeholder="Rep. kostnader" name="car_condition_generator_costs" />
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<label>
+								Motor
+							</label>
+							<div class="row"><!--car_condition.engine-->
+								<div class="col">
+									<input class="form-control" placeholder="Bedömning" name="car_condition_engine_assess" />
+								</div>
+								<div class="col">
+									<input class="form-control" name="car_condition_engine_costs" placeholder="Rep. kostnader" />
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<label>
+								Tändsystem
+							</label>
+							<div class="row"><!--car_condition.ignition-->
+								<div class="col">
+									<input class="form-control" name="car_condition_ignition_assess" placeholder="Bedömning" />
+								</div>
+								<div class="col">
+									<input class="form-control" placeholder="Rep. kostnader" name="car_condition_ignition_costs" />
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<label>
+								Cyl-balans/kompression
+							</label>
+							<div class="row"><!--car_condition.compression-->
+								<div class="col">
+									<input class="form-control" name="car_condition_compression_assess" placeholder="Bedömning" />
+								</div>
+								<div class="col">
+									<input class="form-control" placeholder="Rep. kostnader" name="car_condition_compression_costs" />
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<label>
+								Missljud/läckage
+							</label>
+							<div class="row"><!--car_condition.noise-->
+								<div class="col">
+									<input class="form-control" name="car_condition_noise_assess" placeholder="Bedömning" />
+								</div>
+								<div class="col">
+									<input class="form-control" placeholder="Rep. kostnader" name="car_condition_noise_costs" />
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<label>
+								Bränslesystem
+							</label>
+							<div class="row"><!--car_condition.car_condition_fuel-->
+								<div class="col">
+									<input class="form-control" name="car_condition_fuel_assess" placeholder="Bedömning" />
+								</div>
+								<div class="col">
+									<input class="form-control" placeholder="Rep. kostnader" name="car_condition_fuel_costs" />
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<label>
+								Kylsystem
+							</label>
+							<div class="row"><!--car_condition.cooling-->
+								<div class="col">
+									<input class="form-control" name="car_condition_cooling_assess" placeholder="Bedömning" />
+								</div>
+								<div class="col">
+									<input class="form-control" placeholder="Rep. kostnader" name="car_condition_cooling_costs" />
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<label>
+								Klimatanläggning
+							</label>
+							<div class="row"><!--car_condition.air_conditiong-->
+								<div class="col">
+									<input class="form-control" name="car_condition_air_conditiong_assess" placeholder="Bedömning" />
+								</div>
+								<div class="col">
+									<input class="form-control" placeholder="Rep. kostnader" name="car_condition_air_conditiong_costs" />
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<label>
+								Lack, kaross, interiör
+							</label>
+							<div class="row"><!--car_condition.varnish-->
+								<div class="col">
+									<input class="form-control" name="car_condition_varnish_assess" placeholder="Bedömning" />
+								</div>
+								<div class="col">
+									<input class="form-control" placeholder="Rep. kostnader" name="car_condition_varnish_costs" />
+								</div>
+							</div>
+							<label>
+								Däck, mönsterdjup/mm
+							</label>
+						</div>
+						<div class="form-group">
+							<div class="row">
+								<div class="col"><!--tires.vf-->
+									<div class="form-group">
+										<input class="form-control" placeholder="VF" name="vf" />
+									</div>
+								</div>
+								<div class="col"><!--tires.hf-->
+									<div class="form-group">
+										<input class="form-control" placeholder="HF" name="hf" />
+									</div>
+								</div>
+								<div class="col"><!--tires.vb-->
+									<div class="form-group">
+										<input class="form-control" placeholder="VB" name="vb" />
+									</div>
+								</div>
+								<div class="col"><!--tires.hb-->
+									<div class="form-group">
+										<input class="form-control" placeholder="HB" name="hb" />
+									</div>
+								</div>
+								<div class="col"><!--tires.res-->
+									<div class="form-group">
+										<input class="form-control" placeholder="Res" name="res" />
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col"><!--tires.assessement-->
+									<input class="form-control" name="tires_assessement" placeholder="Bedömning" />
+								</div>
+								<div class="col"><!--tires.rope_costs-->
+									<input class="form-control" placeholder="Rep. kostnader" name="tires_rope_costs" />
+								</div>
+							</div>
+							<label>
+								Övrigt
+							</label>
+							<div class="row"><!--car_condition.other-->
+								<div class="col">
+									<input class="form-control" placeholder="Bedömning" name="car_condition_other_asses" />
+								</div>
+								<div class="col">
+									<input class="form-control" placeholder="Rep. kostnader" name="car_condition_other_costs" />
+								</div>
+							</div>
+							<br>
+							<!--car_condition.total_repair_cost-->
+							<input class="form-control" placeholder="Beräknad total reparationskostnad kr" name="car_condition_total_repair_cost" />
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row"><!--bottom-->
+			<div class="col">
+				<h3 class="mg-md h3-style">
+					<strong>Anmärkningar, övriga upplysningar, ange pos.</strong><br>
+				</h3>
+				<div class="form-group"><!--general_info.notes-->
+					<label>
+						Stolvärme ur funk förrarsidan
+					</label>
+					<input class="form-control"  name="general_info_notes" />
+				</div>
+				<div class="form-group"><!--general_info.created-->
+					<label>
+						Undersökning och provkörning (datum och signatur)
+					</label><input class="form-control" name="general_info_created" type="date" required/>
+				</div>
+			</div>
+		</div>
+		<div class="row no-gutters">
+			<div class="col-lg-4 offset-lg-4 col-sm-6 offset-sm-3 col">
+				<div class="text-center">
+					<button type="submit" class="btn btn-d btn-clean btn-lg btn-save-style" id="save-btn">Save</button>
+				</div>
+				<div class="text-center">
+					<a href="../../contracts" class="btn btn-wire btn-cancel-style btn-lg" id="cancel-btn">Cancel</a>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-10 align-self-end">
+				<p class="float-lg-none">
+					<strong>Deklarationen är utarbetad i samråd mellan Konsumentverket och MRF.</strong>
+				</p>
+			</div>
+			<div class="col">
+				<p>
+					<strong>VÄND!</strong>
+				</p>
+			</div>
+		</div>
+	</div>
+</div>
+</form>
+<!-- bloc-3 END -->
+
+<!-- ScrollToTop Button -->
+<a class="bloc-button btn btn-d scrollToTop" onclick="scrollToTarget('1',this)"><span class="fa fa-chevron-up"></span></a>
+<!-- ScrollToTop Button END-->
+
+
+</div>
+<!-- Main container END -->
+
+<script>
+
+function setAction() {
+	var url = window.location.href;
+	// console.log("UUUURRRLLL    ", url.split("/")[5]);
+	var contract_id = url.split("/")[5];
+  document.getElementById("submit_vd").action = "/submit-vd/" + contract_id;
+  return true;
+}
+
+</script>
+    
+
+<script src="/static/js/jquery-3.3.1.min.js?327"></script>
+<script src="/static/js/bootstrap.bundle.min.js?9544"></script>
+<script src="/static/js/blocs.min.js?6687"></script>
+<script src="/static/js/lazysizes.min.js" defer></script>
+<!-- Additional JS END -->
+
+
+
+<!-- Preloader -->
+<div id="page-loading-blocs-notifaction" class="page-preloader"></div>
+<!-- Preloader END -->
+
+</body>
+</html>

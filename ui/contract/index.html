@@ -57,7 +57,7 @@
 								<label>
 									Avtalsnummer<br>
 								</label>
-								<input class="form-control" name="agreement_number" type="number" />
+								<input class="form-control" name="agreement_number" type="number" required />
 							</div>
 						</div>
 						<div class="col">
@@ -65,7 +65,7 @@
 								<label>
 									Säljare/Inköpare
 								</label>
-								<input class="form-control" name="seller_or_buyer" />
+								<input class="form-control" name="seller_or_buyer" required/>
 							</div>
 						</div>
 						<div class="col">
@@ -73,7 +73,7 @@
 								<label>
 									Telefon
 								</label>
-								<input class="form-control" name="phone" />
+								<input class="form-control" name="phone" required />
 							</div>
 						</div>
 						<div class="col">
@@ -81,7 +81,7 @@
 								<label>
 									Inköpsdatum
 								</label>
-								<input class="form-control" type ="date" name="purchase_date" />
+								<input class="form-control" type ="date" name="purchase_date" required/>
 							</div>
 						</div>
 					</div>
@@ -97,7 +97,7 @@
 					<label>
 						Namn
 					</label>
-					<input class="form-control" name="name" />
+					<input class="form-control" name="name" required/>
 				</div>
 			</div>
 			<div class="col">
@@ -105,7 +105,7 @@
 					<label>
 						Gatuadress
 					</label>
-					<input class="form-control" name="address" />
+					<input class="form-control" name="address" required/>
 				</div>
 			</div>
 			<div class="col">
@@ -113,7 +113,7 @@
 					<label>
 						Mobiltelefon
 					</label>
-					<input class="form-control" name="seller_phone" />
+					<input class="form-control" name="seller_phone" required/>
 				</div>
 			</div>
 			<div class="col">
@@ -121,7 +121,7 @@
 					<label>
 						Namn och telefon på förare
 					</label>
-					<input class="form-control" name="driver_name_phone" />
+					<input class="form-control" name="driver_name_phone" required/>
 				</div>
 			</div>
 		</div>
@@ -138,7 +138,7 @@
 					<label>
 						Registreringsnummer
 					</label>
-					<input class="form-control" name="registration_property" />
+					<input class="form-control" name="registration_property" required/>
 				</div>
 			</div>
 			<div class="col">
@@ -146,7 +146,7 @@
 					<label>
 						Märke modell
 					</label>
-					<input class="form-control" name="model" />
+					<input class="form-control" name="model" required />
 				</div>
 			</div>
 			<div class="col">
@@ -154,7 +154,7 @@
 					<label>
 						Chassinummer
 					</label>
-					<input class="form-control" type="number" name="chassis_numer" />
+					<input class="form-control" type="number" name="chassis_numer" required/>
 				</div>
 			</div>
 			<div class="col">
@@ -162,7 +162,7 @@
 					<label>
 						Mätarställning
 					</label>
-					<input class="form-control" name="mileage" type="number" />
+					<input class="form-control" name="mileage" type="number" required/>
 				</div>
 			</div>
 			<div class="col">
@@ -170,7 +170,7 @@
 					<label>
 						Värdering
 					</label>
-					<input class="form-control" name="valuation" type="number"/>
+					<input class="form-control" name="valuation" type="number" required/>
 				</div>
 			</div>
 		</div>
@@ -180,7 +180,7 @@
 					<label>
 						Första Reg. Datum
 					</label>
-					<input class="form-control" type="date" name="first_registration_date" />
+					<input class="form-control" type="date" name="first_registration_date" required/>
 				</div>
 			</div>
 			<div class="col">
@@ -188,7 +188,7 @@
 					<label>
 						Tillverkad År - Mån
 					</label>
-					<input class="form-control" type ="date" name="manufactured_date" />
+					<input class="form-control" type ="date" name="manufactured_date" required/>
 				</div>
 			</div>
 			<div class="col">
@@ -196,12 +196,12 @@
 					<label>
 						Färg
 					</label>
-					<input class="form-control" name="colour" />
+					<input class="form-control" name="colour" required/>
 				</div>
 			</div>
 			<div class="col align-self-center">
 				<div class="form-group">
-					<input class="form-control" name="farg2-io" />
+					<input class="form-control" name="farg2-io" required/>
 				</div>
 			</div>
 			<div class="col">
@@ -209,7 +209,7 @@
 					<label>
 						Värderingsdatum
 					</label>
-					<input class="form-control" type ="date" name="valuation_date" />
+					<input class="form-control" type ="date" name="valuation_date" required/>
 				</div>
 			</div>
 			<div class="col">
@@ -217,7 +217,7 @@
 					<label>
 						Avdrag
 					</label>
-					<input class="form-control" type ="date" name="deduction"/>
+					<input class="form-control" type ="date" name="deduction" required/>
 				</div>
 			</div>
 		</div>
@@ -227,7 +227,7 @@
 					<label>
 						Godkänd kontroll.bes
 					</label>
-					<input class="form-control" name="approved_check" />
+					<input class="form-control" name="approved_check" required/>
 				</div>
 			</div>
 			<div class="col">
@@ -235,7 +235,7 @@
 					<label>
 						Servicebok
 					</label>
-					<input class="form-control" name="service_book" />
+					<input class="form-control" name="service_book" required/>
 				</div>
 			</div>
 			<div class="col">
@@ -243,7 +243,7 @@
 					<label>
 						Garantier
 					</label>
-					<input class="form-control" name="warranty" type="number" />
+					<input class="form-control" name="warranty" type="number" required/>
 				</div>
 			</div>
 			<div class="col">
@@ -251,7 +251,7 @@
 					<label>
 						Inköpspris justerat
 					</label>
-					<input class="form-control" name="purchase_price_adjusted" type="number" />
+					<input class="form-control" name="purchase_price_adjusted" type="number" required/>
 				</div>
 			</div>
 		</div>
@@ -335,12 +335,12 @@
 				<div class="form-group">
 					<label>
 						Inköpspris ink moms
-					</label><textarea class="form-control" rows="4" cols="50" name="purchase_price" type="number"></textarea>
+					</label><textarea class="form-control" rows="4" cols="50" name="purchase_price" type="number" required></textarea>
 				</div>
 				<div class="form-group">
 					<label>
 						Moms
-					</label><textarea class="form-control" rows="4" cols="50" name="vat" type="number"></textarea>
+					</label><textarea class="form-control" rows="4" cols="50" name="vat" type="number" required></textarea>
 				</div>
 				<div class="form-group">
 					<label>
