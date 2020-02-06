@@ -304,3 +304,4 @@ exports.ContractType = ContractType;
 exports.UserType = UserType;
 exports.ValueDeclarationType = ValueDeclarationType;
 exports.DeclarationIdType = DeclarationIdType;
+exports.UserType = UserType;

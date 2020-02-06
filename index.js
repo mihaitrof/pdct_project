@@ -8,23 +8,26 @@ const { GraphQLSchema } = graphql;
 const { query } = require("./schemas/queries");
 const { mutation } = require("./schemas/mutations");
 const path = require('path');
-const auth = require('./auth');
-const passport = require('passport')
+// const auth = require('./auth');
+const passport = require('passport');
 
-// const requireAuth = passport.authenticate('ourloginstrategy', {session:false})
+var session = require('client-sessions');
+
 
 
 function requireAuth(req, res, next) {
-  const grantAcces = false
-  // Try to find the user 
-  // if you can find it make grantAcces true
+  var grantAcces = false;
+  if(req.session.user){
+    console.log(req.session);
+    grantAcces = true;
+  }
 
   if(grantAcces) {
     next();
   } else {
     // Forbidden
     // Redirect to login
-    res.sendStatus(403);
+    res.redirect('/dashboard/');
   }
 }
 
@@ -50,9 +53,54 @@ app.use('/static', express.static('ui'));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, '/ui/css')));
 
+app.use(session({
+  cookieName: 'session',
+  secret: 'random_string_goes_here',
+  duration: 30 * 60 * 1000,
+  activeDuration: 5 * 60 * 1000,
+}));
+
+app.get('/logout', function(req, res) {
+  req.session.destroy();
+  res.redirect('/dashboard/');
+})
+
+app.post('/login', function(req, res) {
+
+  var email = req.body.email;
+
+  var q = `{getUser(email:"${email}"){email, password}}`;
+
+  var query = {query: q};
+
+  fetch('http://localhost:9000/graphql', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(query)
+  })
+    .then(result => result.json())
+    .then(result => {
+
+        if (result.data.getUser == null) {
+          var error = "email";
+          res.redirect('/dashboard/' + error);
+        } else {
+          if (req.body.password === result.data.getUser.password) {
+            req.session.user = true;
+            res.redirect('/contracts');
+            console.log("Success");
+          } else {
+            var error = "password";
+            res.redirect('/dashboard/' + error);
+ 
+          }
+        }
+      });
+});
+
 app.post('/submit-vd/:contract_id', function (req, res) {
   
-  console.log(req.body);
+  // console.log(req.body);
   //_______________________________________________________
   const contract_id = req.params.contract_id
 
@@ -392,7 +440,7 @@ app.post('/submit-vd/:contract_id', function (req, res) {
                                               ') {contract_id}}'
   }
 
-  console.log(query);
+  // console.log(query);
   
   fetch('http://localhost:9000/graphql', {
     method: 'POST',
@@ -409,7 +457,7 @@ app.post('/submit-vd/:contract_id', function (req, res) {
   res.end();
 });
 
-app.get('/vd/new/:contract_id', /*requireAuth,*/ function(req, res) {
+app.get('/vd/new/:contract_id', requireAuth, function(req, res) {
   
   var contract_id = req.params.contract_id;
 
@@ -434,7 +482,7 @@ app.get('/vd/new/:contract_id', /*requireAuth,*/ function(req, res) {
       });
 });
 
-app.get('/vd/:contract_id', /*requireAuth,*/ function(req, res) {
+app.get('/vd/:contract_id', requireAuth, function(req, res) {
 
   var contract_id = req.params.contract_id;
 
@@ -768,7 +816,7 @@ app.get('/vd/:contract_id', /*requireAuth,*/ function(req, res) {
         });
 });
 
-app.get('/contract/:contract_id', /*requireAuth,*/ function(req, res) {
+app.get('/contract/:contract_id', requireAuth, function(req, res) {
 
   var contract_id = req.params.contract_id;
 
@@ -831,11 +879,9 @@ app.get('/contract/:contract_id', /*requireAuth,*/ function(req, res) {
         res.render(__dirname + "/ui/view-contract/index.html", data);
       
       });
-
-  
 });
 
-app.get('/delete/:contract_id', (req, res) => {
+app.get('/delete/:contract_id', requireAuth, (req, res) => {
 
   var contract_id = req.params.contract_id;
 
@@ -874,20 +920,20 @@ app.get('/delete/:contract_id', (req, res) => {
           .then(result => result.json())
           .then(result => {
             var contracts = result.data.getContractInfo;
-            console.log(contracts);
+
             res.render(__dirname + "/ui/dashboard/index.html", {contracts:contracts});
           });
       });
 
 });
 
-app.get('/create-contract', (req, res) => {
+app.get('/create-contract', requireAuth, (req, res) => {
 
   res.render(__dirname + "/ui/contract/index.html");
 
 });
 
-app.get('/contracts', (req, res) => {
+app.get('/contracts', requireAuth, (req, res) => {
 
   var q = `{
               getContractInfo {
@@ -1012,7 +1058,7 @@ app.post('/submit-form', (req, res) => {
                                               '") {contract_id}}'
   }
 
-  console.log(query);
+  // console.log(query);
   
   fetch('http://localhost:9000/graphql', {
     method: 'POST',
@@ -1027,15 +1073,34 @@ app.post('/submit-form', (req, res) => {
   res.end();
 })
 
-app.get('/login', (req, res) => {
-
-  res.render(__dirname + "/ui/index.html");
+app.get('/dashboard', (req, res) => {
+  res.render(__dirname + "/ui/login.html", {email: ''});
 
 });
 
-app.post('/signup', auth.signup);
+app.get('/dashboard/:error', (req, res) => {
 
-app.post('/signin', auth.signin);
+  console.log(req.params.error);
+
+  if(req.params.error == 'email'){
+    res.render(__dirname + "/ui/login.html", {email: 'Wrong email'});
+  }
+
+  if(req.params.error == 'password'){     
+    res.render(__dirname + "/ui/login.html", {email: 'Wrong password'});
+  }
+  
+});
+
+app.get('/register', (req,res) => {
+
+  res.render(__dirname + "/ui/register.html");
+
+})
+
+// app.post('/signup', auth.signup);
+
+// app.post('/signin', auth.signin);
 
 app.listen(9000, () =>
   console.log('GraphQL server running on localhost:9000')

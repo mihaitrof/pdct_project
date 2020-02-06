@@ -26,9 +26,8 @@ const signin = (req, res, next) => {
 
 const signup = (req, res) => {
     // const signup = (req, res, next) => {
-
     const { email, password } = req.body
-    console.log(req.body);
+
     const saltRounds = 12
 
     if (!email || !password) {
